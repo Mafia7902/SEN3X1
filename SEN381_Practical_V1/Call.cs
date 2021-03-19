@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace G9testThing
+namespace SEN381_Practical_V1
 {
 	class Call : Employee
 	{
