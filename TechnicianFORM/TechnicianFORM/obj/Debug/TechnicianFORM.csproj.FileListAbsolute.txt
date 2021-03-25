@@ -1,0 +1,11 @@
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\bin\Debug\TechnicianFORM.exe.config
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\bin\Debug\TechnicianFORM.exe
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\bin\Debug\TechnicianFORM.pdb
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.csprojAssemblyReference.cache
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.Technician.resources
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.FormLogConfirmation.resources
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.Properties.Resources.resources
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.csproj.GenerateResource.cache
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.csproj.CoreCompileInputs.cache
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.exe
+F:\Users\Luke\Documents\GitHub\SEN3X1\TechnicianFORM\TechnicianFORM\obj\Debug\TechnicianFORM.pdb
