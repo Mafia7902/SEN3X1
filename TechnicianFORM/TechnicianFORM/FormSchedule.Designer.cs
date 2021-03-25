@@ -97,9 +97,9 @@ namespace TechnicianFORM
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 342);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(189, 20);
+            this.label2.Size = new System.Drawing.Size(135, 20);
             this.label2.TabIndex = 5;
-            this.label2.Text = "Current Ticket Number";
+            this.label2.Text = "Problem Details";
             // 
             // btnBack
             // 
