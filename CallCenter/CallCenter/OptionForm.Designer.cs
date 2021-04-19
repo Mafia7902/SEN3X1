@@ -31,11 +31,11 @@ namespace CallCenter
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtEnterEmail = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExisitng = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtEnterPass = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -59,12 +59,12 @@ namespace CallCenter
             this.label2.TabIndex = 1;
             this.label2.Text = "Enter your email address:";
             // 
-            // textBox1
+            // txtEnterEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(226, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 20);
-            this.textBox1.TabIndex = 2;
+            this.txtEnterEmail.Location = new System.Drawing.Point(226, 69);
+            this.txtEnterEmail.Name = "txtEnterEmail";
+            this.txtEnterEmail.Size = new System.Drawing.Size(255, 20);
+            this.txtEnterEmail.TabIndex = 2;
             // 
             // btnLogin
             // 
@@ -96,12 +96,12 @@ namespace CallCenter
             this.btnExisitng.UseVisualStyleBackColor = true;
             this.btnExisitng.Click += new System.EventHandler(this.btnExisitng_Click);
             // 
-            // textBox2
+            // txtEnterPass
             // 
-            this.textBox2.Location = new System.Drawing.Point(226, 107);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(255, 20);
-            this.textBox2.TabIndex = 6;
+            this.txtEnterPass.Location = new System.Drawing.Point(226, 107);
+            this.txtEnterPass.Name = "txtEnterPass";
+            this.txtEnterPass.Size = new System.Drawing.Size(255, 20);
+            this.txtEnterPass.TabIndex = 6;
             // 
             // label3
             // 
@@ -119,11 +119,11 @@ namespace CallCenter
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 220);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtEnterPass);
             this.Controls.Add(this.btnExisitng);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtEnterEmail);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "OptionForm";
@@ -137,11 +137,11 @@ namespace CallCenter
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtEnterEmail;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnExisitng;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtEnterPass;
         private System.Windows.Forms.Label label3;
     }
 }

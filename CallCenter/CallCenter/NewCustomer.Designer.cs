@@ -29,38 +29,38 @@ namespace CallCenter
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtUnitNum = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtCustSurname = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtCustName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtPostCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtProvince = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtStreetAdd = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtProblem = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox5
+            // txtUnitNum
             // 
-            this.textBox5.Location = new System.Drawing.Point(158, 100);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(245, 20);
-            this.textBox5.TabIndex = 29;
+            this.txtUnitNum.Location = new System.Drawing.Point(158, 100);
+            this.txtUnitNum.Name = "txtUnitNum";
+            this.txtUnitNum.Size = new System.Drawing.Size(245, 20);
+            this.txtUnitNum.TabIndex = 29;
             // 
             // label7
             // 
@@ -107,12 +107,12 @@ namespace CallCenter
             this.txtEmail.Size = new System.Drawing.Size(245, 20);
             this.txtEmail.TabIndex = 22;
             // 
-            // textBox2
+            // txtSuburb
             // 
-            this.textBox2.Location = new System.Drawing.Point(158, 126);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(245, 20);
-            this.textBox2.TabIndex = 21;
+            this.txtSuburb.Location = new System.Drawing.Point(158, 126);
+            this.txtSuburb.Name = "txtSuburb";
+            this.txtSuburb.Size = new System.Drawing.Size(245, 20);
+            this.txtSuburb.TabIndex = 21;
             // 
             // txtCustName
             // 
@@ -171,12 +171,12 @@ namespace CallCenter
             this.label1.TabIndex = 15;
             this.label1.Text = "Premier Software Solution";
             // 
-            // textBox6
+            // txtPostCode
             // 
-            this.textBox6.Location = new System.Drawing.Point(158, 152);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(245, 20);
-            this.textBox6.TabIndex = 31;
+            this.txtPostCode.Location = new System.Drawing.Point(158, 152);
+            this.txtPostCode.Name = "txtPostCode";
+            this.txtPostCode.Size = new System.Drawing.Size(245, 20);
+            this.txtPostCode.TabIndex = 31;
             // 
             // label8
             // 
@@ -188,12 +188,12 @@ namespace CallCenter
             this.label8.TabIndex = 30;
             this.label8.Text = "Postal Code:";
             // 
-            // textBox7
+            // txtProvince
             // 
-            this.textBox7.Location = new System.Drawing.Point(158, 178);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(245, 20);
-            this.textBox7.TabIndex = 33;
+            this.txtProvince.Location = new System.Drawing.Point(158, 178);
+            this.txtProvince.Name = "txtProvince";
+            this.txtProvince.Size = new System.Drawing.Size(245, 20);
+            this.txtProvince.TabIndex = 33;
             // 
             // label9
             // 
@@ -205,12 +205,12 @@ namespace CallCenter
             this.label9.TabIndex = 32;
             this.label9.Text = "Province:";
             // 
-            // textBox8
+            // txtStreetAdd
             // 
-            this.textBox8.Location = new System.Drawing.Point(158, 204);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(245, 20);
-            this.textBox8.TabIndex = 35;
+            this.txtStreetAdd.Location = new System.Drawing.Point(158, 204);
+            this.txtStreetAdd.Name = "txtStreetAdd";
+            this.txtStreetAdd.Size = new System.Drawing.Size(245, 20);
+            this.txtStreetAdd.TabIndex = 35;
             // 
             // label10
             // 
@@ -232,33 +232,33 @@ namespace CallCenter
             this.label11.TabIndex = 36;
             this.label11.Text = "Problem Description:";
             // 
-            // textBox9
+            // txtProblem
             // 
-            this.textBox9.Location = new System.Drawing.Point(158, 230);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(245, 20);
-            this.textBox9.TabIndex = 37;
+            this.txtProblem.Location = new System.Drawing.Point(158, 230);
+            this.txtProblem.Name = "txtProblem";
+            this.txtProblem.Size = new System.Drawing.Size(245, 20);
+            this.txtProblem.TabIndex = 37;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtEmail);
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.txtProblem);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.txtStreetAdd);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtProvince);
             this.groupBox1.Controls.Add(this.txtCustName);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtSuburb);
+            this.groupBox1.Controls.Add(this.txtPostCode);
             this.groupBox1.Controls.Add(this.txtCustSurname);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtUnitNum);
             this.groupBox1.Location = new System.Drawing.Point(21, 55);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(418, 277);
@@ -298,27 +298,27 @@ namespace CallCenter
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtUnitNum;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtCustSurname;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtCustName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtPostCode;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtStreetAdd;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtProblem;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBack;
     }
