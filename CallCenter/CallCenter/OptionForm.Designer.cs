@@ -35,6 +35,8 @@ namespace CallCenter
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnExisitng = new System.Windows.Forms.Button();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -66,7 +68,7 @@ namespace CallCenter
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(237, 119);
+            this.btnLogin.Location = new System.Drawing.Point(106, 160);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(114, 26);
             this.btnLogin.TabIndex = 3;
@@ -76,7 +78,7 @@ namespace CallCenter
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(367, 119);
+            this.btnClose.Location = new System.Drawing.Point(367, 160);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(114, 26);
             this.btnClose.TabIndex = 4;
@@ -94,11 +96,30 @@ namespace CallCenter
             this.btnExisitng.UseVisualStyleBackColor = true;
             this.btnExisitng.Click += new System.EventHandler(this.btnExisitng_Click);
             // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(226, 107);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(255, 20);
+            this.textBox2.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(32, 105);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Enter your password:";
+            // 
             // OptionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 220);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.btnExisitng);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnLogin);
@@ -120,6 +141,8 @@ namespace CallCenter
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnExisitng;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
