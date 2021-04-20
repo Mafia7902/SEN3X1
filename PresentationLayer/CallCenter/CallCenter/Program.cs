@@ -18,7 +18,7 @@ namespace CallCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CallCentre());
+            Application.Run(new MainMenu());
         }
     }
 }

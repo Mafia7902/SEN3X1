@@ -52,11 +52,11 @@
     <Compile Include="ExistingCustomer.Designer.cs">
       <DependentUpon>ExistingCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="CallCentre.cs">
+    <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CallCentre.Designer.cs">
-      <DependentUpon>CallCentre.cs</DependentUpon>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="NewCustomer.cs">
       <SubType>Form</SubType>
@@ -69,8 +69,8 @@
     <EmbeddedResource Include="ExistingCustomer.resx">
       <DependentUpon>ExistingCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CallCentre.resx">
-      <DependentUpon>CallCentre.cs</DependentUpon>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewCustomer.resx">
       <DependentUpon>NewCustomer.cs</DependentUpon>

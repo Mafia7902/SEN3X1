@@ -24,9 +24,19 @@ namespace CallCenter
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            CallCentre LoginForm = new CallCentre();
+            MainMenu LoginForm = new MainMenu();
             LoginForm.Show();
             this.Hide();
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

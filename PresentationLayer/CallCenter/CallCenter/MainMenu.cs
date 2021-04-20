@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CallCenter
 {
-    public partial class CallCentre : Form
+    public partial class MainMenu : Form
     {
-        public CallCentre()
+        public MainMenu()
         {
             InitializeComponent();
         }
