@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class BankDetails
+    public class BankDetails
     {
         private int bankDetailsID;
         private string paymentType;
