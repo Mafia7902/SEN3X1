@@ -8,23 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinetMaintance
+namespace WindowsFormsApp1
 {
-    public partial class ClinetMaintace : Form
+    public partial class Submission_Complete : Form
     {
-        public ClinetMaintace()
+        public Submission_Complete()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
+            ScoreCard score = new  ScoreCard();
+            this.Close();
+            score.Close();
         }
     }
 }

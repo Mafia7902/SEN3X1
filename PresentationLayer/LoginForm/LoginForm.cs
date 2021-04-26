@@ -8,23 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ClinetMaintance
+namespace LoginForm
 {
-    public partial class ClinetMaintace : Form
+    public partial class LoginForm : Form
     {
-        public ClinetMaintace()
+        public LoginForm()
         {
             InitializeComponent();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

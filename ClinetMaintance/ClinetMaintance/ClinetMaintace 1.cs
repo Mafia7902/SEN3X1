@@ -26,5 +26,15 @@ namespace ClinetMaintance
         {
 
         }
+
+        private void bntCancel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
