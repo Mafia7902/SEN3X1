@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-	class Call : Employee
+	class Call
 	{
 		private int callCenterEmpID;
 		private string callCenterEmpFullName;
