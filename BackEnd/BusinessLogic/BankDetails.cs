@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Sql;
+using System.Data.SqlClient;
+using DataAccess;
 
 namespace BusinessLogic
 {
@@ -12,13 +15,16 @@ namespace BusinessLogic
         private string paymentType;
         private string branchNum;
         private string bankName;
+        private string accountNum;
+        
 
-        public BankDetails(int bankDetailsID, string paymentType, string branchNum, string bankName)
+        public BankDetails(int bankDetailsID, string paymentType, string branchNum, string bankName, string accountNum)
         {
             this.bankDetailsID = bankDetailsID;
             this.paymentType = paymentType;
             this.branchNum = branchNum;
             this.bankName = bankName;
+            this.accountNum = accountNum;
         }
 
         public BankDetails()
@@ -49,6 +55,20 @@ namespace BusinessLogic
             get { return bankDetailsID; }
             set { bankDetailsID = value; }
         }
+        public string AccountNumber
+        {
+            get { return accountNum; }
+            set { accountNum = value; }
+        }
+
+        public void AddBankDetails(string bankID, string paymentType, string branchNum, string bankName, string accountNum ) {
+            DataHandler dh = new DataHandler();
+            dh.InsertBankDetails(bankID, paymentType, bankName, branchNum, accountNum);
+           
+        }
+           
+        
+
         public override int GetHashCode()
         {
             return base.GetHashCode();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CallCenter
 {
-    public partial class ExistingCustomer : Form
+    public partial class ContractSellection : Form
     {
-        public ExistingCustomer()
+        public ContractSellection()
         {
             InitializeComponent();
         }
@@ -29,6 +29,11 @@ namespace CallCenter
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }

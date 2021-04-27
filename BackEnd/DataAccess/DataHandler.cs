@@ -36,7 +36,8 @@ namespace DataAccess
     class DataHandler
     {
         //int iteration = 0; /*This constant is used in testing and will be removed in the final version - Albert Wolfaardt*/
-        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
+        //readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
+        readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
 
         #region Insert Methods
 
@@ -110,7 +111,7 @@ namespace DataAccess
             }
         }
 
-        public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, string clientType, string bankDetails, string unitNumber = null)
+        public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             #region Notes
             /*
@@ -143,7 +144,7 @@ namespace DataAccess
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "INSERT INTO dbo.Client(ClientID, ClientName, ClientSurname, Phone, Email, StreetAddress, UnitNumber, Suburb, PostalCode, Province, ContractID, ClientType, BankDetails) VALUES "
-                    + "('" + clientID + "' ,'" + clientName + "' ,'" + clientSurname + "' ,'" + phone + "' ,'" + email + "' ,'" + streetAddress + "' ,'" + unitNumber + "' ,'" + suburb + "' ,'" + postalCode + "' ,'" + province + "' ,'" + contractID + "' ,'" + clientType + "' ,'" + bankDetails + "')";
+                    + "('" + clientID + "' ,'" + clientName + "' ,'" + clientSurname + "' ,'" + phone + "' ,'" + email + "' ,'" + streetAddress + "' ,'" + unitNumber + "' ,'" + suburb + "' ,'" + postalCode + "' ,'" + province + "' ,'" + contractID + "' ," + clientType + " ,'" + bankDetails + "')";
                 command.Connection = connection;
                 try
                 {

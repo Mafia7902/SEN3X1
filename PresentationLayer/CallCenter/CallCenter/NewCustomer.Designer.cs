@@ -49,6 +49,8 @@ namespace CallCenter
             this.txtProvince = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.groupBoxPersonalInfo = new System.Windows.Forms.GroupBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.Heading2 = new System.Windows.Forms.Label();
             this.groupBoxBankingInfo = new System.Windows.Forms.GroupBox();
@@ -60,17 +62,13 @@ namespace CallCenter
             this.txtBankName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAccountNum = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBoxPlanSelect = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxBankingInfo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUnitNum
             // 
-            this.txtUnitNum.Location = new System.Drawing.Point(158, 100);
+            this.txtUnitNum.Location = new System.Drawing.Point(158, 128);
             this.txtUnitNum.Name = "txtUnitNum";
             this.txtUnitNum.Size = new System.Drawing.Size(245, 24);
             this.txtUnitNum.TabIndex = 29;
@@ -79,19 +77,18 @@ namespace CallCenter
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(30, 99);
+            this.label7.Location = new System.Drawing.Point(30, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(95, 18);
             this.label7.TabIndex = 28;
             this.label7.Text = "Unit Number:";
-
             // 
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(250, 473);
+            this.btnCancel.Location = new System.Drawing.Point(343, 391);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(102, 42);
             this.btnCancel.TabIndex = 27;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -100,7 +97,7 @@ namespace CallCenter
             // btnSubmit
             // 
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSubmit.Location = new System.Drawing.Point(150, 391);
+            this.btnSubmit.Location = new System.Drawing.Point(220, 391);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(102, 42);
             this.btnSubmit.TabIndex = 26;
@@ -117,14 +114,14 @@ namespace CallCenter
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(158, 74);
+            this.txtEmail.Location = new System.Drawing.Point(158, 102);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(245, 24);
             this.txtEmail.TabIndex = 22;
             // 
             // txtStreetAddress
             // 
-            this.txtStreetAddress.Location = new System.Drawing.Point(158, 126);
+            this.txtStreetAddress.Location = new System.Drawing.Point(158, 154);
             this.txtStreetAddress.Name = "txtStreetAddress";
             this.txtStreetAddress.Size = new System.Drawing.Size(245, 24);
             this.txtStreetAddress.TabIndex = 21;
@@ -140,7 +137,7 @@ namespace CallCenter
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(30, 126);
+            this.label5.Location = new System.Drawing.Point(30, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(109, 18);
             this.label5.TabIndex = 19;
@@ -150,7 +147,7 @@ namespace CallCenter
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(30, 73);
+            this.label4.Location = new System.Drawing.Point(30, 101);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(107, 18);
             this.label4.TabIndex = 18;
@@ -188,7 +185,7 @@ namespace CallCenter
             // 
             // txtPostCode
             // 
-            this.txtPostCode.Location = new System.Drawing.Point(158, 152);
+            this.txtPostCode.Location = new System.Drawing.Point(158, 180);
             this.txtPostCode.Name = "txtPostCode";
             this.txtPostCode.Size = new System.Drawing.Size(245, 24);
             this.txtPostCode.TabIndex = 31;
@@ -197,7 +194,7 @@ namespace CallCenter
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(30, 151);
+            this.label8.Location = new System.Drawing.Point(30, 179);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 18);
             this.label8.TabIndex = 30;
@@ -205,7 +202,7 @@ namespace CallCenter
             // 
             // txtSuburb
             // 
-            this.txtSuburb.Location = new System.Drawing.Point(158, 178);
+            this.txtSuburb.Location = new System.Drawing.Point(158, 206);
             this.txtSuburb.Name = "txtSuburb";
             this.txtSuburb.Size = new System.Drawing.Size(245, 24);
             this.txtSuburb.TabIndex = 33;
@@ -214,7 +211,7 @@ namespace CallCenter
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(30, 177);
+            this.label9.Location = new System.Drawing.Point(30, 205);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(59, 18);
             this.label9.TabIndex = 32;
@@ -222,7 +219,7 @@ namespace CallCenter
             // 
             // txtProvince
             // 
-            this.txtProvince.Location = new System.Drawing.Point(158, 204);
+            this.txtProvince.Location = new System.Drawing.Point(158, 232);
             this.txtProvince.Name = "txtProvince";
             this.txtProvince.Size = new System.Drawing.Size(245, 24);
             this.txtProvince.TabIndex = 35;
@@ -231,15 +228,16 @@ namespace CallCenter
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(30, 206);
+            this.label10.Location = new System.Drawing.Point(30, 234);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(66, 18);
             this.label10.TabIndex = 34;
             this.label10.Text = "Province";
- 
             // 
             // groupBoxPersonalInfo
             // 
+            this.groupBoxPersonalInfo.Controls.Add(this.txtPhone);
+            this.groupBoxPersonalInfo.Controls.Add(this.label15);
             this.groupBoxPersonalInfo.Controls.Add(this.txtEmail);
             this.groupBoxPersonalInfo.Controls.Add(this.label2);
             this.groupBoxPersonalInfo.Controls.Add(this.label3);
@@ -259,17 +257,34 @@ namespace CallCenter
             this.groupBoxPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxPersonalInfo.Location = new System.Drawing.Point(12, 99);
             this.groupBoxPersonalInfo.Name = "groupBoxPersonalInfo";
-            this.groupBoxPersonalInfo.Size = new System.Drawing.Size(433, 259);
+            this.groupBoxPersonalInfo.Size = new System.Drawing.Size(433, 286);
             this.groupBoxPersonalInfo.TabIndex = 38;
             this.groupBoxPersonalInfo.TabStop = false;
             this.groupBoxPersonalInfo.Text = "Personal Information";
             // 
+            // txtPhone
+            // 
+            this.txtPhone.Location = new System.Drawing.Point(158, 75);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(245, 24);
+            this.txtPhone.TabIndex = 37;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(30, 74);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(55, 18);
+            this.label15.TabIndex = 36;
+            this.label15.Text = "Phone:";
+            // 
             // btnBack
             // 
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBack.Location = new System.Drawing.Point(76, 473);
+            this.btnBack.Location = new System.Drawing.Point(343, 439);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(102, 42);
             this.btnBack.TabIndex = 39;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -371,47 +386,11 @@ namespace CallCenter
             this.txtAccountNum.Size = new System.Drawing.Size(245, 24);
             this.txtAccountNum.TabIndex = 36;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.comboBoxPlanSelect);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(475, 320);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 176);
-            this.groupBox1.TabIndex = 42;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Contract Information";
-            // 
-            // comboBoxPlanSelect
-            // 
-            this.comboBoxPlanSelect.FormattingEnabled = true;
-            this.comboBoxPlanSelect.Items.AddRange(new object[] {
-            "Bronze Plan",
-            "Silver Plan",
-            "Gold Plan",
-            "Platinum Plan"});
-            this.comboBoxPlanSelect.Location = new System.Drawing.Point(14, 71);
-            this.comboBoxPlanSelect.Name = "comboBoxPlanSelect";
-            this.comboBoxPlanSelect.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxPlanSelect.TabIndex = 43;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(11, 36);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(397, 18);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Please Select Your Choice of Contract from the List Below:";
-            // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(937, 626);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(958, 521);
             this.Controls.Add(this.groupBoxBankingInfo);
             this.Controls.Add(this.Heading2);
             this.Controls.Add(this.btnBack);
@@ -426,8 +405,6 @@ namespace CallCenter
             this.groupBoxPersonalInfo.PerformLayout();
             this.groupBoxBankingInfo.ResumeLayout(false);
             this.groupBoxBankingInfo.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,8 +443,7 @@ namespace CallCenter
         private System.Windows.Forms.TextBox txtBankName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtAccountNum;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBoxPlanSelect;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox txtPhone;
+        private System.Windows.Forms.Label label15;
     }
 }
