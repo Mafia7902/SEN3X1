@@ -364,6 +364,7 @@ namespace DataAccess
 
         #region Update Methods
 
+        //outdated
         public void UpdateClient(int clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string problemDesc, string phone, int contractID, int clientType, int bankDetails, string unitNumber = null)
         {
@@ -429,6 +430,37 @@ namespace DataAccess
         }
 
         //update ticket to complete and add date completed where ticketid = @id
+        public void UpdateTicket(string ticketID, int clientSatisfaction = 5)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Ticket] "
+                    +"SET[ClientSatisfaction] = "+clientSatisfaction
+                    +" ,[Completed] = 1"
+                    +",[DateCompleted] = '"+ DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss")
+                    + "' "
+                    +" WHERE TicketID = "
+                    +ticketID
+                    , connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.UpdateCommand.ExecuteNonQuery();
+                    }
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
 
         #endregion
 
@@ -588,18 +620,17 @@ namespace DataAccess
         }
 
         //select uncompleted tickects and the contract id
-        public DataTable SelectUncompletedTickets()
+        public DataTable SelectUncompletedTickets(string ticketID)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(@"
-                        SELECT dbo.Ticket.TicketID, dbo.ClientContract.ContractID
-                        FROM dbo.Call INNER JOIN
-                         dbo.ClientCall ON dbo.Call.CallID = dbo.ClientCall.CallID INNER JOIN
-                         dbo.Client ON dbo.ClientCall.ClientID = dbo.Client.ClientID INNER JOIN
-                         dbo.ClientContract ON dbo.Client.ClientID = dbo.ClientContract.ClientID INNER JOIN
-                         dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID
-                        WHERE (dbo.Ticket.Completed = 0)", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Ticket.TicketID, dbo.ClientContract.ContractID"
+                        + "FROM dbo.Call INNER JOIN "
+                        + " dbo.ClientCall ON dbo.Call.CallID = dbo.ClientCall.CallID INNER JOIN "
+                        + " dbo.Client ON dbo.ClientCall.ClientID = dbo.Client.ClientID INNER JOIN "
+                        + " dbo.ClientContract ON dbo.Client.ClientID = dbo.ClientContract.ClientID INNER JOIN "
+                        + " dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID "
+                        + "WHERE (dbo.Ticket.TicketID = '" + ticketID + "')", connection))
             {
                 try
                 {
