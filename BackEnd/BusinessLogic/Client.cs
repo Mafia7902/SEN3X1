@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 using DataAccess;
 
 namespace BusinessLogic
@@ -104,7 +103,7 @@ namespace BusinessLogic
         //    return newID;
         //}
 
-        public void AddNewClient(string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, string clientType, string bankDetails, string unitNumber = null)
+        public void AddNewClient(string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             string newID = IDGenV1();
             DataHandler dh = new DataHandler();
