@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using DataAccess;
 
 namespace BusinessLogic
 {
-    class Client
+    public class Client
     {
         private int clientID;
         private string name;
         private string phone;
         private string email;
-        private List<Call> callhistory;
         private int clientType;
         private string physicalAddress;
 
@@ -22,13 +22,12 @@ namespace BusinessLogic
 
         }
 
-        public Client(int clientID, string name, string phone, string email, List<Call> callhistory, int clientType, string physicalAddress)
+        public Client(int clientID, string name, string phone, string email, int clientType, string physicalAddress)
         {
             this.clientID = clientID;
             this.name = name;
             this.phone = phone;
             this.email = email;
-            this.callhistory = callhistory;
             this.clientType = clientType;
             this.physicalAddress = physicalAddress;
         }
@@ -43,12 +42,6 @@ namespace BusinessLogic
         {
             get { return clientType; }
             set { clientType = value; }
-        }
-
-        public List<Call> CallHistory
-        {
-            get { return callhistory; }
-            set { callhistory = value; }
         }
 
         public string Email
@@ -73,12 +66,6 @@ namespace BusinessLogic
         {
             get { return clientID; }
             set { clientID = value; }
-        }
-
-        public List<Call> GetPastCalls(int clientID)
-        {
-            List<Call> calls = new List<Call>();
-            return calls;
         }
 
         private string IDGenV1()
