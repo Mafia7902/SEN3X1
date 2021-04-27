@@ -63,6 +63,7 @@ namespace CallCenter
             this.btnExistingCustomer.TabIndex = 4;
             this.btnExistingCustomer.Text = "Existing Customer";
             this.btnExistingCustomer.UseVisualStyleBackColor = true;
+            this.btnExistingCustomer.Click += new System.EventHandler(this.btnExistingCustomer_Click);
             // 
             // lblAreYou
             // 

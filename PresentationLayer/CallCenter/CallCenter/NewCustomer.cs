@@ -7,19 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
+using DataAccess;
+
 
 namespace CallCenter
 {
-    public partial class NewCustomer : Form
+    public partial class NewCustomer : Form 
     {
         public NewCustomer()
         {
             InitializeComponent();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -31,12 +29,17 @@ namespace CallCenter
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void NewCustomer_Load(object sender, EventArgs e)
+        {
 
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            Environment.Exit(0);
         }
     }
 }

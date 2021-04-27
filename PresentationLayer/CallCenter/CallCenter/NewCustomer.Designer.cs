@@ -52,17 +52,17 @@ namespace CallCenter
             this.btnBack = new System.Windows.Forms.Button();
             this.Heading2 = new System.Windows.Forms.Label();
             this.groupBoxBankingInfo = new System.Windows.Forms.GroupBox();
-            this.txtAccountNum = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtBankName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtBranchNum = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.txtPaymentType = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtBranchNum = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBankName = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtAccountNum = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.comboBoxPlanSelect = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxBankingInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -84,7 +84,7 @@ namespace CallCenter
             this.label7.Size = new System.Drawing.Size(95, 18);
             this.label7.TabIndex = 28;
             this.label7.Text = "Unit Number:";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+
             // 
             // btnCancel
             // 
@@ -95,6 +95,7 @@ namespace CallCenter
             this.btnCancel.TabIndex = 27;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSubmit
             // 
@@ -235,7 +236,7 @@ namespace CallCenter
             this.label10.Size = new System.Drawing.Size(66, 18);
             this.label10.TabIndex = 34;
             this.label10.Text = "Province";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
+ 
             // 
             // groupBoxPersonalInfo
             // 
@@ -258,7 +259,7 @@ namespace CallCenter
             this.groupBoxPersonalInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxPersonalInfo.Location = new System.Drawing.Point(12, 99);
             this.groupBoxPersonalInfo.Name = "groupBoxPersonalInfo";
-            this.groupBoxPersonalInfo.Size = new System.Drawing.Size(433, 240);
+            this.groupBoxPersonalInfo.Size = new System.Drawing.Size(433, 259);
             this.groupBoxPersonalInfo.TabIndex = 38;
             this.groupBoxPersonalInfo.TabStop = false;
             this.groupBoxPersonalInfo.Text = "Personal Information";
@@ -302,56 +303,12 @@ namespace CallCenter
             this.groupBoxBankingInfo.TabStop = false;
             this.groupBoxBankingInfo.Text = "Banking Information";
             // 
-            // txtAccountNum
+            // txtPaymentType
             // 
-            this.txtAccountNum.Location = new System.Drawing.Point(150, 24);
-            this.txtAccountNum.Name = "txtAccountNum";
-            this.txtAccountNum.Size = new System.Drawing.Size(245, 24);
-            this.txtAccountNum.TabIndex = 36;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(11, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 18);
-            this.label6.TabIndex = 36;
-            this.label6.Text = "Account Number:";
-            // 
-            // txtBankName
-            // 
-            this.txtBankName.Location = new System.Drawing.Point(150, 54);
-            this.txtBankName.Name = "txtBankName";
-            this.txtBankName.Size = new System.Drawing.Size(245, 24);
-            this.txtBankName.TabIndex = 37;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(11, 60);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 18);
-            this.label11.TabIndex = 38;
-            this.label11.Text = "Bank Name:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(11, 90);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 18);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Branch Number:";
-            // 
-            // txtBranchNum
-            // 
-            this.txtBranchNum.Location = new System.Drawing.Point(150, 84);
-            this.txtBranchNum.Name = "txtBranchNum";
-            this.txtBranchNum.Size = new System.Drawing.Size(245, 24);
-            this.txtBranchNum.TabIndex = 40;
+            this.txtPaymentType.Location = new System.Drawing.Point(150, 114);
+            this.txtPaymentType.Name = "txtPaymentType";
+            this.txtPaymentType.Size = new System.Drawing.Size(245, 24);
+            this.txtPaymentType.TabIndex = 42;
             // 
             // label13
             // 
@@ -363,12 +320,56 @@ namespace CallCenter
             this.label13.TabIndex = 41;
             this.label13.Text = "Payment Type:";
             // 
-            // txtPaymentType
+            // txtBranchNum
             // 
-            this.txtPaymentType.Location = new System.Drawing.Point(150, 114);
-            this.txtPaymentType.Name = "txtPaymentType";
-            this.txtPaymentType.Size = new System.Drawing.Size(245, 24);
-            this.txtPaymentType.TabIndex = 42;
+            this.txtBranchNum.Location = new System.Drawing.Point(150, 84);
+            this.txtBranchNum.Name = "txtBranchNum";
+            this.txtBranchNum.Size = new System.Drawing.Size(245, 24);
+            this.txtBranchNum.TabIndex = 40;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(11, 90);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(116, 18);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Branch Number:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(11, 60);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 18);
+            this.label11.TabIndex = 38;
+            this.label11.Text = "Bank Name:";
+            // 
+            // txtBankName
+            // 
+            this.txtBankName.Location = new System.Drawing.Point(150, 54);
+            this.txtBankName.Name = "txtBankName";
+            this.txtBankName.Size = new System.Drawing.Size(245, 24);
+            this.txtBankName.TabIndex = 37;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(11, 30);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(123, 18);
+            this.label6.TabIndex = 36;
+            this.label6.Text = "Account Number:";
+            // 
+            // txtAccountNum
+            // 
+            this.txtAccountNum.Location = new System.Drawing.Point(150, 24);
+            this.txtAccountNum.Name = "txtAccountNum";
+            this.txtAccountNum.Size = new System.Drawing.Size(245, 24);
+            this.txtAccountNum.TabIndex = 36;
             // 
             // groupBox1
             // 
@@ -382,16 +383,6 @@ namespace CallCenter
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Information";
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(11, 36);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(397, 18);
-            this.label14.TabIndex = 43;
-            this.label14.Text = "Please Select Your Choice of Contract from the List Below:";
-            // 
             // comboBoxPlanSelect
             // 
             this.comboBoxPlanSelect.FormattingEnabled = true;
@@ -404,6 +395,16 @@ namespace CallCenter
             this.comboBoxPlanSelect.Name = "comboBoxPlanSelect";
             this.comboBoxPlanSelect.Size = new System.Drawing.Size(121, 26);
             this.comboBoxPlanSelect.TabIndex = 43;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(11, 36);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(397, 18);
+            this.label14.TabIndex = 43;
+            this.label14.Text = "Please Select Your Choice of Contract from the List Below:";
             // 
             // NewCustomer
             // 
@@ -420,6 +421,7 @@ namespace CallCenter
             this.Controls.Add(this.label1);
             this.Name = "NewCustomer";
             this.Text = "NewCustomer";
+            this.Load += new System.EventHandler(this.NewCustomer_Load);
             this.groupBoxPersonalInfo.ResumeLayout(false);
             this.groupBoxPersonalInfo.PerformLayout();
             this.groupBoxBankingInfo.ResumeLayout(false);

@@ -17,16 +17,20 @@ namespace CallCenter
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            LoginForm optionForm = new LoginForm();
-            optionForm.Show();
-            this.Hide();
-        }
-
+       
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ExistingCustomer_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

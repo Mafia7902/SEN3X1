@@ -91,6 +91,7 @@ namespace CallCenter
             this.btnSubmit.TabIndex = 40;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnBack
             // 
@@ -101,7 +102,7 @@ namespace CallCenter
             this.btnBack.TabIndex = 42;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.button1_Click);
+
             // 
             // label2
             // 
@@ -177,6 +178,7 @@ namespace CallCenter
             this.Controls.Add(this.label1);
             this.Name = "ExistingCustomer";
             this.Text = "Existing Customer";
+            this.Load += new System.EventHandler(this.ExistingCustomer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
