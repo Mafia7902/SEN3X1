@@ -386,11 +386,37 @@ namespace DataAccess
             }
         }
 
+        public void InsertTechnicianSchedule(string empID, string ticketID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.TechnicianSchedule (EmpID, TicketID) "
+                    + "VALUES ('"+empID+"','"+ticketID+"') "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         #endregion
 
         #region Update Methods
-
-        //Update Technician schedule
 
         //outdated
         public void UpdateClient(int clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
@@ -457,7 +483,7 @@ namespace DataAccess
             }
         }
 
-        //update ticket to complete and add date completed where ticketid = @id
+ 
         public void UpdateTicket(string ticketID, int clientSatisfaction = 5)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
