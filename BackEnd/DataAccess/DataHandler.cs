@@ -110,7 +110,33 @@ namespace DataAccess
             }
         }
 
-
+        public void InsertTicket(string ticketID, string callID, string problem)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Ticekt (TicketeID, CallID, Completed, DateStarted, ProblemDetails) "
+                    + "VALUES ('"+ticketID+"', '"+callID+"', "+0+", '"+ DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss") + "', '"+problem+"') "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
 
         public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
@@ -364,6 +390,8 @@ namespace DataAccess
 
         #region Update Methods
 
+        //Update Technician schedule
+
         //outdated
         public void UpdateClient(int clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string problemDesc, string phone, int contractID, int clientType, int bankDetails, string unitNumber = null)
@@ -438,8 +466,8 @@ namespace DataAccess
                     +" ,[Completed] = 1"
                     +",[DateCompleted] = '"+ DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss")
                     + "' "
-                    +" WHERE TicketID = "
-                    +ticketID
+                    +" WHERE TicketID = '"
+                    +ticketID+"'"
                     , connection))
             {
                 try
