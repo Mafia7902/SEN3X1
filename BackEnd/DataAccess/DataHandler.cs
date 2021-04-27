@@ -36,8 +36,8 @@ namespace DataAccess
     class DataHandler
     {
         //int iteration = 0; /*This constant is used in testing and will be removed in the final version - Albert Wolfaardt*/
-        //readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
-        readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
+        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
+        //readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
 
         #region Insert Methods
 
@@ -76,6 +76,34 @@ namespace DataAccess
             }
         }
         //--------------------------------------------------------------
+
+        public void InsertContract(string contractID, string contractType, string contractDesc, float price, string deviceID, int isActive)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Contract (ContractID, ContractType, ContractDescription, Price, DeviceID, IsActive) "
+                    + "VALUES ('"+contractID+"','"+contractType+"', '"+contractDesc+"',"+price+", '"+deviceID+"', "+isActive+") "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
 
         public void InsertLoginWIP()
         {
@@ -584,6 +612,35 @@ namespace DataAccess
                         + "dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID AND dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
                         + "WHERE dbo.Employee.EmpID = "
                     + empID, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectClient(string email)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Client WHERE dbo.Client.Email = '"
+                    + email+"'", connection))
             {
                 try
                 {
