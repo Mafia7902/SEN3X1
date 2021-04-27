@@ -84,6 +84,9 @@ namespace CallCenter
             Environment.Exit(0);
         }
 
-       
+        private void fontDialog1_Apply(object sender, EventArgs e)
+        {
+
+        }
     }
 }
