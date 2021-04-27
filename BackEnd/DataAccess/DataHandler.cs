@@ -40,6 +40,76 @@ namespace DataAccess
 
         #region Insert Methods
 
+        //Template
+        //--------------------------------------------------------------
+        public void InsertTemplate()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +"COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+        //--------------------------------------------------------------
+        
+        public void InsertLoginWIP()
+        {
+            //WIP
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Login(EmpID) "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, string clientType, string bankDetails, string unitNumber = null)
         {
             #region Notes
@@ -92,22 +162,16 @@ namespace DataAccess
             }
         }
 
-        //removed in final version
-        public void InsertTemplate()
+        public void InsertEmployee(int id, string firstname, string surname, string phone, string email, string postaladdress, string streetname, string suburb, string city, string postalcode, string province, string dateHired, int jobID, int leaveDays, string maritalStatus, string apartmentNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION"
-                    +""
-                    +""
-                    +""
-                    +""
-                    +""
-                    +""
-                    +""
-                    +"COMMIT";
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Employee(EmpID, EmpName, EmpSurname, Phone, Email, PostalAddress, StreetName, ApartmentNumber, Suburb, City, PostalCode, Province, DateHired, JobID, LeaveDays, MaritalStatus) "
+                    + "VALUES ("+id+", '"+firstname+"', '"+surname+"', '"+phone+"', '"+email+"', '"+postaladdress+"', '"+streetname+"', '"+apartmentNumber+"', '"+suburb+"', '"+city+"', '"+postalcode+"', '"+province+"', CONVERT(DATETIME, '"+dateHired+"', 5), "+jobID+", "+leaveDays+", '"+maritalStatus+"') "
+                    + "COMMIT";
                 command.Connection = connection;
                 try
                 {
@@ -126,7 +190,91 @@ namespace DataAccess
             }
         }
 
-        public void InsertService(string serviceID, string serviceDesc, double price, int serviceDays = null)
+        public void InsertJob(int jobID, string name, double salary)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Job(JobID, JobName, Salary) "
+                    + "VALUES("+jobID+", '"+name+"', "+salary+") "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertSpecialization(int id, string specializationName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Specialization (SpecializationID, SpecializationName) "
+                    + "VALUES ("+id+", '"+specializationName+"') "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertDevice(string id, string manufacturer, string model)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Device(DeviceID, Manufacturer, Model) "
+                    + "VALUES ('"+id+"', '"+manufacturer+"', '"+model+"') "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertService(string serviceID, string serviceDesc, double price, int serviceDays = 0)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
@@ -283,7 +431,7 @@ namespace DataAccess
         #region Select Methods
 
         //needs to be updated
-        public DataTable SelectContract(int jobID)
+        public DataTable SelectContract(string contractID)
         {
             #region Notes
             /*
@@ -300,7 +448,7 @@ namespace DataAccess
                         dbo.ServicePackage ON dbo.Package.PackageID = dbo.ServicePackage.PackageID INNER JOIN
                         dbo.Services ON dbo.ServicePackage.ServiceID = dbo.Services.ServiceID
                 WHERE   dbo.Contract.ContractID = '"
-                    + jobID + "'", connection))
+                    + contractID + "'", connection))
             {
                 try
                 {
