@@ -25,5 +25,10 @@ namespace TechnicianFORM
             this.Close();
 
         }
+
+        private void btnLog_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -55,6 +55,7 @@ namespace TechnicianFORM
             this.btnLog.TabIndex = 9;
             this.btnLog.Text = "Log";
             this.btnLog.UseVisualStyleBackColor = true;
+            this.btnLog.Click += new System.EventHandler(this.btnLog_Click);
             // 
             // lblAreYouSure
             // 
@@ -77,7 +78,7 @@ namespace TechnicianFORM
             this.lblAreAoutTo.Text = "You are about to log an assignment as complete. Make sure all necessary actions h" +
     "ave been taken. ";
             // 
-            // LogConfirmation
+            // FormLogConfirmation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -86,7 +87,7 @@ namespace TechnicianFORM
             this.Controls.Add(this.lblAreYouSure);
             this.Controls.Add(this.btnLog);
             this.Controls.Add(this.btnCancel);
-            this.Name = "LogConfirmation";
+            this.Name = "FormLogConfirmation";
             this.Text = "LogConfirmation";
             this.ResumeLayout(false);
             this.PerformLayout();

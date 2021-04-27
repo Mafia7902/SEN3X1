@@ -4,9 +4,9 @@ using System.Text;
 using System.Data;
 using DataAccess;
 
-namespace BackEnd.BusinessLogic
+namespace BusinessLogic
 {
-    class Technician
+   public class TechInfo
     {
         private string clientFName;
         private string clientLName;
@@ -19,12 +19,12 @@ namespace BackEnd.BusinessLogic
         private string clientEmail;
         private string clientPhone;
 
-        public Technician()
+        public TechInfo()
         {
 
         }
 
-        public Technician(string clientFName, string clientLName, string clientType, string ticketNum, string probDesc, string unitNum, string streetAdd, string suburb, string clientEmail, string clientPhone)
+        public TechInfo(string clientFName, string clientLName, string clientType, string ticketNum, string probDesc, string unitNum, string streetAdd, string suburb, string clientEmail, string clientPhone)
         {
             this.clientFName = clientFName;
             this.clientLName = clientLName;
@@ -121,6 +121,25 @@ namespace BackEnd.BusinessLogic
             mytbl = new DataHandler().SelectTechnicianView2(id);
             return mytbl;
         }
+
+        // Testing inserting data into the DGV on FormSchedule
+        /*public DataTable myTestData(int id)
+        {
+            DataTable mytbl = new DataTable();
+            mytbl.Columns.Add("First Name", typeof(string));
+            mytbl.Columns.Add("Last Name", typeof(string));
+            mytbl.Columns.Add("Client Type", typeof(string));
+            mytbl.Columns.Add("Ticket Number", typeof(string));
+            mytbl.Columns.Add("Problem Description", typeof(string));
+
+            mytbl.Rows.Add("Bob", "Builder", "Platinum", "A123", "Printer is busted");
+            mytbl.Rows.Add("Luke", "Mross", "Gold", "B123", "Computer is slow");
+            mytbl.Rows.Add("Tiaan", "Wolfaardt", "Silver", "C123", "Mouse is broken");
+            mytbl.Rows.Add("Stefan", "Ferriera", "Bronze", "D123", "I forgot my wifi password");
+
+            return mytbl;
+
+        } */
 
     }
 }

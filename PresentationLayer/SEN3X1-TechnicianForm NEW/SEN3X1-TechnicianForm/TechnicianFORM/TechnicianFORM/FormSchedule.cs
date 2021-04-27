@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
-using System.Data;
+
 
 namespace TechnicianFORM
 {
@@ -29,12 +29,34 @@ namespace TechnicianFORM
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
-            
+             
         }
-        DataSet mydata = new DataSet();
-        Technician mytech = new Technician();
 
-   
+        private void Technician_Load(object sender, EventArgs e)
+        {
+            DataTable dt1 = new TechInfo().dg1(1);
+
+            foreach (DataRow row in dt1.Rows)
+            {
+                dataGridView1.DataSource = dt1;
+            }
+
+
+            DataTable dt2 = new TechInfo().dg2(1);
+
+            foreach (DataRow row in dt2.Rows)
+            {
+                dataGridView1.DataSource = dt2;
+            }
+
+            // Testing inserting data into the DGV on FormSchedule
+            /* DataTable dt1 = new TechInfo().myTestData(1);
+
+             foreach (DataRow row in dt1.Rows)
+             {
+                 dataGridView1.DataSource = dt1;
+             }
+            */
+        }
     }
 }

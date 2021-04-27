@@ -219,6 +219,7 @@ namespace TechnicianFORM
             this.Controls.Add(this.FName);
             this.Name = "Technician";
             this.Text = "Technician";
+            this.Load += new System.EventHandler(this.Technician_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
