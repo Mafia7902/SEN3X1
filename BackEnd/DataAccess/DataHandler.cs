@@ -8,30 +8,30 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    class TechnicianDetails
-    {
-        //This class exists for testing purposes when getting data from multiple tables into a list of a single object - Albert Wolfaardt
-        private string fullName;
-        private string specialization;
-        private double satisfactionScore;
-        private string jobTitle;
-        private string phone;
-
-        public TechnicianDetails(string fullName, string specialization, double satisfactionScore, string jobTitle, string phone)
-        {
-            this.FullName = fullName;
-            this.Specialization = specialization;
-            this.SatisfactionScore = satisfactionScore;
-            this.JobTitle = jobTitle;
-            this.Phone = phone;
-        }
-
-        public string FullName { get => fullName; set => fullName = value; }
-        public string Specialization { get => specialization; set => specialization = value; }
-        public double SatisfactionScore { get => satisfactionScore; set => satisfactionScore = value; }
-        public string JobTitle { get => jobTitle; set => jobTitle = value; }
-        public string Phone { get => phone; set => phone = value; }
-    }
+    //class TechnicianDetails
+    //{
+    //    //This class exists for testing purposes when getting data from multiple tables into a list of a single object - Albert Wolfaardt
+    //    private string fullName;
+    //    private string specialization;
+    //    private double satisfactionScore;
+    //    private string jobTitle;
+    //    private string phone;
+    //
+    //    public TechnicianDetails(string fullName, string specialization, double satisfactionScore, string jobTitle, string phone)
+    //    {
+    //        this.FullName = fullName;
+    //        this.Specialization = specialization;
+    //        this.SatisfactionScore = satisfactionScore;
+    //        this.JobTitle = jobTitle;
+    //        this.Phone = phone;
+    //    }
+    //
+    //    public string FullName { get => fullName; set => fullName = value; }
+    //    public string Specialization { get => specialization; set => specialization = value; }
+    //    public double SatisfactionScore { get => satisfactionScore; set => satisfactionScore = value; }
+    //    public string JobTitle { get => jobTitle; set => jobTitle = value; }
+    //    public string Phone { get => phone; set => phone = value; }
+    //}
 
     class DataHandler
     {
@@ -39,6 +39,76 @@ namespace DataAccess
         readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
 
         #region Insert Methods
+
+        //Template
+        //--------------------------------------------------------------
+        public void InsertTemplate()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +" "
+                    +"COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+        //--------------------------------------------------------------
+        
+        public void InsertLoginWIP()
+        {
+            //WIP
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Login(EmpID) "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
 
         public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, string clientType, string bankDetails, string unitNumber = null)
         {
@@ -92,55 +162,21 @@ namespace DataAccess
             }
         }
 
-        public DataTable SelectTechnician(int jobID)
+        public void InsertEmployee(int id, string firstname, string surname, string phone, string email, string postaladdress, string streetname, string suburb, string city, string postalcode, string province, string dateHired, int jobID, int leaveDays, string maritalStatus, string apartmentNumber = null)
         {
-            #region Notes
-            /*Technician Form -
-            0 EmpName[Employee] WHERE JobID = *whatever the technicians ID is * ---> I assume you'll be searching via job ID? - Albert Wolfaardt
-            0 EmpSurname[Employee]
-            0 SpecialisationName[Specialisation]
-            0 TicketID[Ticket]
-            0 ProblemDescription[ProblemDetails]
-            
-            The last 3 things will pose a problem when trying to display them seeing as there can be multiple
-            instances of each field, ie. tickets that are assigned to a single technician. I have some ideas where we can
-            use a list or an array but thats outside of my current responsibilities, but I will discuss them regardless.
-            - Albert Wolfaardt
-
-            We can either return all the data from the DB as DataTables or we
-            change the appropriate classes to better suit its role in the application
-            I will bring this up in the next meeting but if you see this before that then congratulations, you win a chocolate chip cookie!
-            - Albert Wolfaardt
-            */
-            #endregion
-
-            DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpName, dbo.Employee.EmpSurname AS EmployeeName, dbo.Specialization.SpecializationName AS Specialization, dbo.Ticket.TicketID AS Ticket, dbo.ProblemDetails.ProblemDescription AS Problem"
-                    + "FROM dbo.Employee INNER JOIN"
-                    + "dbo.Ticket INNER JOIN"
-                    + "dbo.ProblemDetails ON dbo.Ticket.ProblemID = dbo.ProblemDetails.ProblemID INNER JOIN"
-                    + "dbo.TechnicianSchedule ON dbo.Ticket.TicketID = dbo.TechnicianSchedule.TicketID INNER JOIN"
-                    + "dbo.TechnicianSpecialization INNER JOIN"
-                    + "dbo.Specialization ON dbo.TechnicianSpecialization.SpecializationID = dbo.Specialization.SpecializationID INNER JOIN"
-                    + "dbo.Technician ON dbo.TechnicianSpecialization.TechnicianID = dbo.Technician.EmpID ON dbo.TechnicianSchedule.EmpID = dbo.Technician.EmpID ON dbo.Employee.EmpID = dbo.Technician.EmpID"
-                    + "WHERE JobID = "
-                    + jobID, connection))
+            using (SqlCommand command = new SqlCommand())
             {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Employee(EmpID, EmpName, EmpSurname, Phone, Email, PostalAddress, StreetName, ApartmentNumber, Suburb, City, PostalCode, Province, DateHired, JobID, LeaveDays, MaritalStatus) "
+                    + "VALUES ("+id+", '"+firstname+"', '"+surname+"', '"+phone+"', '"+email+"', '"+postaladdress+"', '"+streetname+"', '"+apartmentNumber+"', '"+suburb+"', '"+city+"', '"+postalcode+"', '"+province+"', CONVERT(DATETIME, '"+dateHired+"', 5), "+jobID+", "+leaveDays+", '"+maritalStatus+"') "
+                    + "COMMIT";
+                command.Connection = connection;
                 try
                 {
                     connection.Open();
-                    #region DebuggingCode
-                    //if (connection.State == ConnectionState.Open)
-                    //{
-                    //    Console.WriteLine("connection succesfully established!");
-                    //}
-                    #endregion
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        adapter.Fill(table);
-                    }
-
+                    command.ExecuteNonQuery();
                 }
                 catch (SqlException sqle)
                 {
@@ -151,7 +187,174 @@ namespace DataAccess
                     command.Dispose();
                     connection.Close();
                 }
-                return table;
+            }
+        }
+
+        public void InsertJob(int jobID, string name, double salary)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Job(JobID, JobName, Salary) "
+                    + "VALUES("+jobID+", '"+name+"', "+salary+") "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertSpecialization(int id, string specializationName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Specialization (SpecializationID, SpecializationName) "
+                    + "VALUES ("+id+", '"+specializationName+"') "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertDevice(string id, string manufacturer, string model)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION "
+                    + "INSERT INTO dbo.Device(DeviceID, Manufacturer, Model) "
+                    + "VALUES ('"+id+"', '"+manufacturer+"', '"+model+"') "
+                    + "COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertService(string serviceID, string serviceDesc, double price, int serviceDays = 0)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION"
+                    +"INSERT INTO dbo.Service (ServiceID, ServiceDescription, Price, ServiceDays)"
+                    +"VALUES ('"+serviceID+"', '"+serviceDesc+"', "+price+", "+serviceDays+")"
+                    +"COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertBankDetails(string bdID, string paymentType, string bankName, string branchNum, string accountNum)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION"
+                    +"INSERT INTO dbo.BankDetails (BankDetailsID, PaymentType, BankName, BranchNum, AccountNum)"
+                    +"VALUES ('"+bdID+"', '"+paymentType+"', '"+bankName+"', '"+branchNum+"', '"+accountNum+"')"
+                    +"COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
+        public void InsertCall(string callID, int callDuration, string date, int empID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "START TRANSACTION"
+                    +"INSERT INTO dbo.Call (CallID, CallDuration, CallDate, EmpID)"
+                    +"VALUES ('"+callID+"', "+callDuration+", CONVERT(DATETIME,'"+date+"',5), "+empID+") "
+                    +"COMMIT";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
             }
         }
 
@@ -159,7 +362,6 @@ namespace DataAccess
 
         #region Update Methods
 
-        //might be necessary to update this method after testing but that only happens on 25 April (aka sunday).
         public void UpdateClient(int clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string problemDesc, string phone, int contractID, int clientType, int bankDetails, string unitNumber = null)
         {
@@ -199,11 +401,14 @@ namespace DataAccess
                     + clientType
                     + ",[BankDetails] = "
                     + bankDetails
-                    + "WHERE ClientID = "
-                    + clientID, connection))
+                    + "WHERE ClientID = '"
+                    + clientID
+                    + "'"
+                    , connection))
             {
                 try
                 {
+                    connection.Open();
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         adapter.UpdateCommand.ExecuteNonQuery();
@@ -225,7 +430,8 @@ namespace DataAccess
 
         #region Select Methods
 
-        public DataTable SelectContract(int jobID)
+        //needs to be updated
+        public DataTable SelectContract(string contractID)
         {
             #region Notes
             /*
@@ -242,7 +448,7 @@ namespace DataAccess
                         dbo.ServicePackage ON dbo.Package.PackageID = dbo.ServicePackage.PackageID INNER JOIN
                         dbo.Services ON dbo.ServicePackage.ServiceID = dbo.Services.ServiceID
                 WHERE   dbo.Contract.ContractID = '"
-                    + jobID + "'", connection))
+                    + contractID + "'", connection))
             {
                 try
                 {
@@ -253,6 +459,79 @@ namespace DataAccess
                     //    Console.WriteLine("connection succesfully established!");
                     //}
                     #endregion
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectTechnicianView1(int empID)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.ClientType.ClientDescription, dbo.Ticket.TicketID, dbo.Ticket.ProblemDetails "
+                        +"FROM dbo.Client INNER JOIN "
+                        +"dbo.ClientCall ON dbo.Client.ClientID = dbo.ClientCall.ClientID INNER JOIN "
+                        +"dbo.Call ON dbo.ClientCall.CallID = dbo.Call.CallID INNER JOIN "
+                        +"dbo.ClientType ON dbo.Client.ClientType = dbo.ClientType.ClientType INNER JOIN "
+                        +"dbo.Employee ON dbo.Call.EmpID = dbo.Employee.EmpID INNER JOIN "
+                        +"dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID INNER JOIN "
+                        +"dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
+                        +"dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID AND dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
+                        +"WHERE dbo.Employee.EmpID = "
+                    + empID, connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectTechnicianView2(int empID)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.UnitNumber, dbo.Client.StreetAddress, dbo.Client.Suburb, dbo.Client.Email, dbo.Client.Phone "
+                        +"FROM dbo.Ticket INNER JOIN "
+                        +"dbo.Client INNER JOIN "
+                        +"dbo.ClientCall ON dbo.Client.ClientID = dbo.ClientCall.ClientID INNER JOIN "
+                        +"dbo.Call ON dbo.ClientCall.CallID = dbo.Call.CallID ON dbo.Ticket.CallID = dbo.Call.CallID "
+                        +"dbo.TechnicianSchedule ON dbo.Ticket.TicketID = dbo.TechnicianSchedule.TicketID "
+                        +"WHERE dbo.TechnicianSchedule.EmpID = "
+                        + empID, connection))
+            {
+                try
+                {
+                    connection.Open();
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         adapter.Fill(table);
@@ -316,7 +595,7 @@ namespace DataAccess
             a solution is found.
             - Albert Wolfaardt
 
-            Not fixed yet but I have some ideas where you run 2 seperate queries with conditions to check these things.
+            Not fixed yet but I have some ideas where you run 3 seperate queries with conditions to check these things.
             Will be Made an tested on April 25 untill April 26
             - Albert Wolfaardt
             */

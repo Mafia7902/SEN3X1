@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
+using System.Data;
 
 namespace TechnicianFORM
 {
@@ -24,5 +26,15 @@ namespace TechnicianFORM
             this.Hide();
 
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            
+        }
+        DataSet mydata = new DataSet();
+        Technician mytech = new Technician();
+
+   
     }
 }
