@@ -18,6 +18,7 @@ namespace BusinessLogic
         private string suburb;
         private string clientEmail;
         private string clientPhone;
+        private string confirmCompletion;
 
         public TechInfo()
         {
@@ -36,6 +37,13 @@ namespace BusinessLogic
             this.suburb = suburb;
             this.clientEmail = clientEmail;
             this.clientPhone = clientPhone;
+            this.confirmCompletion = COnfirmCompletion;
+        }
+
+        public string COnfirmCompletion
+        {
+            get { return confirmCompletion; }
+            set { confirmCompletion = value; }
         }
 
         public string ClientPhone
@@ -122,24 +130,11 @@ namespace BusinessLogic
             return mytbl;
         }
 
-        // Testing inserting data into the DGV on FormSchedule
-        /*public DataTable myTestData(int id)
+        public void ConfirmCompletion(string ticketID, int clientSatisfaction = 5)
         {
-            DataTable mytbl = new DataTable();
-            mytbl.Columns.Add("First Name", typeof(string));
-            mytbl.Columns.Add("Last Name", typeof(string));
-            mytbl.Columns.Add("Client Type", typeof(string));
-            mytbl.Columns.Add("Ticket Number", typeof(string));
-            mytbl.Columns.Add("Problem Description", typeof(string));
-
-            mytbl.Rows.Add("Bob", "Builder", "Platinum", "A123", "Printer is busted");
-            mytbl.Rows.Add("Luke", "Mross", "Gold", "B123", "Computer is slow");
-            mytbl.Rows.Add("Tiaan", "Wolfaardt", "Silver", "C123", "Mouse is broken");
-            mytbl.Rows.Add("Stefan", "Ferriera", "Bronze", "D123", "I forgot my wifi password");
-
-            return mytbl;
-
-        } */
+            DataHandler handler = new DataHandler();
+            handler.UpdateTicket(ticketID, clientSatisfaction);
+        }
 
     }
 }

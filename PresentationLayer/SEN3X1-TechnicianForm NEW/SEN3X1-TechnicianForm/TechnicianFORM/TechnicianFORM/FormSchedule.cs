@@ -21,9 +21,12 @@ namespace TechnicianFORM
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
-            FormLogConfirmation confirm = new FormLogConfirmation();
-            confirm.Show();
-            this.Hide();
+            // Method to update ticket to "Complete".
+            DataTable tktID = new TechInfo().dg1(1);
+            string ticketID = tktID.Rows[3]["TicketID"].ToString();
+
+            TechInfo t = new TechInfo();
+            t.ConfirmCompletion(ticketID, 5);
 
         }
 
@@ -49,14 +52,7 @@ namespace TechnicianFORM
                 dataGridView1.DataSource = dt2;
             }
 
-            // Testing inserting data into the DGV on FormSchedule
-            /* DataTable dt1 = new TechInfo().myTestData(1);
-
-             foreach (DataRow row in dt1.Rows)
-             {
-                 dataGridView1.DataSource = dt1;
-             }
-            */
+            
         }
     }
 }
