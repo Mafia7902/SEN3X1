@@ -804,6 +804,53 @@ namespace DataAccess
             }
         }
 
+        public bool TicketAssignedChecker(string TicketId)
+        {
+            bool Exists = false;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(
+                "DECLARE @Ticket NCHAR(100) = '"
+                + TicketId
+                + "' "
+                + "SELECT(CASE WHEN EXISTS(SELECT 1 FROM dbo.TechincianSchedule WITH(NOLOCK) "
+                + "WHERE TicketID = @Ticket) THEN '1' "
+                + "ELSE '0' END) AS [Result] "
+                , connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                        {
+                            while (reader.Read())
+                            {
+                                string recievedInt = (string)reader.GetString(reader.GetOrdinal("Result"));
+                                if (recievedInt == "1")
+                                {
+                                    Exists = true;
+                                }
+                            }
+                        }
+
+                    }
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine("An Error occured and no I won't go into details, deal with it: " + sqle.ToString());
+                }
+                finally
+                {
+
+                    command.Dispose();
+                    connection.Close();
+
+                }
+                return Exists;
+            }
+        }
+
         #endregion
 
         // Templates that are now obsolete. Will remove a bit later - Albert Wolfaardt
