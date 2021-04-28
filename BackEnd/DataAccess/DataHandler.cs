@@ -119,7 +119,7 @@ namespace DataAccess
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "START TRANSACTION "
                     + "INSERT INTO dbo.Contract (ContractID, ContractType, ContractDescription, Price, DeviceID, IsActive) "
-                    + "VALUES ('"+contractID+"','"+contractType+"', '"+contractDesc+"',"+price+", '"+deviceID+"', "+isActive+") "
+                    + "VALUES ('" + contractID + "','" + contractType + "', '" + contractDesc + "'," + price + ", '" + deviceID + "', " + isActive + ") "
                     + "COMMIT";
                 command.Connection = connection;
                 try
@@ -147,7 +147,7 @@ namespace DataAccess
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "START TRANSACTION "
                     + "INSERT INTO dbo.Ticekt (TicketeID, CallID, Completed, DateStarted, ProblemDetails) "
-                    + "VALUES ('"+ticketID+"', '"+callID+"', "+0+", '"+ DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss") + "', '"+problem+"') "
+                    + "VALUES ('" + ticketID + "', '" + callID + "', " + 0 + ", '" + DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "', '" + problem + "') "
                     + "COMMIT";
                 command.Connection = connection;
                 try
@@ -423,7 +423,7 @@ namespace DataAccess
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "START TRANSACTION "
                     + "INSERT INTO dbo.TechnicianSchedule (EmpID, TicketID) "
-                    + "VALUES ('"+empID+"','"+ticketID+"') "
+                    + "VALUES ('" + empID + "','" + ticketID + "') "
                     + "COMMIT";
                 command.Connection = connection;
                 try
@@ -512,17 +512,17 @@ namespace DataAccess
             }
         }
 
- 
+
         public void UpdateTicket(string ticketID, int clientSatisfaction = 5)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Ticket] "
-                    +"SET[ClientSatisfaction] = "+clientSatisfaction
-                    +" ,[Completed] = 1"
-                    +",[DateCompleted] = '"+ DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss")
+                    + "SET[ClientSatisfaction] = " + clientSatisfaction
+                    + " ,[Completed] = 1"
+                    + ",[DateCompleted] = '" + DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss")
                     + "' "
-                    +" WHERE TicketID = '"
-                    +ticketID+"'"
+                    + " WHERE TicketID = '"
+                    + ticketID + "'"
                     , connection))
             {
                 try
@@ -601,16 +601,14 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.ClientType.ClientDescription, dbo.Ticket.TicketID, dbo.Ticket.ProblemDetails "
-                        + "FROM dbo.Client INNER JOIN "
-                        + "dbo.ClientCall ON dbo.Client.ClientID = dbo.ClientCall.ClientID INNER JOIN "
-                        + "dbo.Call ON dbo.ClientCall.CallID = dbo.Call.CallID INNER JOIN "
-                        + "dbo.ClientType ON dbo.Client.ClientType = dbo.ClientType.ClientType INNER JOIN "
-                        + "dbo.Employee ON dbo.Call.EmpID = dbo.Employee.EmpID INNER JOIN "
-                        + "dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID INNER JOIN "
-                        + "dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
-                        + "dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID AND dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
-                        + "WHERE dbo.Employee.EmpID = "
+            using (SqlCommand command = new SqlCommand(@"SELECT dbo.TechnicianSchedule.TicketID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.ClientType.ClientDescription, dbo.Ticket.ProblemDetails
+                        FROM dbo.Call INNER JOIN
+                         dbo.ClientCall ON dbo.Call.CallID = dbo.ClientCall.CallID INNER JOIN
+                         dbo.Client ON dbo.ClientCall.ClientID = dbo.Client.ClientID INNER JOIN
+                         dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID INNER JOIN
+                         dbo.TechnicianSchedule ON dbo.Ticket.TicketID = dbo.TechnicianSchedule.TicketID INNER JOIN
+                         dbo.ClientType ON dbo.Client.ClientType = dbo.ClientType.ClientType
+                        WHERE (dbo.TechnicianSchedule.EmpID = 1)"
                     + empID, connection))
             {
                 try
@@ -640,7 +638,7 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Client WHERE dbo.Client.Email = '"
-                    + email+"'", connection))
+                    + email + "'", connection))
             {
                 try
                 {

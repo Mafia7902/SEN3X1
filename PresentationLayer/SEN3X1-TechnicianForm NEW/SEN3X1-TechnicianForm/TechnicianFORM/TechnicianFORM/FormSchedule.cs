@@ -39,6 +39,11 @@ namespace TechnicianFORM
         {
             DataTable dt1 = new TechInfo().dg1(1);
             dataGridView1.DataSource = dt1;
+
+            if (dt1.Rows.Count > 0)
+            {
+                MessageBox.Show("WE got something");
+            }
             
 
             DataTable dt2 = new TechInfo().dg2(1);

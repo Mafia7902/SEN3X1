@@ -31,7 +31,7 @@ namespace CallCenter
             {
                 Ticket ticket = new Ticket();
                 string ticketID = ticket.IDGenV2();
-                ticket.TicketInsert(ticketID, "AA001", txtProblem.Text);
+                ticket.TicketInsert(ticketID, "AA001", txtProblem.Text.ToString());
                 TicketAssigning.assignTicket(ticketID);
                 MessageBox.Show("Problem has been submited");
                 MainMenu mainMenu = new MainMenu();

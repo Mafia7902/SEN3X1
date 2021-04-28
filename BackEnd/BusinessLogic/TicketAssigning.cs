@@ -56,11 +56,20 @@ namespace BusinessLogic
 
             AvalibleTechnicians = handler.SelectTicketsAndSatisfactionScore(neededScore);
 
-            DataRow employee = AvalibleTechnicians.Rows[0];
 
-            string empID = employee["EmpID"].ToString();
+            try
+            {
+                DataRow employee = AvalibleTechnicians.Rows[1];
+                string empID = employee["EmpID"].ToString();
+                handler.InsertTechnicianSchedule(empID, ticketID);
+            }
+            catch (IndexOutOfRangeException ioore)
+            {
+                Console.WriteLine(ioore.ToString());
+            }
+            
 
-            handler.InsertTechnicianSchedule(empID, ticketID);
+            
         }
     }
 }
