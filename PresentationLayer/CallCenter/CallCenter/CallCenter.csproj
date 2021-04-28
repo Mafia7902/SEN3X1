@@ -124,6 +124,10 @@
       <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
       <Name>BackEnd</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\SEN3X1-TechnicianForm NEW\SEN3X1-TechnicianForm\TechnicianFORM\TechnicianFORM\TechnicianFORM.csproj">
+      <Project>{741e28cc-5e05-4a03-83ee-4840a0388d8f}</Project>
+      <Name>TechnicianFORM</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

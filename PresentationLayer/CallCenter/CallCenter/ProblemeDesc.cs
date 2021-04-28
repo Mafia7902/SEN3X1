@@ -9,6 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using TechnicianFORM;
 
 namespace CallCenter
 {
@@ -30,12 +31,14 @@ namespace CallCenter
             if (txtProblem.Text.Length > 0)
             {
                 Ticket ticket = new Ticket();
+                
+                TechnicianFORM.Technician f1 = new TechnicianFORM.Technician();
                 string ticketID = ticket.IDGenV2();
                 ticket.TicketInsert(ticketID, "AA001", txtProblem.Text.ToString());
                 TicketAssigning.assignTicket(ticketID);
                 MessageBox.Show("Problem has been submited");
                 MainMenu mainMenu = new MainMenu();
-                mainMenu.Show();
+                f1.Show();
                 this.Hide();
             }
 
