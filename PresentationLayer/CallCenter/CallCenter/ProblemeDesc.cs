@@ -35,7 +35,6 @@ namespace CallCenter
                 MainMenu mainMenu = new MainMenu();
                 mainMenu.Show();
                 this.Hide();
-
             }
 
         }
