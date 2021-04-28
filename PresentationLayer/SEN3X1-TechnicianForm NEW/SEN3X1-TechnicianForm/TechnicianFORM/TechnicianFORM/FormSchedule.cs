@@ -38,21 +38,12 @@ namespace TechnicianFORM
         private void Technician_Load(object sender, EventArgs e)
         {
             DataTable dt1 = new TechInfo().dg1(1);
-
-            foreach (DataRow row in dt1.Rows)
-            {
-                dataGridView1.DataSource = dt1;
-            }
-
+            dataGridView1.DataSource = dt1;
+            
 
             DataTable dt2 = new TechInfo().dg2(1);
+            dataGridView1.DataSource = dt2;
 
-            foreach (DataRow row in dt2.Rows)
-            {
-                dataGridView1.DataSource = dt2;
-            }
-
-            
         }
     }
 }
