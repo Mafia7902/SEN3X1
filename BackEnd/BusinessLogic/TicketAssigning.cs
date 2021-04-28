@@ -13,9 +13,9 @@ namespace BackEnd.BusinessLogic
         B,
         A
     }
-    class TicketAssigning
+    public class TicketAssigning
     {
-        public void assignTicket(string ticketID)
+        public static void assignTicket(string ticketID)
         {
             DataHandler handler = new DataHandler();
             string contractID = "";
