@@ -26,16 +26,16 @@ namespace CallCenter
         
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
-            Ticket ticket = new Ticket();
-            string ticketID = ticket.IDGenV2();
-            ticket.TicketInsert(ticketID, "AA001", txtProblem.Text);
-            BackEnd.BusinessLogic.TicketAssigning.assignTicket(ticketID);
-            MessageBox.Show("Probleme has been submited");
-            Thread.Sleep(5000);
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.Show();
-            this.Hide();
+
+            if (txtProblem.Text.Length > 0)
+            {
+                Ticket ticket = new Ticket();
+                ticket.TicketInsert(ticket.IDGenV2(), "AA001", txtProblem.Text.ToString());
+                MessageBox.Show("Problem has been submited");
+                MainMenu mainMenu = new MainMenu();
+                mainMenu.Show();
+                this.Hide();
+            }
 
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using DataAccess;
 
 namespace BusinessLogic
@@ -118,10 +119,10 @@ namespace BusinessLogic
             }
         }
 
-        public void searchClient(string email)
+        public DataTable searchClient(string email)
         {
             DataHandler dh = new DataHandler();
-            dh.SelectClient(email);
+            return dh.SelectClient(email);
         }
 
         public override int GetHashCode()
