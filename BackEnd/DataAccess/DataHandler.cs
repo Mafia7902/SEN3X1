@@ -36,7 +36,7 @@ namespace DataAccess
     class DataHandler
     {
         //int iteration = 0; /*This constant is used in testing and will be removed in the final version - Albert Wolfaardt*/
-        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
+        readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
         //readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
 
         #region Insert Methods
@@ -560,12 +560,12 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(@"
-                SELECT  dbo.Contract.ContractID, dbo.Contract.ContractType, dbo.Contract.ContractDescription, dbo.Contract.Price, dbo.Package.PackageName, dbo.Services.ServiceDescritpion
+                SELECT  dbo.Contract.ContractID, dbo.Contract.ContractType, dbo.Contract.ContractDescription, dbo.Contract.Price, dbo.Package.PackageName, dbo.Service.ServiceDescritpion
                 FROM    dbo.Contract INNER JOIN
                         dbo.ContractPackage ON dbo.Contract.ContractID = dbo.ContractPackage.ContractID AND dbo.Contract.ContractID = dbo.ContractPackage.ContractID INNER JOIN
                         dbo.Package ON dbo.ContractPackage.PackageID = dbo.Package.PackageID INNER JOIN
                         dbo.ServicePackage ON dbo.Package.PackageID = dbo.ServicePackage.PackageID INNER JOIN
-                        dbo.Services ON dbo.ServicePackage.ServiceID = dbo.Services.ServiceID
+                        dbo.Service ON dbo.ServicePackage.ServiceID = dbo.Service.ServiceID
                 WHERE   dbo.Contract.ContractID = '"
                     + contractID + "'", connection))
             {

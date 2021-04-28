@@ -44,6 +44,8 @@ namespace TechnicianFORM
             this.lblClientType = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btnReassign = new System.Windows.Forms.Button();
+            this.btnGetTicket = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -197,11 +199,33 @@ namespace TechnicianFORM
             this.dataGridView2.Size = new System.Drawing.Size(758, 124);
             this.dataGridView2.TabIndex = 15;
             // 
+            // btnReassign
+            // 
+            this.btnReassign.Location = new System.Drawing.Point(16, 412);
+            this.btnReassign.Name = "btnReassign";
+            this.btnReassign.Size = new System.Drawing.Size(92, 32);
+            this.btnReassign.TabIndex = 17;
+            this.btnReassign.Text = "Reassign Task";
+            this.btnReassign.UseVisualStyleBackColor = true;
+            // 
+            // btnGetTicket
+            // 
+            this.btnGetTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGetTicket.Location = new System.Drawing.Point(370, 412);
+            this.btnGetTicket.Name = "btnGetTicket";
+            this.btnGetTicket.Size = new System.Drawing.Size(97, 33);
+            this.btnGetTicket.TabIndex = 18;
+            this.btnGetTicket.Text = "Get Tickets";
+            this.btnGetTicket.UseVisualStyleBackColor = true;
+            this.btnGetTicket.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Technician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(806, 450);
+            this.Controls.Add(this.btnGetTicket);
+            this.Controls.Add(this.btnReassign);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.lblClientType);
@@ -244,6 +268,8 @@ namespace TechnicianFORM
         private System.Windows.Forms.Label lblClientType;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btnReassign;
+        private System.Windows.Forms.Button btnGetTicket;
     }
 }
 
