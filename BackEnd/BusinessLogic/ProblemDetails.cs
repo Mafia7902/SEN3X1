@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic
 {
-    class ProblemDetails
+    public class ProblemDetails
     {
         private int problemID;
         private string problemDescription;
@@ -43,5 +43,7 @@ namespace BusinessLogic
         {
             return base.ToString();
         }
+
+
     }
 }

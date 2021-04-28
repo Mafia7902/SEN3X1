@@ -20,6 +20,8 @@ namespace CallCenter
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+           
+
             NewCustomer newCustomer = new NewCustomer();
             newCustomer.Show();
             this.Hide();
@@ -29,7 +31,9 @@ namespace CallCenter
 
         private void btnExistingCustomer_Click(object sender, EventArgs e)
         {
-
+            ExisitngCustomerLogIN logIN = new ExisitngCustomerLogIN();
+            logIN.Show();
+            this.Hide();
         }
     }
 }

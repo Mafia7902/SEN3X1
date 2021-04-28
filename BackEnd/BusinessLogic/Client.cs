@@ -118,6 +118,12 @@ namespace BusinessLogic
             }
         }
 
+        public void searchClient(string email)
+        {
+            DataHandler dh = new DataHandler();
+            dh.SelectClient(email);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();

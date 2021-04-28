@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DataAccess;
 
 namespace BusinessLogic
 {
-    class Contract
+    public class Contract
     {
-        private int contractID;
+        private string contractID;
         private string contractType;
         private string contractDescription;
-        private double price;
+        private float price;
 
         public Contract()
         {
 
         }
 
-        public Contract(int contractID, string contractType, string contractDescription, double price)
+        public Contract(string contractID, string contractType, string contractDescription, float price)
         {
             this.contractID = contractID;
             this.contractType = contractType;
@@ -26,7 +27,7 @@ namespace BusinessLogic
             this.price = price;
         }
 
-        public double Price
+        public float Price
         {
             get { return price; }
             set { price = value; }
@@ -44,7 +45,7 @@ namespace BusinessLogic
             set { contractType = value; }
         }
 
-        public int ContractID
+        public string ContractID
         {
             get { return contractID; }
             set { contractID = value; }
@@ -63,6 +64,12 @@ namespace BusinessLogic
         public override string ToString()
         {
             return base.ToString();
+        }
+
+        public void contractInsert(string contractID, string contractType, string contractDesc, float price, string deviceID, int isActive)
+        {
+            DataHandler dh = new DataHandler();
+            dh.InsertContract(contractID, contractType, contractDesc, price, deviceID, isActive);
         }
 
     }

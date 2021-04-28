@@ -52,6 +52,12 @@
     <Compile Include="ContractSellection.Designer.cs">
       <DependentUpon>ContractSellection.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExisitngCustomerLogIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExisitngCustomerLogIN.Designer.cs">
+      <DependentUpon>ExisitngCustomerLogIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ContractSellection.resx">
       <DependentUpon>ContractSellection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExisitngCustomerLogIN.resx">
+      <DependentUpon>ExisitngCustomerLogIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>

@@ -36,8 +36,6 @@ namespace CallCenter
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBoxPlanSelect = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,7 +52,7 @@ namespace CallCenter
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCancel.Location = new System.Drawing.Point(229, 386);
+            this.btnCancel.Location = new System.Drawing.Point(205, 213);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 41;
@@ -65,7 +63,7 @@ namespace CallCenter
             // btnSubmit
             // 
             this.btnSubmit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnSubmit.Location = new System.Drawing.Point(79, 386);
+            this.btnSubmit.Location = new System.Drawing.Point(55, 213);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 23);
             this.btnSubmit.TabIndex = 40;
@@ -76,7 +74,7 @@ namespace CallCenter
             // btnBack
             // 
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBack.Location = new System.Drawing.Point(377, 386);
+            this.btnBack.Location = new System.Drawing.Point(353, 213);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 42;
@@ -85,14 +83,12 @@ namespace CallCenter
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.comboBoxPlanSelect);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(53, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 196);
+            this.groupBox1.Size = new System.Drawing.Size(424, 130);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Information";
@@ -102,8 +98,8 @@ namespace CallCenter
             this.comboBoxPlanSelect.FormattingEnabled = true;
             this.comboBoxPlanSelect.Items.AddRange(new object[] {
             "Platinum",
-            "Gold ",
-            "Silver",
+            "Gold",
+            "SIlver",
             "Bronze"});
             this.comboBoxPlanSelect.Location = new System.Drawing.Point(14, 71);
             this.comboBoxPlanSelect.Name = "comboBoxPlanSelect";
@@ -120,31 +116,11 @@ namespace CallCenter
             this.label14.TabIndex = 43;
             this.label14.Text = "Please Select Your Choice of Contract from the List Below:";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 117);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(221, 18);
-            this.label16.TabIndex = 44;
-            this.label16.Text = "Select Your Choice Of Package:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Phone repair",
-            "Printer repair"});
-            this.comboBox1.Location = new System.Drawing.Point(14, 149);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 26);
-            this.comboBox1.TabIndex = 45;
-            // 
             // ContractSellection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(889, 521);
+            this.ClientSize = new System.Drawing.Size(638, 412);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCancel);
@@ -169,7 +145,5 @@ namespace CallCenter
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboBoxPlanSelect;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label16;
     }
 }

@@ -38,7 +38,7 @@ namespace CallCenter
             // 
             // txtProblem
             // 
-            this.txtProblem.Location = new System.Drawing.Point(235, 192);
+            this.txtProblem.Location = new System.Drawing.Point(235, 147);
             this.txtProblem.Multiline = true;
             this.txtProblem.Name = "txtProblem";
             this.txtProblem.Size = new System.Drawing.Size(245, 69);
@@ -48,7 +48,7 @@ namespace CallCenter
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(64, 219);
+            this.label11.Location = new System.Drawing.Point(64, 174);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(147, 18);
             this.label11.TabIndex = 40;
@@ -66,16 +66,17 @@ namespace CallCenter
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(316, 352);
+            this.btnSubmit.Location = new System.Drawing.Point(296, 291);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(83, 36);
             this.btnSubmit.TabIndex = 43;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(417, 352);
+            this.btnCancel.Location = new System.Drawing.Point(397, 291);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(83, 36);
             this.btnCancel.TabIndex = 44;

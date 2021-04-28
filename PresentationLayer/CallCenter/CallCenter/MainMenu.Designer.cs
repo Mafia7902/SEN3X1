@@ -31,8 +31,8 @@ namespace CallCenter
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnNewCust = new System.Windows.Forms.Button();
-            this.btnExistingCustomer = new System.Windows.Forms.Button();
             this.lblAreYou = new System.Windows.Forms.Label();
+            this.btnExistingCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -51,19 +51,9 @@ namespace CallCenter
             this.btnNewCust.Name = "btnNewCust";
             this.btnNewCust.Size = new System.Drawing.Size(123, 46);
             this.btnNewCust.TabIndex = 3;
-            this.btnNewCust.Text = "New Customer";
+            this.btnNewCust.Text = " New Customer";
             this.btnNewCust.UseVisualStyleBackColor = true;
             this.btnNewCust.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // btnExistingCustomer
-            // 
-            this.btnExistingCustomer.Location = new System.Drawing.Point(342, 109);
-            this.btnExistingCustomer.Name = "btnExistingCustomer";
-            this.btnExistingCustomer.Size = new System.Drawing.Size(123, 46);
-            this.btnExistingCustomer.TabIndex = 4;
-            this.btnExistingCustomer.Text = "Existing Customer";
-            this.btnExistingCustomer.UseVisualStyleBackColor = true;
-            this.btnExistingCustomer.Click += new System.EventHandler(this.btnExistingCustomer_Click);
             // 
             // lblAreYou
             // 
@@ -74,6 +64,16 @@ namespace CallCenter
             this.lblAreYou.Size = new System.Drawing.Size(70, 18);
             this.lblAreYou.TabIndex = 5;
             this.lblAreYou.Text = "Are you...";
+            // 
+            // btnExistingCustomer
+            // 
+            this.btnExistingCustomer.Location = new System.Drawing.Point(342, 109);
+            this.btnExistingCustomer.Name = "btnExistingCustomer";
+            this.btnExistingCustomer.Size = new System.Drawing.Size(123, 46);
+            this.btnExistingCustomer.TabIndex = 4;
+            this.btnExistingCustomer.Text = "Existing Customer";
+            this.btnExistingCustomer.UseVisualStyleBackColor = true;
+            this.btnExistingCustomer.Click += new System.EventHandler(this.btnExistingCustomer_Click);
             // 
             // MainMenu
             // 
@@ -95,8 +95,8 @@ namespace CallCenter
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnNewCust;
-        private System.Windows.Forms.Button btnExistingCustomer;
         private System.Windows.Forms.Label lblAreYou;
+        private System.Windows.Forms.Button btnExistingCustomer;
     }
 }
 
