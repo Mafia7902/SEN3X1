@@ -77,15 +77,21 @@ namespace DataAccess
         }
         //--------------------------------------------------------------
 
-        public void InsertContract(string contractID, string contractType, string contractDesc, float price, string deviceID, int isActive)
+        public void InsertLoginWIP()
         {
+            //WIP
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "START TRANSACTION "
-                    + "INSERT INTO dbo.Contract (ContractID, ContractType, ContractDescription, Price, DeviceID, IsActive) "
-                    + "VALUES ('"+contractID+"','"+contractType+"', '"+contractDesc+"',"+price+", '"+deviceID+"', "+isActive+") "
+                    + "INSERT INTO dbo.Login(EmpID) "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
+                    + " "
                     + "COMMIT";
                 command.Connection = connection;
                 try
@@ -105,21 +111,15 @@ namespace DataAccess
             }
         }
 
-        public void InsertLoginWIP()
+        public void InsertContract(string contractID, string contractType, string contractDesc, float price, string deviceID, int isActive)
         {
-            //WIP
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "START TRANSACTION "
-                    + "INSERT INTO dbo.Login(EmpID) "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
+                    + "INSERT INTO dbo.Contract (ContractID, ContractType, ContractDescription, Price, DeviceID, IsActive) "
+                    + "VALUES ('"+contractID+"','"+contractType+"', '"+contractDesc+"',"+price+", '"+deviceID+"', "+isActive+") "
                     + "COMMIT";
                 command.Connection = connection;
                 try

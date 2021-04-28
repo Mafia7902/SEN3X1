@@ -30,23 +30,22 @@ namespace CallCenter
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-           
-            if (!txtEmailSearch.Text.Equals(null))
+
+            if (txtEmailSearch.Text.Length > 0 && txtEmailSearch.Text.Contains("@"))
             {
                 Client client = new Client();
-                client.searchClient(txtEmailSearch.Text);
-
+                DataTable dt = client.searchClient(txtEmailSearch.Text.ToString());
+                if (dt.Rows.Count > 0)
+                {
                     ProblemeDesc probleme = new ProblemeDesc();
                     probleme.Show();
                     this.Hide();
-
+                }
             }
             else
             {
-                MessageBox.Show("Enter an email!");
+                MessageBox.Show("Enter a valid email!");
             }
-
-           
         }
     }
 }
