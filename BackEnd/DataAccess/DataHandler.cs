@@ -36,7 +36,8 @@ namespace DataAccess
     class DataHandler
     {
         //int iteration = 0; /*This constant is used in testing and will be removed in the final version - Albert Wolfaardt*/
-        readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
+        /*readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
+        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
         //readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
 
         #region Insert Methods
@@ -448,9 +449,70 @@ namespace DataAccess
 
         #region Update Methods
 
+        //template
+        //----------------------------------------------------------
+        public void UpdateTemplate()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE dbo.TableName "
+                + "SET ColumnValue = 'NewValue'"
+                + " WHERE Value = Value";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+        //----------------------------------------------------------
+
+        //used when assiging a ticket to a new technician
+        public void UpdateTechnicianSchedule(int empID, string ticketID)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE dbo.TechnicianSchedule "
+                + "SET EmpID = "
+                + empID
+                + " WHERE TicketID = '"
+                + ticketID
+                + "'";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         //outdated
         public void UpdateClient(int clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string problemDesc, string phone, int contractID, int clientType, int bankDetails, string unitNumber = null)
+           string province, string streetAddress, string phone, int contractID, int clientType, int bankDetails, string unitNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Client]"
@@ -513,26 +575,27 @@ namespace DataAccess
             }
         }
 
-
         public void UpdateTicket(string ticketID, int clientSatisfaction = 5)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Ticket] "
-                    + "SET[ClientSatisfaction] = " + clientSatisfaction
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE [dbo].[Ticket] "
+                    + "SET[ClientSatisfaction] = "
+                    + clientSatisfaction
                     + " ,[Completed] = 1"
-                    + ",[DateCompleted] = '" + DateTime.Now.ToString("yyyy’-‘MM’-‘dd’T’HH’:’mm’:’ss")
+                    + ",[DateCompleted] = '"
+                    + DateTime.Now.ToString()
                     + "' "
                     + " WHERE TicketID = '"
-                    + ticketID + "'"
-                    , connection))
-            {
+                    + ticketID
+                    + "'";
+                command.Connection = connection;
                 try
                 {
                     connection.Open();
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        adapter.UpdateCommand.ExecuteNonQuery();
-                    }
+                    command.ExecuteNonQuery();
                 }
                 catch (SqlException sqle)
                 {
@@ -609,7 +672,7 @@ namespace DataAccess
                          dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID INNER JOIN
                          dbo.TechnicianSchedule ON dbo.Ticket.TicketID = dbo.TechnicianSchedule.TicketID INNER JOIN
                          dbo.ClientType ON dbo.Client.ClientType = dbo.ClientType.ClientType
-                        WHERE (dbo.TechnicianSchedule.EmpID = 1)"
+                        WHERE (dbo.TechnicianSchedule.EmpID = " + empID + ")"
                     , connection))
             {
                 try
@@ -776,6 +839,74 @@ namespace DataAccess
                         + "dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                         + "dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
                         + "WHERE (dbo.Ticket.Completed = 0) AND (dbo.Technician.SatisfactionScore >= " + minScore + ")", connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectAvailableTechnician(int minScore)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(
+                    "SELECT TOP dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
+                    + "FROM dbo.Technician INNER JOIN "
+                    + " dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
+                    + " dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
+                    + "WHERE (dbo.Technician.SatisfactionScore >= " + minScore + ") "
+                    + "GROUP BY dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
+                    + "HAVING (COUNT(dbo.TechnicianSchedule.EmpID) < 5)", connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectUnassignedTickets()
+        {
+            //returns datatable of tickets that are unnasigned with no other checks
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(
+                    "SELECT TicketID "
+                    + "FROM dbo.Ticket "
+                    + "WHERE TicketID NOT IN (SELECT TicketID FROM TechnicianSchedule)"
+                    , connection))
             {
                 try
                 {
