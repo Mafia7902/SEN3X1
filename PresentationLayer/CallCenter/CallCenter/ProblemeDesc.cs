@@ -34,7 +34,7 @@ namespace CallCenter
                 
                 TechnicianFORM.Technician f1 = new TechnicianFORM.Technician();
                 string ticketID = ticket.IDGenV2();
-                ticket.TicketInsert(ticketID, "AA001", txtProblem.Text.ToString());
+                ticket.TicketInsert(ticketID, "call22", txtProblem.Text.ToString());
                 TicketAssigning.assignTicket(ticketID);
                 MessageBox.Show("Problem has been submited\nThe Ticket Number is:\n"+ticketID);
                 MainMenu mainMenu = new MainMenu();
