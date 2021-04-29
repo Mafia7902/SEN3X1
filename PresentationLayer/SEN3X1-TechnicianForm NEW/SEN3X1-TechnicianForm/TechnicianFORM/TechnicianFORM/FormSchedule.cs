@@ -71,7 +71,8 @@ namespace TechnicianFORM
             dataGridView1.DataSource = bindingsource1;
 
             dt2 = Tech.dg2(1);
-            dataGridView2.DataSource = dt2;
+            bindingsource2.DataSource = dt2;
+            dataGridView2.DataSource = bindingsource2;
         }
     }
 }
