@@ -37,8 +37,8 @@ namespace CallCenter
                 DataTable dt = client.searchClient(txtEmailSearch.Text.ToString());
                 if (dt.Rows.Count > 0)
                 {
-                    ProblemeDesc probleme = new ProblemeDesc();
-                    probleme.Show();
+                    ClientChoiceForm choiceForm = new ClientChoiceForm(txtEmailSearch.Text.Trim());
+                    choiceForm.Show();
                     this.Hide();
                 }
             }

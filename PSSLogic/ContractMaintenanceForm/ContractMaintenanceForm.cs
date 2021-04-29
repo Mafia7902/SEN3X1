@@ -8,16 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LoginForm
+namespace ContractMaintenanceForm
 {
-    public partial class LoginForm : Form
+    public partial class ContractMaintenanceForm : Form
     {
-        public LoginForm()
+        public ContractMaintenanceForm()
         {
             InitializeComponent();
         }
 
-        private void LoginBtn_Click(object sender, EventArgs e)
+        private void ContractMaintenanceForm_Load(object sender, EventArgs e)
         {
 
         }
