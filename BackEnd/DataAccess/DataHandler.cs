@@ -36,7 +36,7 @@ namespace DataAccess
     class DataHandler
     {
         //int iteration = 0; /*This constant is used in testing and will be removed in the final version - Albert Wolfaardt*/
-        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
+        readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Change the servers when testing on your own machines - Albert Wolfaardt*/
         //readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
 
         #region Insert Methods
@@ -145,10 +145,10 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
-                    + "INSERT INTO dbo.Ticekt (TicketeID, CallID, Completed, DateStarted, ProblemDetails) "
-                    + "VALUES ('" + ticketID + "', '" + callID + "', " + 0 + ", '" + DateTime.Now.ToString("MM/dd/yyyy HH:mm") + "', '" + problem + "') "
-                    + "COMMIT";
+                command.CommandText = ""
+                    + "INSERT INTO dbo.Ticket (TicketID, CallID, ClientSatisfaction, Completed, DateCompleted, DateStarted, ProblemDetails) "
+                    + "VALUES ('" + ticketID + "', '" + callID + "','' , " + 0 + ", '', '2020-12-13', '" + problem + "') "
+                    + "";
                 command.Connection = connection;
                 try
                 {
@@ -420,11 +420,12 @@ namespace DataAccess
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
+                int empidddd = int.Parse(empID);
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
+                command.CommandText = " "
                     + "INSERT INTO dbo.TechnicianSchedule (EmpID, TicketID) "
-                    + "VALUES ('" + empID + "','" + ticketID + "') "
-                    + "COMMIT";
+                    + "VALUES (" + empidddd + ",'" + ticketID + "') "
+                    + "";
                 command.Connection = connection;
                 try
                 {
@@ -560,12 +561,12 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(@"
-                SELECT  dbo.Contract.ContractID, dbo.Contract.ContractType, dbo.Contract.ContractDescription, dbo.Contract.Price, dbo.Package.PackageName, dbo.Services.ServiceDescritpion
+                SELECT  dbo.Contract.ContractID, dbo.Contract.ContractType, dbo.Contract.ContractDescription, dbo.Contract.Price, dbo.Package.PackageName, dbo.Service.ServiceDescritpion
                 FROM    dbo.Contract INNER JOIN
                         dbo.ContractPackage ON dbo.Contract.ContractID = dbo.ContractPackage.ContractID AND dbo.Contract.ContractID = dbo.ContractPackage.ContractID INNER JOIN
                         dbo.Package ON dbo.ContractPackage.PackageID = dbo.Package.PackageID INNER JOIN
                         dbo.ServicePackage ON dbo.Package.PackageID = dbo.ServicePackage.PackageID INNER JOIN
-                        dbo.Services ON dbo.ServicePackage.ServiceID = dbo.Services.ServiceID
+                        dbo.Service ON dbo.ServicePackage.ServiceID = dbo.Service.ServiceID
                 WHERE   dbo.Contract.ContractID = '"
                     + contractID + "'", connection))
             {
@@ -609,7 +610,7 @@ namespace DataAccess
                          dbo.TechnicianSchedule ON dbo.Ticket.TicketID = dbo.TechnicianSchedule.TicketID INNER JOIN
                          dbo.ClientType ON dbo.Client.ClientType = dbo.ClientType.ClientType
                         WHERE (dbo.TechnicianSchedule.EmpID = 1)"
-                    + empID, connection))
+                    , connection))
             {
                 try
                 {
@@ -774,7 +775,7 @@ namespace DataAccess
                         + "FROM dbo.Technician INNER JOIN "
                         + "dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                         + "dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
-                        + "WHERE (dbo.Ticket.Completed = 0) AND (dbo.Technician.SatisfactionScore <= " + minScore.ToString() + ")", connection))
+                        + "WHERE (dbo.Ticket.Completed = 0) AND (dbo.Technician.SatisfactionScore >= " + minScore + ")", connection))
             {
                 try
                 {

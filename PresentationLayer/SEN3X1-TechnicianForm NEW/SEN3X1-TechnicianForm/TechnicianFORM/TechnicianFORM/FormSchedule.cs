@@ -14,9 +14,12 @@ namespace TechnicianFORM
 {
     public partial class Technician : Form
     {
+        
         public Technician()
         {
             InitializeComponent();
+            
+            
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
@@ -34,21 +37,41 @@ namespace TechnicianFORM
         {
              
         }
+        TechInfo Tech = new TechInfo();
 
         private void Technician_Load(object sender, EventArgs e)
         {
-            DataTable dt1 = new TechInfo().dg1(1);
-            dataGridView1.DataSource = dt1;
-
-            if (dt1.Rows.Count > 0)
-            {
-                MessageBox.Show("WE got something");
-            }
             
 
-            DataTable dt2 = new TechInfo().dg2(1);
-            dataGridView1.DataSource = dt2;
+            //if (dt1.Rows.Count > 0)
+            //{
+            //    MessageBox.Show("WE got something");
+            //}
 
+
+            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            BindingSource bindingsource1 = new BindingSource();
+            DataTable dt1 = new DataTable();
+
+
+            
+            BindingSource bindingsource2 = new BindingSource();
+            DataTable dt2 = new DataTable();
+
+
+
+            dt1 = Tech.dg1(1);
+            bindingsource1.DataSource = dt1;
+            dataGridView1.DataSource = bindingsource1;
+
+            dt2 = Tech.dg2(1);
+            dataGridView2.DataSource = dt2;
         }
     }
 }

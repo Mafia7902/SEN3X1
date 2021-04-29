@@ -1,8 +1,8 @@
-﻿using DataAccess;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using DataAccess;
 
 namespace BusinessLogic
 {
@@ -56,17 +56,17 @@ namespace BusinessLogic
 
             AvalibleTechnicians = handler.SelectTicketsAndSatisfactionScore(neededScore);
 
-
             try
             {
-                DataRow employee = AvalibleTechnicians.Rows[1];
-                string empID = employee["EmpID"].ToString();
+                //DataRow employee = AvalibleTechnicians.Rows[0];
+                string empID = AvalibleTechnicians.Rows[0][0].ToString();
                 handler.InsertTechnicianSchedule(empID, ticketID);
             }
-            catch (IndexOutOfRangeException ioore)
+            catch (Exception e)
             {
-                Console.WriteLine(ioore.ToString());
+                Console.WriteLine(e.ToString());
             }
+
             
 
             
