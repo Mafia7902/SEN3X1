@@ -661,6 +661,34 @@ namespace DataAccess
             }
         }
 
+        public DataTable SelectContractTypes()
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT SUBSTRING(ContractID, 5,1) AS ContractTypes FROM Contract;", connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
         public DataTable SelectTechnicianView1(int empID)
         {
             DataTable table = new DataTable();
@@ -734,7 +762,7 @@ namespace DataAccess
                         + "FROM dbo.Ticket INNER JOIN "
                         + "dbo.Client INNER JOIN "
                         + "dbo.ClientCall ON dbo.Client.ClientID = dbo.ClientCall.ClientID INNER JOIN "
-                        + "dbo.Call ON dbo.ClientCall.CallID = dbo.Call.CallID ON dbo.Ticket.CallID = dbo.Call.CallID "
+                        + "dbo.Call ON dbo.ClientCall.CallID = dbo.Call.CallID ON dbo.Ticket.CallID = dbo.Call.CallID INNER JOIN "
                         + "dbo.TechnicianSchedule ON dbo.Ticket.TicketID = dbo.TechnicianSchedule.TicketID "
                         + "WHERE dbo.TechnicianSchedule.EmpID = "
                         + empID, connection))
@@ -867,7 +895,7 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(
-                    "SELECT TOP dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
+                    "SELECT dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
                     + "FROM dbo.Technician INNER JOIN "
                     + " dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                     + " dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
