@@ -39,16 +39,65 @@ namespace CallCenter
                     {
                         if (txtAccountNum.Text.Length > 0)
                         {
-                            Random random = new Random();
-                            int bankID = random.Next(10000);
-                            BankDetails bank = new BankDetails();
-                            bank.AddBankDetails(bankID.ToString(), txtAccountNum.Text.ToString(), txtBranchNum.Text.ToString(), txtBankName.Text.ToString(), txtAccountNum.Text.ToString());
-                            Client client = new Client();
-                            client.AddNewClient(txtFName.Text.ToString(), txtLName.Text.ToString(), txtPhone.Text.ToString(), txtEmail.Text.ToString(), txtStreetAddress.Text.ToString(), txtSuburb.Text.ToString(), txtPostCode.Text.ToString(), txtProvince.Text.ToString(), "conID", 1, "bankDetails", txtUnitNum.Text.ToString());
-                            ContractSellection sellection = new ContractSellection();
-                            MessageBox.Show("New user has been added");
-                            sellection.Show();
-                            this.Hide();
+                            if (txtEmail.Text.Length > 0)
+                            {
+                                if (txtStreetAddress.Text.Length>0) {
+
+                                    if (txtPostCode.Text.Length>0) {
+
+                                        if (txtProvince.Text.Length > 0)
+                                        {
+                                            if (txtBankName.Text.Length>0)
+                                            {
+                                                if (txtBranchNum.Text.Length>0)
+                                                {
+                                                    if (txtPaymentType.Text.Length > 0)
+                                                    {
+                                                        Random random = new Random();
+                                                        int bankID = random.Next(10000);
+                                                        BankDetails bank = new BankDetails();
+                                                        bank.AddBankDetails(bankID.ToString(), txtAccountNum.Text.ToString(), txtBranchNum.Text.ToString(), txtBankName.Text.ToString(), txtAccountNum.Text.ToString());
+                                                        Client client = new Client();
+                                                        client.AddNewClient(txtFName.Text.ToString(), txtLName.Text.ToString(), txtPhone.Text.ToString(), txtEmail.Text.ToString(), txtStreetAddress.Text.ToString(), txtSuburb.Text.ToString(), txtPostCode.Text.ToString(), txtProvince.Text.ToString(), "conID", 1, "bankDetails", txtUnitNum.Text.ToString());
+                                                        ContractSellection sellection = new ContractSellection();
+                                                        MessageBox.Show("New user has been added");
+                                                        sellection.Show();
+                                                        this.Hide();
+                                                    }
+                                                    else
+                                                    {
+                                                        MessageBox.Show("Enter Payment Type");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    MessageBox.Show("Enter Branch Number");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                MessageBox.Show("Enter Bank Name");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("Enter Your Province");
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Enter Your Postal Code");
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Enter Your Street Address");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Enter Your Email");
+                            }
                         }
                         else
                         {
