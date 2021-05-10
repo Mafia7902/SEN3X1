@@ -35,12 +35,12 @@ namespace TechnicianFORM
                 }
                 else
                 {
-                    MessageBox.Show("Client not found!");
+                    MessageBox.Show("Client not found!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Enter a valid email!");
+                MessageBox.Show("Enter a valid email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
