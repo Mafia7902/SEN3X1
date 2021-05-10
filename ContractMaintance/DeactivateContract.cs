@@ -33,6 +33,9 @@ namespace ContractMaintance
 
             else if (txtID.Text != null)
             {
+                int Active = int.Parse(cmbState.Text);
+                var _newState = new BusinessLogic.Contract();
+                _newState.newStates(Active, txtID.Text);
 
             }
         }
