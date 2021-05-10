@@ -29,7 +29,7 @@ namespace ContractMaintance
         {
             if (txtContractID.Text != null || txtDescription.Text != null || txtDeviceID.Text != null || txtPrice.Text != null || cmbActive.Text != null || CombContractType.Text != null)
             {
-                int Active = int.Parse(txtPrice.Text);
+                int Active = int.Parse(cmbActive.Text);
                 float Price = float.Parse(txtPrice.Text);
                 var _contract = new BusinessLogic.Contract();
                 _contract.contractInsert(txtContractID.Text, CombContractType.Text, txtDescription.Text, Price, txtDeviceID.Text, Active);
