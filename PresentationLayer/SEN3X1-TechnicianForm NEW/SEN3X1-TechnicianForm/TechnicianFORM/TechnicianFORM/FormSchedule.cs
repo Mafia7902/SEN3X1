@@ -15,7 +15,7 @@ namespace TechnicianFORM
 {
     public partial class Technician : Form
     {
-        
+        string item;
 
         public Technician()
         {
@@ -34,7 +34,7 @@ namespace TechnicianFORM
             t.ConfirmCompletion(item);
 
         }
-        string item;
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
