@@ -427,6 +427,36 @@ namespace DataAccess
         }
         //----------------------------------------------------------
 
+        public void UpdateBankDetails(string bankDetailsID, string paymentType, string bankname, string branchNum, string accountNum)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE dbo.BankDetails "
+                + "SET [PaymentType] = '" + paymentType + "'"
+                + " ,[BankName] = '" + bankname + "'"
+                + " ,[BranchNum] = '" + branchNum + "'"
+                + ",[AccountNum] = '" + accountNum + "'"
+                + " WHERE BankDetailsID = '" + bankDetailsID + "'";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         public void UpdateTechnician(float satisfactionScore, int lifetimeRatedTickets, float totalScore, int empID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -434,11 +464,11 @@ namespace DataAccess
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE dbo.Technician "
-                                +"SET SatisfactionScore = "
+                                + "SET SatisfactionScore = "
                                 + satisfactionScore
-                                +" ,LifetimeTickets = "
+                                + " ,LifetimeTickets = "
                                 + lifetimeRatedTickets
-                                +" ,TotalScore = "
+                                + " ,TotalScore = "
                                 + totalScore
                                 + " WHERE EmpID = "
                                 + empID;
@@ -468,10 +498,10 @@ namespace DataAccess
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE dbo.Contract "
                 + "SET IsActive = "
-                +isActive
+                + isActive
                 + " WHERE ContractID = '"
-                +contractID
-                +"'";
+                + contractID
+                + "'";
                 command.Connection = connection;
                 try
                 {
@@ -934,11 +964,11 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
                     + "FROM dbo.Technician INNER JOIN "
                     + " dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                     + " dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
-                    + "WHERE (dbo.Technician.SatisfactionScore >= " 
-                    + minScore 
+                    + "WHERE (dbo.Technician.SatisfactionScore >= "
+                    + minScore
                     + ") AND (dbo.TechnicianSchedule.EmpID != '"
                     + techIdToExclude
-                    +"') "
+                    + "') "
                     + "GROUP BY dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
                     + "HAVING (COUNT(dbo.TechnicianSchedule.EmpID) < 5)", connection))
             {
