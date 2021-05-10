@@ -140,5 +140,20 @@ namespace BusinessLogic
             return base.ToString();
         }
 
+        public DataTable dg1(string email)
+        {
+            DataTable mytbl = new DataTable();
+            mytbl = new DataHandler().SelectClient(email);
+            return mytbl;
+        }
+
+        public void updateClient( string clientName, string clientSurname, string email, string suburb, string postalCode,
+           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
+        {
+            DataHandler dh = new DataHandler();
+            dh.UpdateClient( clientName, clientSurname, email, suburb, postalCode, province, streetAddress, phone, contractID, clientType, bankDetails, unitNumber);
+        }
+       
     }
 }
+

@@ -29,36 +29,17 @@ namespace TechnicianFORM
         /// </summary>
         private void InitializeComponent()
         {
-            this.FName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.LName = new System.Windows.Forms.Label();
-            this.lblClientPhone = new System.Windows.Forms.Label();
-            this.lblTicketNum = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnComplete = new System.Windows.Forms.Button();
-            this.lblStreet = new System.Windows.Forms.Label();
-            this.lblUnitNum = new System.Windows.Forms.Label();
-            this.lblSuburb = new System.Windows.Forms.Label();
-            this.lblEmail = new System.Windows.Forms.Label();
-            this.lblClientType = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnReassign = new System.Windows.Forms.Button();
             this.btnGetTicket = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
-            // 
-            // FName
-            // 
-            this.FName.AutoSize = true;
-            this.FName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FName.Location = new System.Drawing.Point(12, 78);
-            this.FName.Name = "FName";
-            this.FName.Size = new System.Drawing.Size(96, 20);
-            this.FName.TabIndex = 0;
-            this.FName.Text = "First Name";
             // 
             // label1
             // 
@@ -70,46 +51,6 @@ namespace TechnicianFORM
             this.label1.Size = new System.Drawing.Size(232, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Technician Schedule";
-            // 
-            // LName
-            // 
-            this.LName.AutoSize = true;
-            this.LName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LName.Location = new System.Drawing.Point(162, 78);
-            this.LName.Name = "LName";
-            this.LName.Size = new System.Drawing.Size(95, 20);
-            this.LName.TabIndex = 2;
-            this.LName.Text = "Last Name";
-            // 
-            // lblClientPhone
-            // 
-            this.lblClientPhone.AutoSize = true;
-            this.lblClientPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientPhone.Location = new System.Drawing.Point(663, 258);
-            this.lblClientPhone.Name = "lblClientPhone";
-            this.lblClientPhone.Size = new System.Drawing.Size(111, 20);
-            this.lblClientPhone.TabIndex = 3;
-            this.lblClientPhone.Text = "Client Phone";
-            // 
-            // lblTicketNum
-            // 
-            this.lblTicketNum.AutoSize = true;
-            this.lblTicketNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTicketNum.Location = new System.Drawing.Point(469, 78);
-            this.lblTicketNum.Name = "lblTicketNum";
-            this.lblTicketNum.Size = new System.Drawing.Size(124, 20);
-            this.lblTicketNum.TabIndex = 4;
-            this.lblTicketNum.Text = "Ticket Number";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(639, 78);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Problem Details";
             // 
             // btnBack
             // 
@@ -132,56 +73,6 @@ namespace TechnicianFORM
             this.btnComplete.UseVisualStyleBackColor = true;
             this.btnComplete.Click += new System.EventHandler(this.btnComplete_Click);
             // 
-            // lblStreet
-            // 
-            this.lblStreet.AutoSize = true;
-            this.lblStreet.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStreet.Location = new System.Drawing.Point(153, 258);
-            this.lblStreet.Name = "lblStreet";
-            this.lblStreet.Size = new System.Drawing.Size(130, 20);
-            this.lblStreet.TabIndex = 9;
-            this.lblStreet.Text = "Street Address";
-            // 
-            // lblUnitNum
-            // 
-            this.lblUnitNum.AutoSize = true;
-            this.lblUnitNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnitNum.Location = new System.Drawing.Point(12, 258);
-            this.lblUnitNum.Name = "lblUnitNum";
-            this.lblUnitNum.Size = new System.Drawing.Size(109, 20);
-            this.lblUnitNum.TabIndex = 10;
-            this.lblUnitNum.Text = "Unit Number";
-            // 
-            // lblSuburb
-            // 
-            this.lblSuburb.AutoSize = true;
-            this.lblSuburb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuburb.Location = new System.Drawing.Point(342, 258);
-            this.lblSuburb.Name = "lblSuburb";
-            this.lblSuburb.Size = new System.Drawing.Size(67, 20);
-            this.lblSuburb.TabIndex = 11;
-            this.lblSuburb.Text = "Suburb";
-            // 
-            // lblEmail
-            // 
-            this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail.Location = new System.Drawing.Point(489, 258);
-            this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(104, 20);
-            this.lblEmail.TabIndex = 12;
-            this.lblEmail.Text = "Client Email";
-            // 
-            // lblClientType
-            // 
-            this.lblClientType.AutoSize = true;
-            this.lblClientType.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblClientType.Location = new System.Drawing.Point(333, 78);
-            this.lblClientType.Name = "lblClientType";
-            this.lblClientType.Size = new System.Drawing.Size(98, 20);
-            this.lblClientType.TabIndex = 13;
-            this.lblClientType.Text = "Client Type";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -198,6 +89,7 @@ namespace TechnicianFORM
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(758, 124);
             this.dataGridView2.TabIndex = 15;
+            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
             // 
             // btnReassign
             // 
@@ -219,28 +111,30 @@ namespace TechnicianFORM
             this.btnGetTicket.UseVisualStyleBackColor = true;
             this.btnGetTicket.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(267, 411);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(97, 33);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.Text = "Update Customer";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // Technician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 450);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnGetTicket);
             this.Controls.Add(this.btnReassign);
             this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.lblClientType);
-            this.Controls.Add(this.lblEmail);
-            this.Controls.Add(this.lblSuburb);
-            this.Controls.Add(this.lblUnitNum);
-            this.Controls.Add(this.lblStreet);
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblTicketNum);
-            this.Controls.Add(this.lblClientPhone);
-            this.Controls.Add(this.LName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.FName);
             this.Name = "Technician";
             this.Text = "Technician";
             this.Load += new System.EventHandler(this.Technician_Load);
@@ -252,24 +146,14 @@ namespace TechnicianFORM
         }
 
         #endregion
-
-        private System.Windows.Forms.Label FName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LName;
-        private System.Windows.Forms.Label lblClientPhone;
-        private System.Windows.Forms.Label lblTicketNum;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnComplete;
-        private System.Windows.Forms.Label lblStreet;
-        private System.Windows.Forms.Label lblUnitNum;
-        private System.Windows.Forms.Label lblSuburb;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblClientType;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnReassign;
         private System.Windows.Forms.Button btnGetTicket;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }
 
