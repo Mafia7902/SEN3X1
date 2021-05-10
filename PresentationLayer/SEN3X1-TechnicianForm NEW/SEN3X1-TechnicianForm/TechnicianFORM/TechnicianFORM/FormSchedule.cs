@@ -50,17 +50,12 @@ namespace TechnicianFORM
 
         DataTable dt1 = new DataTable();
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGetTicket_Click(object sender, EventArgs e)
         {
-
             BindingSource bindingsource1 = new BindingSource();
-
-
 
             BindingSource bindingsource2 = new BindingSource();
             DataTable dt2 = new DataTable();
-
-
 
             dt1 = Tech.dg1(1);
             bindingsource1.DataSource = dt1;
@@ -70,6 +65,7 @@ namespace TechnicianFORM
             bindingsource2.DataSource = dt2;
             dataGridView2.DataSource = bindingsource2;
         }
+
 
 
         private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -100,5 +96,7 @@ namespace TechnicianFORM
             reassign.assignTicket(item, 1);
 
         }
+
+        
     } 
 }

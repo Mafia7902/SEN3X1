@@ -75,15 +75,18 @@ namespace TechnicianFORM
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(16, 101);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(758, 124);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridView2
             // 
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(16, 281);
             this.dataGridView2.Name = "dataGridView2";
@@ -110,7 +113,7 @@ namespace TechnicianFORM
             this.btnGetTicket.TabIndex = 18;
             this.btnGetTicket.Text = "Get Tickets";
             this.btnGetTicket.UseVisualStyleBackColor = true;
-            this.btnGetTicket.Click += new System.EventHandler(this.button1_Click);
+            this.btnGetTicket.Click += new System.EventHandler(this.btnGetTicket_Click);
             // 
             // btnUpdate
             // 

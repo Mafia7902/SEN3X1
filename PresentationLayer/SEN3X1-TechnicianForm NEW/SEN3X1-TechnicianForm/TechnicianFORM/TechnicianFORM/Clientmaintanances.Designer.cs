@@ -111,6 +111,7 @@ namespace TechnicianFORM
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(42, 98);
             this.dataGridView1.Name = "dataGridView1";
@@ -495,7 +496,7 @@ namespace TechnicianFORM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 542);
+            this.ClientSize = new System.Drawing.Size(1179, 542);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -506,7 +507,7 @@ namespace TechnicianFORM
             this.Controls.Add(this.bntUpdate);
             this.Controls.Add(this.label4);
             this.Name = "ClientMaintanance";
-            this.Text = "Form1";
+            this.Text = "Client Update";
             this.Load += new System.EventHandler(this.ClientMaintanance_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
