@@ -21,14 +21,14 @@ namespace ContractMaintance
         {
             NewContractForm newContract = new NewContractForm();
             newContract.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             DeactivateContract deactivate = new DeactivateContract();
             deactivate.Show();
-            this.Close();
+            this.Hide();
         }
     }
 }
