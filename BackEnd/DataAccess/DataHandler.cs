@@ -427,6 +427,60 @@ namespace DataAccess
         }
         //----------------------------------------------------------
 
+        public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
+           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = "N/A")
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE dbo.Client"
+                    + " SET"
+                    + " ClientName = '"
+                    + clientName
+                    + "', ClientSurname = '"
+                    + clientSurname
+                    + "', Phone = '"
+                    + phone
+                    + "', Email = '"
+                    + email
+                    + "', StreetAddress = '"
+                    + streetAddress
+                    + "', UnitNumber = '"
+                    + unitNumber
+                    + "', Suburb = '"
+                    + suburb
+                    + "', PostalCode = '"
+                    + postalCode
+                    + "' , Province = '"
+                    + province
+                    + "', ContractID = '"
+                    + contractID
+                    + "' , ClientType = "
+                    + clientType
+                    + " , BankDetails = '"
+                    + bankDetails
+                    + "' WHERE ClientID = '"
+                    + clientID
+                    + "'";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         public void UpdateBankDetails(string bankDetailsID, string paymentType, string bankname, string branchNum, string accountNum)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -551,7 +605,7 @@ namespace DataAccess
             }
         }
 
-        public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
+        public void UpdateClientDepreciated(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -795,6 +849,34 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Client WHERE dbo.Client.Email = '"
                     + email + "'", connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectClientDetails(string email)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand($"SELECT dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone,dbo.Client.Email,dbo.Client.StreetAddress,dbo.Client.UnitNumber,dbo.Client.Suburb,dbo.Client.PostalCode,dbo.Client.Province,dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName dbo.BankDetails.BranchNumdbo.BankDetails.AccountNumFROM dbo.ClientINNER JOIN dbo.BankDetailsON dbo.BankDetails.BankDetailsID = dbo.Client.BankDetailsWHERE dbo.Client.Email = '{email}'", connection))
             {
                 try
                 {
