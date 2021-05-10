@@ -71,6 +71,11 @@ namespace BusinessLogic
             DataHandler dh = new DataHandler();
             dh.InsertContract(contractID, contractType, contractDesc, price, deviceID, isActive);
         }
+        public  void newStates(int newState, string contractID)
+        {
+            DataHandler dh = new DataHandler();
+            dh.UpdateContractState(newState, contractID);
+        }
 
     }
 }

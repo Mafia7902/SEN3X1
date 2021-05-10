@@ -35,6 +35,8 @@ namespace ContractMaintance
             this.label3 = new System.Windows.Forms.Label();
             this.bntDeactivate = new System.Windows.Forms.Button();
             this.bntCancel = new System.Windows.Forms.Button();
+            this.cmbState = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -48,7 +50,7 @@ namespace ContractMaintance
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 117);
+            this.label2.Location = new System.Drawing.Point(50, 88);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 20);
             this.label2.TabIndex = 1;
@@ -56,7 +58,7 @@ namespace ContractMaintance
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(243, 114);
+            this.txtID.Location = new System.Drawing.Point(243, 81);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(148, 27);
             this.txtID.TabIndex = 2;
@@ -72,17 +74,17 @@ namespace ContractMaintance
             // 
             // bntDeactivate
             // 
-            this.bntDeactivate.Location = new System.Drawing.Point(243, 172);
+            this.bntDeactivate.Location = new System.Drawing.Point(243, 218);
             this.bntDeactivate.Name = "bntDeactivate";
-            this.bntDeactivate.Size = new System.Drawing.Size(95, 29);
+            this.bntDeactivate.Size = new System.Drawing.Size(129, 29);
             this.bntDeactivate.TabIndex = 4;
-            this.bntDeactivate.Text = "Deactivate";
+            this.bntDeactivate.Text = "Change Status ";
             this.bntDeactivate.UseVisualStyleBackColor = true;
             this.bntDeactivate.Click += new System.EventHandler(this.bntDeactivate_Click);
             // 
             // bntCancel
             // 
-            this.bntCancel.Location = new System.Drawing.Point(50, 172);
+            this.bntCancel.Location = new System.Drawing.Point(50, 218);
             this.bntCancel.Name = "bntCancel";
             this.bntCancel.Size = new System.Drawing.Size(95, 29);
             this.bntCancel.TabIndex = 5;
@@ -90,11 +92,33 @@ namespace ContractMaintance
             this.bntCancel.UseVisualStyleBackColor = true;
             this.bntCancel.Click += new System.EventHandler(this.bntCancel_Click);
             // 
+            // cmbState
+            // 
+            this.cmbState.FormattingEnabled = true;
+            this.cmbState.Items.AddRange(new object[] {
+            "1",
+            "0"});
+            this.cmbState.Location = new System.Drawing.Point(240, 147);
+            this.cmbState.Name = "cmbState";
+            this.cmbState.Size = new System.Drawing.Size(151, 28);
+            this.cmbState.TabIndex = 6;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(50, 150);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 20);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "New Active State";
+            // 
             // DeactivateContract
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 241);
+            this.ClientSize = new System.Drawing.Size(427, 272);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cmbState);
             this.Controls.Add(this.bntCancel);
             this.Controls.Add(this.bntDeactivate);
             this.Controls.Add(this.label3);
@@ -116,5 +140,7 @@ namespace ContractMaintance
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button bntDeactivate;
         private System.Windows.Forms.Button bntCancel;
+        private System.Windows.Forms.ComboBox cmbState;
+        private System.Windows.Forms.Label label4;
     }
 }
