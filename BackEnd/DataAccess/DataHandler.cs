@@ -435,39 +435,31 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "UPDATE [dbo].[Client]"
+                command.CommandText = "UPDATE dbo.Client"
                     + " SET"
-                    + " [ClientName] = '"
+                    + " ClientName = '"
                     + clientName
-                    + "'"
-                    + " ,[ClientSurname] = '"
+                    + "', ClientSurname = '"
                     + clientSurname
-                    + "'"
-                    + " ,[Phone] = '"
+                    + "', Phone = '"
                     + phone
-                    + "'"
-                    + " ,[Email] = '"
+                    + "', Email = '"
                     + email
-                    + "'"
-                    + " ,[StreetAddress] = '"
+                    + "', StreetAddress = '"
                     + streetAddress
-                    + "'"
-                    + " ,[UnitNumber] = '"
+                    + "', UnitNumber = '"
                     + unitNumber
-                    + "'"
-                    + " ,[Suburb] = '"
+                    + "', Suburb = '"
                     + suburb
-                    + "'"
-                    + " ,[PostalCode] = '"
+                    + "', PostalCode = '"
                     + postalCode
-                    + "' ,[Province] = '"
+                    + "' , Province = '"
                     + province
-                    + "'"
-                    + " ,[ContractID] = "
+                    + "', ContractID = '"
                     + contractID
-                    + " ,[ClientType] = "
+                    + "' , ClientType = "
                     + clientType
-                    + " ,[BankDetails] = '"
+                    + " , BankDetails = '"
                     + bankDetails
                     + "' WHERE ClientID = '"
                     + clientID
