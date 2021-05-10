@@ -678,7 +678,7 @@ namespace DataAccess
                 command.CommandText = "UPDATE [dbo].[Ticket] "
                     + "SET[ClientSatisfaction] = "
                     + clientSatisfaction
-                    + " ,[Completed] = 1"
+                    + ",[Completed] = 1"
                     + ",[DateCompleted] = '"
                     + DateTime.Now.ToString()
                     + "' "
@@ -877,7 +877,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand($"SELECT dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone,dbo.Client.Email,dbo.Client.StreetAddress,dbo.Client.UnitNumber,dbo.Client.Suburb,dbo.Client.PostalCode,dbo.Client.Province,dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName dbo.BankDetails.BranchNumdbo.BankDetails.AccountNumFROM dbo.ClientINNER JOIN dbo.BankDetailsON dbo.BankDetails.BankDetailsID = dbo.Client.BankDetailsWHERE dbo.Client.Email = '{email}'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.ClientID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum FROM dbo.Client INNER JOIN dbo.BankDetails ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email+"'", connection))
             {
                 try
                 {

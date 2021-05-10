@@ -29,12 +29,12 @@ namespace TechnicianFORM
         /// </summary>
         private void InitializeComponent()
         {
-            this.bntCancel = new System.Windows.Forms.Button();
+            this.bntReturn = new System.Windows.Forms.Button();
             this.bntUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtEmailSearch = new System.Windows.Forms.TextBox();
             this.txtProvince = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
@@ -65,29 +65,28 @@ namespace TechnicianFORM
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBankName = new System.Windows.Forms.TextBox();
+            this.txtAccoutNum = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtPaymentType = new System.Windows.Forms.TextBox();
+            this.txtBranchNum = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // bntCancel
+            // bntReturn
             // 
-            this.bntCancel.Location = new System.Drawing.Point(378, 471);
-            this.bntCancel.Name = "bntCancel";
-            this.bntCancel.Size = new System.Drawing.Size(75, 23);
-            this.bntCancel.TabIndex = 35;
-            this.bntCancel.Text = "Cancel";
-            this.bntCancel.UseVisualStyleBackColor = true;
+            this.bntReturn.Location = new System.Drawing.Point(378, 471);
+            this.bntReturn.Name = "bntReturn";
+            this.bntReturn.Size = new System.Drawing.Size(75, 23);
+            this.bntReturn.TabIndex = 35;
+            this.bntReturn.Text = "Close";
+            this.bntReturn.UseVisualStyleBackColor = true;
+            this.bntReturn.Click += new System.EventHandler(this.bntReturn_Click);
             // 
             // bntUpdate
             // 
@@ -130,12 +129,12 @@ namespace TechnicianFORM
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // txtEmail
+            // txtEmailSearch
             // 
-            this.txtEmail.Location = new System.Drawing.Point(42, 33);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(181, 20);
-            this.txtEmail.TabIndex = 53;
+            this.txtEmailSearch.Location = new System.Drawing.Point(42, 33);
+            this.txtEmailSearch.Name = "txtEmailSearch";
+            this.txtEmailSearch.Size = new System.Drawing.Size(181, 20);
+            this.txtEmailSearch.TabIndex = 53;
             // 
             // txtProvince
             // 
@@ -331,8 +330,6 @@ namespace TechnicianFORM
             // 
             this.groupBox1.Controls.Add(this.txtClientID);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtBankDetails);
-            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtContractID);
             this.groupBox1.Controls.Add(this.txtFirstName);
             this.groupBox1.Controls.Add(this.label11);
@@ -347,7 +344,7 @@ namespace TechnicianFORM
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(42, 200);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 370);
+            this.groupBox1.Size = new System.Drawing.Size(200, 328);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client details";
@@ -372,7 +369,7 @@ namespace TechnicianFORM
             // 
             // txtBankDetails
             // 
-            this.txtBankDetails.Location = new System.Drawing.Point(4, 340);
+            this.txtBankDetails.Location = new System.Drawing.Point(5, 41);
             this.txtBankDetails.Name = "txtBankDetails";
             this.txtBankDetails.ReadOnly = true;
             this.txtBankDetails.Size = new System.Drawing.Size(182, 20);
@@ -382,7 +379,7 @@ namespace TechnicianFORM
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(5, 321);
+            this.label5.Location = new System.Drawing.Point(6, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 16);
             this.label5.TabIndex = 79;
@@ -410,15 +407,15 @@ namespace TechnicianFORM
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label15);
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Controls.Add(this.label19);
-            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.txtBankName);
+            this.groupBox3.Controls.Add(this.txtBankDetails);
+            this.groupBox3.Controls.Add(this.txtAccoutNum);
+            this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.textBox3);
-            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.txtPaymentType);
+            this.groupBox3.Controls.Add(this.txtBranchNum);
             this.groupBox3.Location = new System.Drawing.Point(491, 200);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(200, 256);
@@ -430,99 +427,82 @@ namespace TechnicianFORM
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(7, 106);
+            this.label15.Location = new System.Drawing.Point(7, 146);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(54, 16);
+            this.label15.Size = new System.Drawing.Size(107, 16);
             this.label15.TabIndex = 75;
-            this.label15.Text = "Suburb";
+            this.label15.Text = "Branch Number";
             // 
-            // textBox1
+            // txtBankName
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 41);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 20);
-            this.textBox1.TabIndex = 73;
+            this.txtBankName.Location = new System.Drawing.Point(6, 81);
+            this.txtBankName.Name = "txtBankName";
+            this.txtBankName.Size = new System.Drawing.Size(182, 20);
+            this.txtBankName.TabIndex = 73;
+            // 
+            // txtAccoutNum
+            // 
+            this.txtAccoutNum.Location = new System.Drawing.Point(6, 207);
+            this.txtAccoutNum.Name = "txtAccoutNum";
+            this.txtAccoutNum.Size = new System.Drawing.Size(182, 20);
+            this.txtAccoutNum.TabIndex = 79;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(7, 22);
+            this.label16.Location = new System.Drawing.Point(7, 62);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(107, 16);
+            this.label16.Size = new System.Drawing.Size(80, 16);
             this.label16.TabIndex = 72;
-            this.label16.Text = "Street Address";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(7, 148);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(86, 16);
-            this.label17.TabIndex = 78;
-            this.label17.Text = "Postal Code";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(6, 125);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(182, 20);
-            this.textBox2.TabIndex = 74;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(6, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(182, 20);
-            this.textBox3.TabIndex = 77;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(6, 209);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(182, 20);
-            this.textBox4.TabIndex = 81;
+            this.label16.Text = "Bank Name";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(7, 64);
+            this.label18.Location = new System.Drawing.Point(7, 104);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(88, 16);
+            this.label18.Size = new System.Drawing.Size(100, 16);
             this.label18.TabIndex = 76;
-            this.label18.Text = "Unit Number";
+            this.label18.Text = "Payment type";
             // 
-            // textBox5
+            // label17
             // 
-            this.textBox5.Location = new System.Drawing.Point(6, 167);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(182, 20);
-            this.textBox5.TabIndex = 79;
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(7, 188);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(117, 16);
+            this.label17.TabIndex = 78;
+            this.label17.Text = "Account Number";
             // 
-            // label19
+            // txtPaymentType
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(7, 190);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(64, 16);
-            this.label19.TabIndex = 80;
-            this.label19.Text = "Province";
+            this.txtPaymentType.Location = new System.Drawing.Point(6, 123);
+            this.txtPaymentType.Name = "txtPaymentType";
+            this.txtPaymentType.Size = new System.Drawing.Size(182, 20);
+            this.txtPaymentType.TabIndex = 77;
+            // 
+            // txtBranchNum
+            // 
+            this.txtBranchNum.Location = new System.Drawing.Point(6, 165);
+            this.txtBranchNum.Name = "txtBranchNum";
+            this.txtBranchNum.Size = new System.Drawing.Size(182, 20);
+            this.txtBranchNum.TabIndex = 74;
             // 
             // ClientMaintanance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 572);
+            this.ClientSize = new System.Drawing.Size(1243, 542);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtEmailSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.bntCancel);
+            this.Controls.Add(this.bntReturn);
             this.Controls.Add(this.bntUpdate);
             this.Controls.Add(this.label4);
             this.Name = "ClientMaintanance";
@@ -541,12 +521,12 @@ namespace TechnicianFORM
         }
 
         #endregion
-        private System.Windows.Forms.Button bntCancel;
+        private System.Windows.Forms.Button bntReturn;
         private System.Windows.Forms.Button bntUpdate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtEmailSearch;
         private System.Windows.Forms.TextBox txtProvince;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtPostalCode;
@@ -577,14 +557,12 @@ namespace TechnicianFORM
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBankName;
+        private System.Windows.Forms.TextBox txtAccoutNum;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPaymentType;
+        private System.Windows.Forms.TextBox txtBranchNum;
     }
 }

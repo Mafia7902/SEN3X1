@@ -15,7 +15,7 @@ namespace TechnicianFORM
 {
     public partial class Technician : Form
     {
-        string[] array;
+        
 
         public Technician()
         {
@@ -27,16 +27,17 @@ namespace TechnicianFORM
         private void btnComplete_Click(object sender, EventArgs e)
         {
             // Method to update ticket to "Complete".
-            DataTable tktID = new TechInfo().dg1(1);
-            string ticketID = tktID.Rows[3]["TicketID"].ToString();
+            //DataTable tktID = new TechInfo().dg1(1);
+            //string ticketID = tktID.Rows[3]["TicketID"].ToString();
 
             TechInfo t = new TechInfo();
-            t.ConfirmCompletion(ticketID, 5);
+            t.ConfirmCompletion(item, 5);
 
         }
         string item;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             item = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 
         }

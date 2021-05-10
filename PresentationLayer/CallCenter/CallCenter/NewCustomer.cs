@@ -60,7 +60,8 @@ namespace CallCenter
                                                         Client client = new Client();
                                                         client.AddNewClient(txtFName.Text.ToString(), txtLName.Text.ToString(), txtPhone.Text.ToString(), txtEmail.Text.ToString(), txtStreetAddress.Text.ToString(), txtSuburb.Text.ToString(), txtPostCode.Text.ToString(), txtProvince.Text.ToString(), "conID", 1, "bankDetails", txtUnitNum.Text.ToString());
                                                         ContractSellection sellection = new ContractSellection();
-                                                        MessageBox.Show("New user has been added");
+                                                        MessageBox.Show("New user has been added","Added",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
                                                         sellection.Show();
                                                         this.Hide();
                                                     }

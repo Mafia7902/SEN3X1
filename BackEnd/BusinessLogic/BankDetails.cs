@@ -84,5 +84,11 @@ namespace BusinessLogic
             return base.ToString();
         }
 
+        public void updateBankDetails(string bankDetailsID, string paymentType, string bankname, string branchNum, string accountNum)
+        {
+            DataHandler dh = new DataHandler();
+            dh.UpdateBankDetails(bankDetailsID, paymentType, bankname, branchNum, accountNum);
+        }
+
     }
 }

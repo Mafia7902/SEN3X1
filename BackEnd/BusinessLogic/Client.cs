@@ -186,6 +186,12 @@ namespace BusinessLogic
             return dh.SelectClient(email);
         }
 
+        public DataTable searchClientDetails(string email)
+        {
+            DataHandler dh = new DataHandler();
+            return dh.SelectClientDetails(email);
+        }
+
         public override int GetHashCode()
         {
             return base.GetHashCode();
@@ -205,6 +211,13 @@ namespace BusinessLogic
         {
             DataTable mytbl = new DataTable();
             mytbl = new DataHandler().SelectClient(email);
+            return mytbl;
+        }
+
+        public DataTable dg2(string email)
+        {
+            DataTable mytbl = new DataTable();
+            mytbl = new DataHandler().SelectClientDetails(email);
             return mytbl;
         }
 

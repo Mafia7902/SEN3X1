@@ -18,19 +18,18 @@ namespace TechnicianFORM
             InitializeComponent();
         }
 
-
+        BankDetails bankDetails = new BankDetails();
         Client client = new Client();
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtEmail.Text.Length > 0 && txtEmail.Text.Contains("@"))
+            if (txtEmailSearch.Text.Length > 0 && txtEmailSearch.Text.Contains("@"))
             {
-               
-                DataTable dt = client.searchClient(txtEmail.Text.ToString());
+                DataTable dt = client.searchClientDetails(txtEmailSearch.Text.ToString());
                 if (dt.Rows.Count > 0)
                 {
                     BindingSource bindingSource = new BindingSource();
                    
-                    dt = client.dg1(txtEmail.Text);
+                    dt = client.dg2(txtEmailSearch.Text);
                     bindingSource.DataSource = dt;
                     dataGridView1.DataSource = bindingSource;
                 }
@@ -65,12 +64,48 @@ namespace TechnicianFORM
             txtContractID.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
             txtClientType.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
             txtBankDetails.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
-        }
+            txtBankName.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
+            txtPaymentType.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
+            txtBranchNum.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
+            txtAccoutNum.Text = dataGridView1.Rows[e.RowIndex].Cells[16].Value.ToString();
 
+        }
+       
         private void bntUpdate_Click(object sender, EventArgs e)
         {
             client.updateClient(txtClientID.Text, txtFirstName.Text, txtSurname.Text, txtEmail2.Text, txtSuburb.Text, txtPostalCode.Text,
-               txtProvince.Text, txtAddress.Text, txtPhone.Text, txtContractID.Text, int.Parse(txtClientType.Text), txtBankDetails.Text, txtUnitNumber.Text);
+               txtProvince.Text, txtAddress.Text, txtPhone.Text, txtContractID.Text, int.Parse(txtClientType.Text), 
+               txtBankDetails.Text, txtUnitNumber.Text);
+
+            bankDetails.updateBankDetails(txtBankDetails.Text, txtPaymentType.Text, txtBankName.Text, txtBranchNum.Text, txtAccoutNum.Text);
+
+            MessageBox.Show("Client details updated","Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            txtClientID.Text = " ";
+            txtFirstName.Text = " ";
+            txtSurname.Text = " ";
+            txtPhone.Text = " ";
+            txtEmail2.Text = " ";
+            txtAddress.Text = " ";
+            txtUnitNumber.Text = " ";
+            txtSuburb.Text = " ";
+            txtPostalCode.Text = " ";
+            txtProvince.Text = " ";
+            txtContractID.Text = " ";
+            txtClientType.Text = " ";
+            txtBankDetails.Text = " ";
+            txtBankName.Text = " ";
+            txtPaymentType.Text = " ";
+            txtBranchNum.Text = " ";
+            txtAccoutNum.Text = " ";
+            dataGridView1.DataSource = " ";
+            txtEmailSearch.Text = " ";
+
+        }
+        
+        private void bntReturn_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(1);
+
         }
     }
 }

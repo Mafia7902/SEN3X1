@@ -44,7 +44,7 @@ namespace CallCenter
             }
             else
             {
-                MessageBox.Show("Enter a valid email!");
+                MessageBox.Show("Enter a valid email!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
