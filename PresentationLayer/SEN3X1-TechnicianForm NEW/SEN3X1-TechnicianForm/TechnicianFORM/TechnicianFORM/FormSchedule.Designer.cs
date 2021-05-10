@@ -207,6 +207,7 @@ namespace TechnicianFORM
             this.btnReassign.TabIndex = 17;
             this.btnReassign.Text = "Reassign Task";
             this.btnReassign.UseVisualStyleBackColor = true;
+            this.btnReassign.Click += new System.EventHandler(this.btnReassign_Click);
             // 
             // btnGetTicket
             // 

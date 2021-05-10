@@ -14,6 +14,7 @@ namespace TechnicianFORM
 {
     public partial class Technician : Form
     {
+        string[] array;
         
         public Technician()
         {
@@ -35,29 +36,22 @@ namespace TechnicianFORM
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-             
+            var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
+            MessageBox.Show(item.ToString());
         }
         TechInfo Tech = new TechInfo();
 
         private void Technician_Load(object sender, EventArgs e)
         {
-            
-
-            //if (dt1.Rows.Count > 0)
-            //{
-            //    MessageBox.Show("WE got something");
-            //}
-
-
-            
 
         }
+        
+        DataTable dt1 = new DataTable();
 
         private void button1_Click(object sender, EventArgs e)
         {
             
             BindingSource bindingsource1 = new BindingSource();
-            DataTable dt1 = new DataTable();
 
 
             
@@ -73,6 +67,15 @@ namespace TechnicianFORM
             dt2 = Tech.dg2(1);
             bindingsource2.DataSource = dt2;
             dataGridView2.DataSource = bindingsource2;
+        }
+
+        private void btnReassign_Click(object sender, EventArgs e)
+        {
+            // Get current empoyee ID
+            // Run select "SelectAvailableTechnician". Pass current technician id and min score
+            // Returns a datatable
+            // make a variable and assign the first row of the dt to the variable
+
         }
     }
 }
