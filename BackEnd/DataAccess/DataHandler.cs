@@ -580,17 +580,16 @@ namespace DataAccess
                     + "'"
                     + " ,[PostalCode] = '"
                     + postalCode
-                    + "'"
-                    + " ,[Province] = '"
+                    + "' ,[Province] = '"
                     + province
                     + "'"
                     + " ,[ContractID] = "
                     + contractID
                     + " ,[ClientType] = "
                     + clientType
-                    + " ,[BankDetails] = "
+                    + " ,[BankDetails] = '"
                     + bankDetails
-                    + " WHERE ClientID = '"
+                    + "' WHERE ClientID = '"
                     + clientID
                     + "'"
                     , connection))
