@@ -729,11 +729,11 @@ namespace DataAccess
             }
         }
 
-        public DataTable SelectTechnician(int empID)
+        public DataTable SelectTechnician(int ticketID)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(@"SELECT * FROM dbo.Technician WHERE EmpID = " + empID + ")", connection))
+            using (SqlCommand command = new SqlCommand(@"SELECT EmpID FROM dbo.TechnicianSchedule WHERE TicketID = '" + ticketID + "'", connection))
             {
                 try
                 {
