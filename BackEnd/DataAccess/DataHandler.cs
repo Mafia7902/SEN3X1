@@ -669,20 +669,17 @@ namespace DataAccess
             }
         }
 
-        public void UpdateTicket(string ticketID, int clientSatisfaction = 5)
+        public void UpdateTicket(string ticketID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE [dbo].[Ticket] "
-                    + "SET[ClientSatisfaction] = "
-                    + clientSatisfaction
-                    + ",[Completed] = 1"
+                    + "SET [Completed] = 1"
                     + ",[DateCompleted] = '"
                     + DateTime.Now.ToString()
-                    + "' "
-                    + " WHERE TicketID = '"
+                    + "' WHERE TicketID = '"
                     + ticketID
                     + "'";
                 command.Connection = connection;
