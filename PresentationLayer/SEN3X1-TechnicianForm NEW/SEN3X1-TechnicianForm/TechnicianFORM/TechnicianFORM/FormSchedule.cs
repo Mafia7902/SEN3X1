@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BackEnd.BusinessLogic;
 using BusinessLogic;
 
 
@@ -33,11 +34,11 @@ namespace TechnicianFORM
             t.ConfirmCompletion(ticketID, 5);
 
         }
-
+        string item;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var item = dataGridView1.Rows[e.RowIndex].Cells[0].Value;
-            MessageBox.Show(item.ToString());
+             item = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+           
         }
         TechInfo Tech = new TechInfo();
 
@@ -76,6 +77,9 @@ namespace TechnicianFORM
             // Returns a datatable
             // make a variable and assign the first row of the dt to the variable
 
+            ReassignTicket reassign = new ReassignTicket();
+
+            reassign.assignTicket(item, 1);
         }
     }
 }
