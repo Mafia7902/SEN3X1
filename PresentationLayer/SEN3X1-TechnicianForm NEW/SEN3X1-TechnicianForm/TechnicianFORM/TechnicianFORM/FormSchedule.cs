@@ -78,6 +78,7 @@ namespace TechnicianFORM
             // make a variable and assign the first row of the dt to the variable
 
             ReassignTicket reassign = new ReassignTicket();
+            Console.WriteLine(item);
 
             reassign.assignTicket(item, 1);
         }

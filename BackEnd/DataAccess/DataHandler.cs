@@ -934,7 +934,9 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
                     + "FROM dbo.Technician INNER JOIN "
                     + " dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                     + " dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
-                    + "WHERE (dbo.Technician.SatisfactionScore >= " + minScore + ") AND (dbo.TechnicianSchedule.EmpID != '"
+                    + "WHERE (dbo.Technician.SatisfactionScore >= " 
+                    + minScore 
+                    + ") AND (dbo.TechnicianSchedule.EmpID != '"
                     + techIdToExclude
                     +"') "
                     + "GROUP BY dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
