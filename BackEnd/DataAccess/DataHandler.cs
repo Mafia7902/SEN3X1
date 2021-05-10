@@ -733,7 +733,10 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(@"SELECT EmpID FROM dbo.TechnicianSchedule WHERE TicketID = '" + ticketID + "'", connection))
+            using (SqlCommand command = new SqlCommand(@"SELECT dbo.Technician.EmpID, dbo.Technician.LifetimeTickets, dbo.Technician.TotalScore 
+FROM dbo.Technician INNER JOIN 
+dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID 
+WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             {
                 try
                 {
