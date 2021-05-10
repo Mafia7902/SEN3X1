@@ -552,7 +552,7 @@ namespace DataAccess
         }
 
         public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string phone, int contractID, int clientType, string bankDetails, string unitNumber = null)
+           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Client]"
