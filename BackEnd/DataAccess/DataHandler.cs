@@ -427,6 +427,68 @@ namespace DataAccess
         }
         //----------------------------------------------------------
 
+        public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
+           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = "N/A")
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE [dbo].[Client]"
+                    + " SET"
+                    + " [ClientName] = '"
+                    + clientName
+                    + "'"
+                    + " ,[ClientSurname] = '"
+                    + clientSurname
+                    + "'"
+                    + " ,[Phone] = '"
+                    + phone
+                    + "'"
+                    + " ,[Email] = '"
+                    + email
+                    + "'"
+                    + " ,[StreetAddress] = '"
+                    + streetAddress
+                    + "'"
+                    + " ,[UnitNumber] = '"
+                    + unitNumber
+                    + "'"
+                    + " ,[Suburb] = '"
+                    + suburb
+                    + "'"
+                    + " ,[PostalCode] = '"
+                    + postalCode
+                    + "' ,[Province] = '"
+                    + province
+                    + "'"
+                    + " ,[ContractID] = "
+                    + contractID
+                    + " ,[ClientType] = "
+                    + clientType
+                    + " ,[BankDetails] = '"
+                    + bankDetails
+                    + "' WHERE ClientID = '"
+                    + clientID
+                    + "'";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         public void UpdateBankDetails(string bankDetailsID, string paymentType, string bankname, string branchNum, string accountNum)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -551,7 +613,7 @@ namespace DataAccess
             }
         }
 
-        public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
+        public void UpdateClientDepreciated(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
