@@ -925,7 +925,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             }
         }
 
-        public DataTable SelectAvailableTechnician(int minScore)
+        public DataTable SelectAvailableTechnician(int minScore, int techIdToExclude)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -934,7 +934,9 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
                     + "FROM dbo.Technician INNER JOIN "
                     + " dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                     + " dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
-                    + "WHERE (dbo.Technician.SatisfactionScore >= " + minScore + ") "
+                    + "WHERE (dbo.Technician.SatisfactionScore >= " + minScore + ") AND (dbo.TechnicianSchedule.EmpID != '"
+                    + techIdToExclude
+                    +"') "
                     + "GROUP BY dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
                     + "HAVING (COUNT(dbo.TechnicianSchedule.EmpID) < 5)", connection))
             {
