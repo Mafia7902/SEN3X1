@@ -87,6 +87,7 @@ namespace TechnicianFORM
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(16, 281);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(758, 124);
             this.dataGridView2.TabIndex = 15;
             this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
@@ -99,6 +100,7 @@ namespace TechnicianFORM
             this.btnReassign.TabIndex = 17;
             this.btnReassign.Text = "Reassign Task";
             this.btnReassign.UseVisualStyleBackColor = true;
+            this.btnReassign.Click += new System.EventHandler(this.btnReassign_Click);
             // 
             // btnGetTicket
             // 

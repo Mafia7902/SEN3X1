@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BackEnd.BusinessLogic;
 using BusinessLogic;
 
 
@@ -14,6 +15,7 @@ namespace TechnicianFORM
 {
     public partial class Technician : Form
     {
+        string[] array;
         
         public Technician()
         {
@@ -32,32 +34,25 @@ namespace TechnicianFORM
             t.ConfirmCompletion(ticketID, 5);
 
         }
-
+        string item;
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-             
+             item = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+           
         }
         TechInfo Tech = new TechInfo();
 
         private void Technician_Load(object sender, EventArgs e)
         {
-            
-
-            //if (dt1.Rows.Count > 0)
-            //{
-            //    MessageBox.Show("WE got something");
-            //}
-
-
-            
 
         }
+        
+        DataTable dt1 = new DataTable();
 
         private void button1_Click(object sender, EventArgs e)
         {
             
             BindingSource bindingsource1 = new BindingSource();
-            DataTable dt1 = new DataTable();
 
 
             
@@ -73,19 +68,6 @@ namespace TechnicianFORM
             dt2 = Tech.dg2(1);
             bindingsource2.DataSource = dt2;
             dataGridView2.DataSource = bindingsource2;
-        }
-
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-  
-           
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            ClientMaintanance clientMaintanance = new ClientMaintanance();
-            this.Hide();
-            clientMaintanance.Show();
         }
     }
 }

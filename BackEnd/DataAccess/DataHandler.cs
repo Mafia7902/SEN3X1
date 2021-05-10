@@ -428,6 +428,36 @@ namespace DataAccess
         }
         //----------------------------------------------------------
 
+        public void UpdateBankDetails(string bankDetailsID, string paymentType, string bankname, string branchNum, string accountNum)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand())
+            {
+                command.CommandType = System.Data.CommandType.Text;
+                command.CommandText = "UPDATE dbo.BankDetails "
+                + "SET [PaymentType] = '" + paymentType + "'"
+                + " ,[BankName] = '" + bankname + "'"
+                + " ,[BranchNum] = '" + branchNum + "'"
+                + ",[AccountNum] = '" + accountNum + "'"
+                + " WHERE BankDetailsID = '" + bankDetailsID + "'";
+                command.Connection = connection;
+                try
+                {
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+            }
+        }
+
         public void UpdateTechnician(float satisfactionScore, int lifetimeRatedTickets, float totalScore, int empID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -435,11 +465,11 @@ namespace DataAccess
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE dbo.Technician "
-                                +"SET SatisfactionScore = "
+                                + "SET SatisfactionScore = "
                                 + satisfactionScore
-                                +" ,LifetimeTickets = "
+                                + " ,LifetimeTickets = "
                                 + lifetimeRatedTickets
-                                +" ,TotalScore = "
+                                + " ,TotalScore = "
                                 + totalScore
                                 + " WHERE EmpID = "
                                 + empID;
@@ -469,10 +499,10 @@ namespace DataAccess
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE dbo.Contract "
                 + "SET IsActive = "
-                +isActive
+                + isActive
                 + " WHERE ContractID = '"
-                +contractID
-                +"'";
+                + contractID
+                + "'";
                 command.Connection = connection;
                 try
                 {
@@ -523,7 +553,7 @@ namespace DataAccess
         }
 
         public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string phone, int contractID, int clientType, string bankDetails, string unitNumber = null)
+           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Client]"
@@ -551,17 +581,16 @@ namespace DataAccess
                     + "'"
                     + " ,[PostalCode] = '"
                     + postalCode
-                    + "'"
-                    + " ,[Province] = '"
+                    + "' ,[Province] = '"
                     + province
                     + "'"
                     + " ,[ContractID] = "
                     + contractID
                     + " ,[ClientType] = "
                     + clientType
-                    + " ,[BankDetails] = "
+                    + " ,[BankDetails] = '"
                     + bankDetails
-                    + " WHERE ClientID = '"
+                    + "' WHERE ClientID = '"
                     + clientID
                     + "'"
                     , connection))
@@ -864,13 +893,13 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.Ticket.TicketID, dbo.ClientContract.ContractID"
-                        + "FROM dbo.Call INNER JOIN "
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Ticket.TicketID, dbo.ClientContract.ContractID "
+                        + " FROM dbo.Call INNER JOIN "
                         + " dbo.ClientCall ON dbo.Call.CallID = dbo.ClientCall.CallID INNER JOIN "
                         + " dbo.Client ON dbo.ClientCall.ClientID = dbo.Client.ClientID INNER JOIN "
                         + " dbo.ClientContract ON dbo.Client.ClientID = dbo.ClientContract.ClientID INNER JOIN "
                         + " dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID "
-                        + "WHERE (dbo.Ticket.TicketID = '" + ticketID + "')", connection))
+                        + " WHERE (dbo.Ticket.TicketID = '" + ticketID + "')", connection))
             {
                 try
                 {
@@ -928,7 +957,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             }
         }
 
-        public DataTable SelectAvailableTechnician(int minScore)
+        public DataTable SelectAvailableTechnician(int minScore, int techIdToExclude)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -937,7 +966,11 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
                     + "FROM dbo.Technician INNER JOIN "
                     + " dbo.TechnicianSchedule ON dbo.Technician.EmpID = dbo.TechnicianSchedule.EmpID INNER JOIN "
                     + " dbo.Ticket ON dbo.TechnicianSchedule.TicketID = dbo.Ticket.TicketID "
-                    + "WHERE (dbo.Technician.SatisfactionScore >= " + minScore + ") "
+                    + "WHERE (dbo.Technician.SatisfactionScore >= "
+                    + minScore
+                    + ") AND (dbo.TechnicianSchedule.EmpID != '"
+                    + techIdToExclude
+                    + "') "
                     + "GROUP BY dbo.TechnicianSchedule.EmpID, dbo.TechnicianSchedule.TicketID "
                     + "HAVING (COUNT(dbo.TechnicianSchedule.EmpID) < 5)", connection))
             {

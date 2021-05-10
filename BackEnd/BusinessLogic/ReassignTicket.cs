@@ -4,7 +4,7 @@ using System.Data;
 using System.Text;
 using DataAccess;
 
-namespace BusinessLogic
+namespace BackEnd.BusinessLogic
 {
     enum ContractScore
     {
@@ -13,9 +13,9 @@ namespace BusinessLogic
         B,
         A
     }
-    public class TicketAssigning
+    public class ReassignTicket
     {
-        public static void assignTicket(string ticketID)
+        public void assignTicket(string ticketID, int employeeID)
         {
             DataHandler handler = new DataHandler();
             string contractID = "";
@@ -29,7 +29,7 @@ namespace BusinessLogic
             foreach (DataRow row in contractType.Rows)
             {
                 contractID = row["ContractID"].ToString();
-                
+
             }
             contractID = contractID.Substring(5, 1);
             switch (contractID)
@@ -56,22 +56,18 @@ namespace BusinessLogic
                     }
             }
 
-            AvalibleTechnicians = handler.SelectTicketsAndSatisfactionScore(neededScore);
+            AvalibleTechnicians = handler.SelectAvailableTechnician(neededScore, employeeID);
 
             try
             {
                 //DataRow employee = AvalibleTechnicians.Rows[0];
-                string empID = AvalibleTechnicians.Rows[0][0].ToString();
-                handler.InsertTechnicianSchedule(empID, ticketID);
+                int empID = Int32.Parse(AvalibleTechnicians.Rows[0][0].ToString());
+                handler.UpdateTechnicianSchedule(empID, ticketID);
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.ToString());
             }
-
-            
-
-            
         }
     }
 }
