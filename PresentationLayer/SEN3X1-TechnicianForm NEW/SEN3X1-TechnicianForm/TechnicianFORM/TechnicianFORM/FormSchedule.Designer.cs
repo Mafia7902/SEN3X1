@@ -55,7 +55,7 @@ namespace TechnicianFORM
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.Location = new System.Drawing.Point(608, 411);
+            this.btnBack.Location = new System.Drawing.Point(576, 411);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 33);
             this.btnBack.TabIndex = 6;
@@ -100,7 +100,6 @@ namespace TechnicianFORM
             this.btnReassign.TabIndex = 17;
             this.btnReassign.Text = "Reassign Task";
             this.btnReassign.UseVisualStyleBackColor = true;
-            this.btnReassign.Click += new System.EventHandler(this.btnReassign_Click);
             // 
             // btnGetTicket
             // 

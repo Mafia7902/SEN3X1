@@ -69,7 +69,7 @@ namespace TechnicianFORM
 
         private void bntUpdate_Click(object sender, EventArgs e)
         {
-            client.updateClient( txtFirstName.Text, txtSurname.Text, txtEmail2.Text, txtSuburb.Text, txtPostalCode.Text,
+            client.updateClient(txtClientID.Text, txtFirstName.Text, txtSurname.Text, txtEmail2.Text, txtSuburb.Text, txtPostalCode.Text,
                txtProvince.Text, txtAddress.Text, txtPhone.Text, txtContractID.Text, int.Parse(txtClientType.Text), txtBankDetails.Text, txtUnitNumber.Text);
         }
     }

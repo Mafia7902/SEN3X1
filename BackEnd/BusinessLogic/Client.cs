@@ -10,19 +10,30 @@ namespace BusinessLogic
 {
     public class Client
     {
-        private int clientID;
+        private string clientID;
         private string name;
+        private string surname;
         private string phone;
         private string email;
         private int clientType;
         private string physicalAddress;
+        private string unitNumber;
+        private string suburb;
+        private string postalcode;
+        private string province;
+        private string contractID;
+        private string bankDetails;
+       
+       
+
 
         public Client()
         {
 
         }
 
-        public Client(int clientID, string name, string phone, string email, int clientType, string physicalAddress)
+        public Client(string clientID, string name, string surname, string phone, string email, int clientType, string physicalAddress, string suburb, string postalcode
+            , string province, string contractID, string bankDetails, string unitNumber )
         {
             this.clientID = clientID;
             this.name = name;
@@ -30,8 +41,58 @@ namespace BusinessLogic
             this.email = email;
             this.clientType = clientType;
             this.physicalAddress = physicalAddress;
+            this.surname = surname;
+            this.suburb = suburb;
+            this.postalcode = postalcode;
+            this.province = province;
+            this.contractID = contractID;
+            this.bankDetails = bankDetails;
+            this.unitNumber = unitNumber;
+
         }
 
+        public string UnitNumber
+        {
+            get { return unitNumber; }
+            set { unitNumber= value; }
+        }
+
+        public string Surname
+        {
+            get { return surname; }
+            set { surname = value; }
+        }
+
+        public string Suburb
+        {
+            get { return suburb; }
+            set { suburb = value; }
+        }
+
+        public string PostalCode
+        {
+            get { return postalcode; }
+            set { postalcode = value; }
+        }
+
+        public string Province
+        {
+            get { return province; }
+            set { province = value; }
+        }
+
+        public string ContractID
+        {
+            get { return contractID; }
+            set { contractID = value; }
+        }
+
+        public string BankDetails
+        {
+            get { return bankDetails; }
+            set { bankDetails = value; }
+        }
+  
         public string PhysicalAddress
         {
             get { return physicalAddress; }
@@ -62,7 +123,7 @@ namespace BusinessLogic
             set { name = value; }
         }
 
-        public int ClientID
+        public string ClientID
         {
             get { return clientID; }
             set { clientID = value; }
@@ -147,11 +208,12 @@ namespace BusinessLogic
             return mytbl;
         }
 
-        public void updateClient( string clientName, string clientSurname, string email, string suburb, string postalCode,
+        public void updateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {
             DataHandler dh = new DataHandler();
-            dh.UpdateClient( clientName, clientSurname, email, suburb, postalCode, province, streetAddress, phone, contractID, clientType, bankDetails, unitNumber);
+            dh.UpdateClient(clientID ,clientName, clientSurname, email, suburb, postalCode, province, streetAddress, phone, contractID, 
+                clientType, bankDetails, unitNumber);
         }
        
     }
