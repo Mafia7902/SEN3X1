@@ -861,13 +861,13 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.Ticket.TicketID, dbo.ClientContract.ContractID"
-                        + "FROM dbo.Call INNER JOIN "
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Ticket.TicketID, dbo.ClientContract.ContractID "
+                        + " FROM dbo.Call INNER JOIN "
                         + " dbo.ClientCall ON dbo.Call.CallID = dbo.ClientCall.CallID INNER JOIN "
                         + " dbo.Client ON dbo.ClientCall.ClientID = dbo.Client.ClientID INNER JOIN "
                         + " dbo.ClientContract ON dbo.Client.ClientID = dbo.ClientContract.ClientID INNER JOIN "
                         + " dbo.Ticket ON dbo.Call.CallID = dbo.Ticket.CallID "
-                        + "WHERE (dbo.Ticket.TicketID = '" + ticketID + "')", connection))
+                        + " WHERE (dbo.Ticket.TicketID = '" + ticketID + "')", connection))
             {
                 try
                 {
