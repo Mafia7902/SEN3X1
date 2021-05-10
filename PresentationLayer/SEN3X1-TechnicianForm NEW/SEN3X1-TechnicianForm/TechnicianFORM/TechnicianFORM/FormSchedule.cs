@@ -31,7 +31,7 @@ namespace TechnicianFORM
             //string ticketID = tktID.Rows[3]["TicketID"].ToString();
 
             TechInfo t = new TechInfo();
-            t.ConfirmCompletion(item, 5);
+            t.ConfirmCompletion(item);
 
         }
         string item;
