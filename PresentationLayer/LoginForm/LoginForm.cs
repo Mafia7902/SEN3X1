@@ -19,6 +19,11 @@ namespace LoginForm
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtBoxEmpID_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

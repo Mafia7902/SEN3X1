@@ -11,10 +11,10 @@ namespace DataAccess
     class DataHandler
     {
         /*readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
-       readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
-       // readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
+        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
+                                                                                                                                    // readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
 
-        
+
         #region Insert Methods
 
         //Template
@@ -259,10 +259,9 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
+                command.CommandText = ""
                     + "INSERT INTO dbo.Device(DeviceID, Manufacturer, Model) "
-                    + "VALUES ('" + id + "', '" + manufacturer + "', '" + model + "') "
-                    + "COMMIT";
+                    + "VALUES ('" + id + "', '" + manufacturer + "', '" + model + "')";
                 command.Connection = connection;
                 try
                 {
@@ -813,7 +812,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.ClientID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum FROM dbo.Client INNER JOIN dbo.BankDetails ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email+"'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.ClientID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum FROM dbo.Client INNER JOIN dbo.BankDetails ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email + "'", connection))
             {
                 try
                 {
@@ -1052,7 +1051,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         public void DeleteClient(int clientID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = '" + clientID+"'", connection))
+            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = '" + clientID + "'", connection))
             {
                 try
                 {
@@ -1078,39 +1077,34 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         #region Extras
         //If it doesn't say Insert, Update, Delete or Select in the method name, then you'll probably find it here
 
-        public int LoginCheck(string uname, string pwd)
+        public DataTable LoginCheck(string uname, string pwd)
         {
+            DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT EmpID"
-                    + ",Username"
-                    + ",Password"
-                    + "FROM dbo.Login"
-                    + "WHERE Username='"
-                    + uname
-                    + "' AND Password='"
-                    + pwd
-                    + "'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.JobID, dbo.Employee.EmpID "
+                        + "FROM dbo.Employee INNER JOIN "
+                        + "dbo.Login ON dbo.Employee.EmpID = dbo.Login.EmpID "
+                        + "WHERE(dbo.Login.Username = '" + uname + "') AND(dbo.Login.Password = '" + pwd + "')", connection))
             {
                 try
                 {
                     connection.Open();
-                    using (SqlDataReader reader = command.ExecuteReader())
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
-                        if (reader.HasRows)
-                        {
-                            return reader.GetInt32(reader.GetOrdinal("EmpID"));
-                        }
-                        else
-                        {
-                            return 0;
-                        }
+                        adapter.Fill(table);
                     }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
                 }
                 finally
                 {
                     command.Dispose();
                     connection.Close();
                 }
+                return table;
             }
         }
 
