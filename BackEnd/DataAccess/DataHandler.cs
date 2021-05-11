@@ -1049,11 +1049,10 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
 
         #region Delete Methods
 
-        //Definitly needs to be updated as this will not work upon further inspection - Albert Wolfaardt
         public void DeleteClient(int clientID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = " + clientID, connection))
+            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = '" + clientID+"'", connection))
             {
                 try
                 {
