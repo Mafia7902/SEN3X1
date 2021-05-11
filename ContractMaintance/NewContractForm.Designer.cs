@@ -39,8 +39,6 @@ namespace ContractMaintance
             this.label4 = new System.Windows.Forms.Label();
             this.bntCancel = new System.Windows.Forms.Button();
             this.txtDeviceID = new System.Windows.Forms.TextBox();
-            this.txtContractID = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.cmbActive = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -53,7 +51,7 @@ namespace ContractMaintance
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(85, 197);
+            this.label1.Location = new System.Drawing.Point(82, 153);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.TabIndex = 0;
@@ -62,7 +60,7 @@ namespace ContractMaintance
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(85, 257);
+            this.label2.Location = new System.Drawing.Point(85, 212);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 1;
@@ -71,7 +69,7 @@ namespace ContractMaintance
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(85, 318);
+            this.label3.Location = new System.Drawing.Point(85, 277);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 20);
             this.label3.TabIndex = 2;
@@ -86,28 +84,28 @@ namespace ContractMaintance
             "Gold",
             "Silver",
             "Bronze"});
-            this.CombContractType.Location = new System.Drawing.Point(242, 189);
+            this.CombContractType.Location = new System.Drawing.Point(238, 150);
             this.CombContractType.Name = "CombContractType";
             this.CombContractType.Size = new System.Drawing.Size(151, 28);
             this.CombContractType.TabIndex = 3;
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(242, 311);
+            this.txtPrice.Location = new System.Drawing.Point(238, 274);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(151, 27);
             this.txtPrice.TabIndex = 4;
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(242, 250);
+            this.txtDescription.Location = new System.Drawing.Point(238, 209);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(151, 27);
             this.txtDescription.TabIndex = 5;
             // 
             // bntSubmit
             // 
-            this.bntSubmit.Location = new System.Drawing.Point(242, 640);
+            this.bntSubmit.Location = new System.Drawing.Point(238, 599);
             this.bntSubmit.Name = "bntSubmit";
             this.bntSubmit.Size = new System.Drawing.Size(97, 45);
             this.bntSubmit.TabIndex = 6;
@@ -127,7 +125,7 @@ namespace ContractMaintance
             // 
             // bntCancel
             // 
-            this.bntCancel.Location = new System.Drawing.Point(85, 640);
+            this.bntCancel.Location = new System.Drawing.Point(85, 599);
             this.bntCancel.Name = "bntCancel";
             this.bntCancel.Size = new System.Drawing.Size(97, 45);
             this.bntCancel.TabIndex = 8;
@@ -137,26 +135,10 @@ namespace ContractMaintance
             // 
             // txtDeviceID
             // 
-            this.txtDeviceID.Location = new System.Drawing.Point(242, 370);
+            this.txtDeviceID.Location = new System.Drawing.Point(238, 334);
             this.txtDeviceID.Name = "txtDeviceID";
             this.txtDeviceID.Size = new System.Drawing.Size(151, 27);
             this.txtDeviceID.TabIndex = 9;
-            // 
-            // txtContractID
-            // 
-            this.txtContractID.Location = new System.Drawing.Point(242, 125);
-            this.txtContractID.Name = "txtContractID";
-            this.txtContractID.Size = new System.Drawing.Size(151, 27);
-            this.txtContractID.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(85, 132);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 20);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Contract ID";
             // 
             // cmbActive
             // 
@@ -165,7 +147,7 @@ namespace ContractMaintance
             this.cmbActive.Items.AddRange(new object[] {
             "1",
             "0"});
-            this.cmbActive.Location = new System.Drawing.Point(240, 549);
+            this.cmbActive.Location = new System.Drawing.Point(238, 518);
             this.cmbActive.Name = "cmbActive";
             this.cmbActive.Size = new System.Drawing.Size(151, 28);
             this.cmbActive.TabIndex = 12;
@@ -173,7 +155,7 @@ namespace ContractMaintance
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(85, 377);
+            this.label6.Location = new System.Drawing.Point(85, 337);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 20);
             this.label6.TabIndex = 13;
@@ -182,7 +164,7 @@ namespace ContractMaintance
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(85, 552);
+            this.label7.Location = new System.Drawing.Point(85, 521);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 20);
             this.label7.TabIndex = 14;
@@ -191,7 +173,7 @@ namespace ContractMaintance
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(85, 496);
+            this.label8.Location = new System.Drawing.Point(85, 460);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(52, 20);
             this.label8.TabIndex = 15;
@@ -200,7 +182,7 @@ namespace ContractMaintance
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(85, 435);
+            this.label9.Location = new System.Drawing.Point(85, 408);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(97, 20);
             this.label9.TabIndex = 16;
@@ -208,23 +190,24 @@ namespace ContractMaintance
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(242, 493);
+            this.txtModel.Location = new System.Drawing.Point(238, 457);
             this.txtModel.Name = "txtModel";
-            this.txtModel.Size = new System.Drawing.Size(149, 27);
+            this.txtModel.Size = new System.Drawing.Size(151, 27);
             this.txtModel.TabIndex = 17;
             // 
             // txtManufacturer
             // 
-            this.txtManufacturer.Location = new System.Drawing.Point(242, 432);
+            this.txtManufacturer.Location = new System.Drawing.Point(238, 390);
             this.txtManufacturer.Name = "txtManufacturer";
-            this.txtManufacturer.Size = new System.Drawing.Size(149, 27);
+            this.txtManufacturer.Size = new System.Drawing.Size(151, 27);
             this.txtManufacturer.TabIndex = 18;
+            this.txtManufacturer.TextChanged += new System.EventHandler(this.txtManufacturer_TextChanged);
             // 
             // NewContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 738);
+            this.ClientSize = new System.Drawing.Size(463, 667);
             this.Controls.Add(this.txtManufacturer);
             this.Controls.Add(this.txtModel);
             this.Controls.Add(this.label9);
@@ -232,8 +215,6 @@ namespace ContractMaintance
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbActive);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtContractID);
             this.Controls.Add(this.txtDeviceID);
             this.Controls.Add(this.bntCancel);
             this.Controls.Add(this.label4);
@@ -263,8 +244,6 @@ namespace ContractMaintance
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button bntCancel;
         private System.Windows.Forms.TextBox txtDeviceID;
-        private System.Windows.Forms.TextBox txtContractID;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cmbActive;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

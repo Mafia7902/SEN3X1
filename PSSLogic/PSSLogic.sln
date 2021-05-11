@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackEnd", "..\BackEnd\BackE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginForm", "..\PresentationLayer\LoginForm\LoginForm.csproj", "{28B62C1B-3ACD-49B2-9A0B-893BE1700C28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContractMaintance", "..\ContractMaintance\ContractMaintance.csproj", "{3812605B-F297-426F-88A7-7B6154028248}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContractMaintance", "..\ContractMaintance\ContractMaintance.csproj", "{3812605B-F297-426F-88A7-7B6154028248}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallSystem", "CallSystem\CallSystem.csproj", "{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{3812605B-F297-426F-88A7-7B6154028248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3812605B-F297-426F-88A7-7B6154028248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3812605B-F297-426F-88A7-7B6154028248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
