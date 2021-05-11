@@ -83,6 +83,7 @@ namespace ContractMaintance
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ContractMaintance";
+            this.Load += new System.EventHandler(this.ContractMaintance_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

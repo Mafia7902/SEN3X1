@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{929CF8F4-A4E0-4D9E-9D38-2189622FEE20}</ProjectGuid>
+    <ProjectGuid>{78E921B0-DFF9-461E-BE98-33B71E3808B8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>LoginV2</RootNamespace>
-    <AssemblyName>LoginV2</AssemblyName>
+    <RootNamespace>ContractMaintenance2</RootNamespace>
+    <AssemblyName>ContractMaintenance2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,9 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,16 +46,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Login.cs">
+    <Compile Include="ContractMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="ContractMaintenance.Designer.cs">
+      <DependentUpon>ContractMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeactivateContract.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeactivateContract.Designer.cs">
+      <DependentUpon>DeactivateContract.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewContractForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewContractForm.Designer.cs">
+      <DependentUpon>NewContractForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="DeactivateContract.resx">
+      <DependentUpon>DeactivateContract.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewContractForm.resx">
+      <DependentUpon>NewContractForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,7 +81,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -87,26 +98,6 @@
     <ProjectReference Include="..\..\BackEnd\BackEnd.csproj">
       <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
       <Name>BackEnd</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\PresentationLayer\CallCenter\CallCenter\CallCenter.csproj">
-      <Project>{94dc3b52-167b-4016-aefd-b512508bef2c}</Project>
-      <Name>CallCenter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\PresentationLayer\ClinetMaintance\ClinetMaintance\ClinetMaintance2.csproj">
-      <Project>{aa4abdf4-6ba4-407c-ad19-9720664217a3}</Project>
-      <Name>ClinetMaintance2</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\PresentationLayer\SEN3X1-TechnicianForm NEW\SEN3X1-TechnicianForm\TechnicianFORM\TechnicianFORM\TechnicianFORM.csproj">
-      <Project>{741e28cc-5e05-4a03-83ee-4840a0388d8f}</Project>
-      <Name>TechnicianFORM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\PresentationLayer\WindowsFormsApp1\ClienSatisfactionForm.csproj">
-      <Project>{83dcc2f8-a775-4867-ac39-d0e83980129b}</Project>
-      <Name>ClienSatisfactionForm</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ContractMaintenance2\ContractMaintenance2.csproj">
-      <Project>{78E921B0-DFF9-461E-BE98-33B71E3808B8}</Project>
-      <Name>ContractMaintenance2</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

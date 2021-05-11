@@ -30,5 +30,10 @@ namespace ContractMaintance
             deactivate.Show();
             this.Hide();
         }
+
+        private void ContractMaintance_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
