@@ -25,8 +25,8 @@ namespace CallSystem
             LoginV2.Login f1 = new LoginV2.Login();
             f1.Show();
 
-            CallInformation start = new CallInformation();
-            start.startTime();
+            //CallInformation start = new CallInformation();
+           // start.startTime();
 
         }
     }

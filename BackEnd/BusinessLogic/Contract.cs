@@ -77,7 +77,12 @@ namespace BusinessLogic
             dh.UpdateContractState(newState, contractID);
         }
 
-
+       public void selectContractForCallCenter( )
+        {
+            DataHandler dh = new DataHandler();
+            dh.SelectContractForCallCenter();
+         
+        }
 
     }
 }
