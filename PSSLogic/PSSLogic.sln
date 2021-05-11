@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallCenter", "..\PresentationLayer\CallCenter\CallCenter\CallCenter.csproj", "{94DC3B52-167B-4016-AEFD-B512508BEF2C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinetMaintance", "..\PresentationLayer\ClinetMaintance\ClinetMaintance\ClinetMaintance.csproj", "{AA4ABDF4-6BA4-407C-AD19-9720664217A3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinetMaintance2", "..\PresentationLayer\ClinetMaintance\ClinetMaintance\ClinetMaintance2.csproj", "{AA4ABDF4-6BA4-407C-AD19-9720664217A3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechnicianFORM", "..\PresentationLayer\SEN3X1-TechnicianForm NEW\SEN3X1-TechnicianForm\TechnicianFORM\TechnicianFORM\TechnicianFORM.csproj", "{741E28CC-5E05-4A03-83EE-4840A0388D8F}"
 EndProject
@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackEnd", "..\BackEnd\BackE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginForm", "..\PresentationLayer\LoginForm\LoginForm.csproj", "{28B62C1B-3ACD-49B2-9A0B-893BE1700C28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContractMaintance", "..\ContractMaintance\ContractMaintance.csproj", "{3812605B-F297-426F-88A7-7B6154028248}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContractMaintance", "..\ContractMaintance\ContractMaintance.csproj", "{3812605B-F297-426F-88A7-7B6154028248}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
