@@ -50,7 +50,7 @@ namespace LoginForm
             // UserNameLbl
             // 
             this.UserNameLbl.AutoSize = true;
-            this.UserNameLbl.Location = new System.Drawing.Point(13, 63);
+            this.UserNameLbl.Location = new System.Drawing.Point(76, 72);
             this.UserNameLbl.Name = "UserNameLbl";
             this.UserNameLbl.Size = new System.Drawing.Size(120, 13);
             this.UserNameLbl.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace LoginForm
             // passwordLbl
             // 
             this.passwordLbl.AutoSize = true;
-            this.passwordLbl.Location = new System.Drawing.Point(12, 131);
+            this.passwordLbl.Location = new System.Drawing.Point(76, 141);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(106, 13);
             this.passwordLbl.TabIndex = 2;
@@ -77,14 +77,15 @@ namespace LoginForm
             // 
             // txtBoxEmpID
             // 
-            this.txtBoxEmpID.Location = new System.Drawing.Point(12, 88);
+            this.txtBoxEmpID.Location = new System.Drawing.Point(75, 88);
             this.txtBoxEmpID.Name = "txtBoxEmpID";
             this.txtBoxEmpID.Size = new System.Drawing.Size(131, 20);
             this.txtBoxEmpID.TabIndex = 4;
+            this.txtBoxEmpID.TextChanged += new System.EventHandler(this.txtBoxEmpID_TextChanged);
             // 
             // txtBoxPsw
             // 
-            this.txtBoxPsw.Location = new System.Drawing.Point(11, 159);
+            this.txtBoxPsw.Location = new System.Drawing.Point(74, 157);
             this.txtBoxPsw.Name = "txtBoxPsw";
             this.txtBoxPsw.Size = new System.Drawing.Size(132, 20);
             this.txtBoxPsw.TabIndex = 5;
