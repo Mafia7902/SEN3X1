@@ -93,10 +93,10 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
+                command.CommandText = " "
                     + "INSERT INTO dbo.Contract (ContractID, ContractType, ContractDescription, Price, DeviceID, IsActive) "
                     + "VALUES ('" + contractID + "','" + contractType + "', '" + contractDesc + "'," + price + ", '" + deviceID + "', " + isActive + ") "
-                    + "COMMIT";
+                    + "";
                 command.Connection = connection;
                 try
                 {
