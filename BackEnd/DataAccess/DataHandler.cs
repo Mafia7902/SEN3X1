@@ -314,10 +314,8 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION"
-                    + "INSERT INTO dbo.BankDetails (BankDetailsID, PaymentType, BankName, BranchNum, AccountNum)"
-                    + "VALUES ('" + bdID + "', '" + paymentType + "', '" + bankName + "', '" + branchNum + "', '" + accountNum + "')"
-                    + "COMMIT";
+                command.CommandText = "INSERT INTO dbo.BankDetails (BankDetailsID, PaymentType, BankName, BranchNum, AccountNum)"
+                    + "VALUES ('" + bdID + "', '" + paymentType + "', '" + bankName + "', '" + branchNum + "', '" + accountNum + "')";
                 command.Connection = connection;
                 try
                 {
