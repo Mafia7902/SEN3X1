@@ -55,20 +55,18 @@ namespace DataAccess
 
         public void InsertLoginWIP()
         {
-            //WIP
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
-                    + "INSERT INTO dbo.Login(EmpID) "
+                command.CommandText = "INSERT INTO dbo.Login(EmpID) "
                     + " "
                     + " "
                     + " "
                     + " "
                     + " "
                     + " "
-                    + "COMMIT";
+                    + " ";
                 command.Connection = connection;
                 try
                 {
@@ -203,10 +201,8 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
-                    + "INSERT INTO dbo.Job(JobID, JobName, Salary) "
-                    + "VALUES(" + jobID + ", '" + name + "', " + salary + ") "
-                    + "COMMIT";
+                command.CommandText ="INSERT INTO dbo.Job(JobID, JobName, Salary) "
+                    + "VALUES(" + jobID + ", '" + name + "', " + salary + ") ";
                 command.Connection = connection;
                 try
                 {
@@ -1216,7 +1212,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpID, dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.Employee.Phone, dbo.Employee.Email, dbo.Technician.SatisfactionScore "
             + " FROM dbo.Employee INNER JOIN "
-            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID)", connection)) 
+            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID", connection)) 
             {
                 try
                 {
@@ -1246,7 +1242,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpID, dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.Employee.Phone, dbo.Employee.Email, dbo.Technician.SatisfactionScore "
             + " FROM dbo.Employee INNER JOIN "
-            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID"
+            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID "
             + "WHERE dbo.Employee.EmpID = "+TechID , connection))
             {
                 try
