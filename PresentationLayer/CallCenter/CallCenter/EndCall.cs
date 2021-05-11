@@ -24,9 +24,9 @@ namespace CallCenter
             CallInformation end = new CallInformation();
             end.endTime();
 
-            string timeSpent = end.elapsedTime();
+            end.elapsedTime();
 
-            MessageBox.Show(timeSpent);
+            MessageBox.Show(end.elapsedTime());
             
         }
     }
