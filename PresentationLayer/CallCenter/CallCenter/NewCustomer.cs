@@ -41,24 +41,30 @@ namespace CallCenter
                         {
                             if (txtEmail.Text.Length > 0)
                             {
-                                if (txtStreetAddress.Text.Length>0) {
-
-                                    if (txtPostCode.Text.Length>0) {
-
+                                if (txtStreetAddress.Text.Length > 0)
+                                {
+                                    if (txtPostCode.Text.Length > 0)
+                                    {
                                         if (txtProvince.Text.Length > 0)
                                         {
-                                            if (txtBankName.Text.Length>0)
+                                            if (txtBankName.Text.Length > 0)
                                             {
-                                                if (txtBranchNum.Text.Length>0)
+                                                if (txtBranchNum.Text.Length > 0)
                                                 {
                                                     if (txtPaymentType.Text.Length > 0)
                                                     {
                                                         Random random = new Random();
                                                         int bankID = random.Next(10000);
                                                         BankDetails bank = new BankDetails();
-                                                        bank.AddBankDetails(bankID.ToString(), txtAccountNum.Text.ToString(), txtBranchNum.Text.ToString(), txtBankName.Text.ToString(), txtAccountNum.Text.ToString());
+                                                        
+                                                       
+
+                                                        bank.AddBankDetails("BankID"+bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text, 
+                                                                            txtBankName.Text, txtAccountNum.Text);
                                                         Client client = new Client();
-                                                        client.AddNewClient(txtFName.Text.ToString(), txtLName.Text.ToString(), txtPhone.Text.ToString(), txtEmail.Text.ToString(), txtStreetAddress.Text.ToString(), txtSuburb.Text.ToString(), txtPostCode.Text.ToString(), txtProvince.Text.ToString(), "conID", 1, bankID.ToString(), txtUnitNum.Text.ToString());
+                                                        client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                    txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                     "contractID", 1, "BankID"+bankID.ToString(), txtUnitNum.Text);
                                                         ContractSellection sellection = new ContractSellection();
                                                         MessageBox.Show("New user has been added","Added",MessageBoxButtons.OK,MessageBoxIcon.Information);
 

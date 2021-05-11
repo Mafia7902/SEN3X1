@@ -70,8 +70,8 @@ namespace TechnicianFORM
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtPaymentType = new System.Windows.Forms.TextBox();
             this.txtBranchNum = new System.Windows.Forms.TextBox();
+            this.txtPaymentType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -407,6 +407,7 @@ namespace TechnicianFORM
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtPaymentType);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txtBankName);
             this.groupBox3.Controls.Add(this.txtBankDetails);
@@ -415,7 +416,6 @@ namespace TechnicianFORM
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.txtPaymentType);
             this.groupBox3.Controls.Add(this.txtBranchNum);
             this.groupBox3.Location = new System.Drawing.Point(491, 200);
             this.groupBox3.Name = "groupBox3";
@@ -478,19 +478,26 @@ namespace TechnicianFORM
             this.label17.TabIndex = 78;
             this.label17.Text = "Account Number";
             // 
-            // txtPaymentType
-            // 
-            this.txtPaymentType.Location = new System.Drawing.Point(6, 123);
-            this.txtPaymentType.Name = "txtPaymentType";
-            this.txtPaymentType.Size = new System.Drawing.Size(182, 20);
-            this.txtPaymentType.TabIndex = 77;
-            // 
             // txtBranchNum
             // 
             this.txtBranchNum.Location = new System.Drawing.Point(6, 165);
             this.txtBranchNum.Name = "txtBranchNum";
             this.txtBranchNum.Size = new System.Drawing.Size(182, 20);
             this.txtBranchNum.TabIndex = 74;
+            // 
+            // txtPaymentType
+            // 
+            this.txtPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtPaymentType.FormattingEnabled = true;
+            this.txtPaymentType.Items.AddRange(new object[] {
+            "Montly",
+            "Anually ",
+            "Bi-Anually",
+            "Quarterly"});
+            this.txtPaymentType.Location = new System.Drawing.Point(6, 125);
+            this.txtPaymentType.Name = "txtPaymentType";
+            this.txtPaymentType.Size = new System.Drawing.Size(181, 21);
+            this.txtPaymentType.TabIndex = 82;
             // 
             // ClientMaintanance
             // 
@@ -563,7 +570,7 @@ namespace TechnicianFORM
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtPaymentType;
         private System.Windows.Forms.TextBox txtBranchNum;
+        private System.Windows.Forms.ComboBox txtPaymentType;
     }
 }

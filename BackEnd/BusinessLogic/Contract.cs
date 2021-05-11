@@ -77,5 +77,7 @@ namespace BusinessLogic
             dh.UpdateContractState(newState, contractID);
         }
 
+
+
     }
 }

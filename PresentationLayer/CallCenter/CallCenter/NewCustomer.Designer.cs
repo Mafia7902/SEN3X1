@@ -54,7 +54,6 @@ namespace CallCenter
             this.btnBack = new System.Windows.Forms.Button();
             this.Heading2 = new System.Windows.Forms.Label();
             this.groupBoxBankingInfo = new System.Windows.Forms.GroupBox();
-            this.txtPaymentType = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBranchNum = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,6 +62,7 @@ namespace CallCenter
             this.label6 = new System.Windows.Forms.Label();
             this.txtAccountNum = new System.Windows.Forms.TextBox();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.txtPaymentType = new System.Windows.Forms.ComboBox();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxBankingInfo.SuspendLayout();
             this.SuspendLayout();
@@ -319,13 +319,6 @@ namespace CallCenter
             this.groupBoxBankingInfo.TabStop = false;
             this.groupBoxBankingInfo.Text = "Banking Information";
             // 
-            // txtPaymentType
-            // 
-            this.txtPaymentType.Location = new System.Drawing.Point(150, 114);
-            this.txtPaymentType.Name = "txtPaymentType";
-            this.txtPaymentType.Size = new System.Drawing.Size(245, 24);
-            this.txtPaymentType.TabIndex = 42;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -391,6 +384,20 @@ namespace CallCenter
             // 
             this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
             // 
+            // txtPaymentType
+            // 
+            this.txtPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtPaymentType.FormattingEnabled = true;
+            this.txtPaymentType.Items.AddRange(new object[] {
+            "Montly",
+            "Anually ",
+            "Bi-Anually",
+            "Quarterly"});
+            this.txtPaymentType.Location = new System.Drawing.Point(150, 117);
+            this.txtPaymentType.Name = "txtPaymentType";
+            this.txtPaymentType.Size = new System.Drawing.Size(245, 26);
+            this.txtPaymentType.TabIndex = 43;
+            // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -440,7 +447,6 @@ namespace CallCenter
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label Heading2;
         private System.Windows.Forms.GroupBox groupBoxBankingInfo;
-        private System.Windows.Forms.TextBox txtPaymentType;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtBranchNum;
         private System.Windows.Forms.Label label12;
@@ -451,5 +457,6 @@ namespace CallCenter
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ComboBox txtPaymentType;
     }
 }

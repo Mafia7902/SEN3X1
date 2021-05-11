@@ -21,12 +21,12 @@ namespace CallCenter
 
         private void btnEndCall_Click(object sender, EventArgs e)
         {
-            CallInformation end = new CallInformation();
-            end.endTime();
+           // CallInformation end = new CallInformation();
+            //end.endTime();
 
-            string timeSpent = end.elapsedTime();
+            //string timeSpent = end.elapsedTime();
 
-            MessageBox.Show(timeSpent);
+           // MessageBox.Show(timeSpent);
             
         }
     }
