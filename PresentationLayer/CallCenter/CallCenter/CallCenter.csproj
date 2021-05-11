@@ -67,6 +67,12 @@
     <Compile Include="ContractSellection.Designer.cs">
       <DependentUpon>ContractSellection.cs</DependentUpon>
     </Compile>
+    <Compile Include="EndCall.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EndCall.Designer.cs">
+      <DependentUpon>EndCall.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExisitngCustomerLogIN.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContractSellection.resx">
       <DependentUpon>ContractSellection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EndCall.resx">
+      <DependentUpon>EndCall.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ExisitngCustomerLogIN.resx">
       <DependentUpon>ExisitngCustomerLogIN.cs</DependentUpon>

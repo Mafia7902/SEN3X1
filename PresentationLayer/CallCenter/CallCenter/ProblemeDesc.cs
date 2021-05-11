@@ -42,6 +42,12 @@ namespace CallCenter
                 this.Hide();
             }
 
+            // take to the EndCall form
+            EndCall end = new EndCall();
+            end.Show();
+
+            ProblemeDesc prob = new ProblemeDesc();
+            prob.Close();
         }
     }
 }
