@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
 
 namespace LoginV2
 {
@@ -19,28 +20,30 @@ namespace LoginV2
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string jobID = BackEnd.BusinessLogic.EmployeeLogin.JobID;
+            EmployeeLogin el = new EmployeeLogin();
+            el.VerifyUser(textBox1.Text, textBox2.Text);
+            string jobID = BusinessLogic.EmployeeLogin.JobID;
             switch (jobID)
             {
-                case "1":
+                case "2":
                     {
                         TechnicianFORM.Technician f1 = new TechnicianFORM.Technician();
                         f1.Show();
                         break;
                     }
-                case "2":
+                case "3":
                     {
                         CallCenter.MainMenu f2 = new CallCenter.MainMenu();
                         f2.Show();
                         break;
                     }
-                case "3":
+                case "5":
                     {
-                        // ContractMaintance.Form1 f1 = new ContractMaintance.Form1();
+                        //ContractMaintance.Form1 f1 = new ContractMaintance.Form1();
                         // f1.Show();
                         break;
                     }
-                case "4":
+                case "6":
                     {
                         TechnicianFORM.ClientMaintanance f1 = new TechnicianFORM.ClientMaintanance();
                         f1.Show();
