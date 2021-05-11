@@ -84,6 +84,10 @@
       <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
       <Name>BackEnd</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LoginV2\LoginV2.csproj">
+      <Project>{929cf8f4-a4e0-4d9e-9d38-2189622fee20}</Project>
+      <Name>LoginV2</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

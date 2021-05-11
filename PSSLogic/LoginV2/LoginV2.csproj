@@ -100,10 +100,6 @@
       <Project>{83dcc2f8-a775-4867-ac39-d0e83980129b}</Project>
       <Name>ClienSatisfactionForm</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CallSystem\CallSystem.csproj">
-      <Project>{f1d6a956-a725-43b8-bfef-9bc9bb860e57}</Project>
-      <Name>CallSystem</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
