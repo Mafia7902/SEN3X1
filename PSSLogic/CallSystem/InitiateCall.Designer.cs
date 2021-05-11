@@ -32,12 +32,13 @@ namespace CallSystem
             this.btnMakeCall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnMakeCall
             // 
             this.btnMakeCall.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnMakeCall.Location = new System.Drawing.Point(322, 226);
+            this.btnMakeCall.Location = new System.Drawing.Point(150, 217);
             this.btnMakeCall.Name = "btnMakeCall";
             this.btnMakeCall.Size = new System.Drawing.Size(122, 56);
             this.btnMakeCall.TabIndex = 0;
@@ -59,17 +60,29 @@ namespace CallSystem
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(259, 109);
+            this.label2.Location = new System.Drawing.Point(245, 104);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(255, 18);
+            this.label2.Size = new System.Drawing.Size(284, 18);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Press the button below to make a call";
+            this.label2.Text = "Press a button to make a call or end a call";
+            // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.button1.Location = new System.Drawing.Point(482, 217);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 56);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "End Call ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // InitiateCall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMakeCall);
@@ -85,6 +98,7 @@ namespace CallSystem
         private System.Windows.Forms.Button btnMakeCall;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }
 
