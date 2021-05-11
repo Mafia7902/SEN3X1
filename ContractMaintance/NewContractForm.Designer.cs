@@ -44,6 +44,10 @@ namespace ContractMaintance
             this.cmbActive = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtModel = new System.Windows.Forms.TextBox();
+            this.txtManufacturer = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -75,6 +79,7 @@ namespace ContractMaintance
             // 
             // CombContractType
             // 
+            this.CombContractType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CombContractType.FormattingEnabled = true;
             this.CombContractType.Items.AddRange(new object[] {
             "Platinum",
@@ -102,7 +107,7 @@ namespace ContractMaintance
             // 
             // bntSubmit
             // 
-            this.bntSubmit.Location = new System.Drawing.Point(242, 490);
+            this.bntSubmit.Location = new System.Drawing.Point(242, 640);
             this.bntSubmit.Name = "bntSubmit";
             this.bntSubmit.Size = new System.Drawing.Size(97, 45);
             this.bntSubmit.TabIndex = 6;
@@ -122,7 +127,7 @@ namespace ContractMaintance
             // 
             // bntCancel
             // 
-            this.bntCancel.Location = new System.Drawing.Point(85, 490);
+            this.bntCancel.Location = new System.Drawing.Point(85, 640);
             this.bntCancel.Name = "bntCancel";
             this.bntCancel.Size = new System.Drawing.Size(97, 45);
             this.bntCancel.TabIndex = 8;
@@ -155,11 +160,12 @@ namespace ContractMaintance
             // 
             // cmbActive
             // 
+            this.cmbActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbActive.FormattingEnabled = true;
             this.cmbActive.Items.AddRange(new object[] {
             "1",
             "0"});
-            this.cmbActive.Location = new System.Drawing.Point(242, 424);
+            this.cmbActive.Location = new System.Drawing.Point(240, 549);
             this.cmbActive.Name = "cmbActive";
             this.cmbActive.Size = new System.Drawing.Size(151, 28);
             this.cmbActive.TabIndex = 12;
@@ -176,17 +182,53 @@ namespace ContractMaintance
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(85, 427);
+            this.label7.Location = new System.Drawing.Point(85, 552);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(54, 20);
             this.label7.TabIndex = 14;
             this.label7.Text = "Active ";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(85, 496);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 20);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Model";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(85, 435);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(97, 20);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Manufacturer";
+            // 
+            // txtModel
+            // 
+            this.txtModel.Location = new System.Drawing.Point(242, 493);
+            this.txtModel.Name = "txtModel";
+            this.txtModel.Size = new System.Drawing.Size(149, 27);
+            this.txtModel.TabIndex = 17;
+            // 
+            // txtManufacturer
+            // 
+            this.txtManufacturer.Location = new System.Drawing.Point(242, 432);
+            this.txtManufacturer.Name = "txtManufacturer";
+            this.txtManufacturer.Size = new System.Drawing.Size(149, 27);
+            this.txtManufacturer.TabIndex = 18;
+            // 
             // NewContractForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 547);
+            this.ClientSize = new System.Drawing.Size(463, 738);
+            this.Controls.Add(this.txtManufacturer);
+            this.Controls.Add(this.txtModel);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cmbActive);
@@ -226,5 +268,9 @@ namespace ContractMaintance
         private System.Windows.Forms.ComboBox cmbActive;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtModel;
+        private System.Windows.Forms.TextBox txtManufacturer;
     }
 }

@@ -36,6 +36,7 @@ namespace ContractMaintance
                 int Active = int.Parse(cmbState.Text);
                 var _newState = new BusinessLogic.Contract();
                 _newState.newStates(Active, txtID.Text);
+                MessageBox.Show("The contract state has changed");
 
             }
         }

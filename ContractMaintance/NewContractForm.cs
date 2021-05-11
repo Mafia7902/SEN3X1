@@ -27,12 +27,15 @@ namespace ContractMaintance
 
         private void bntSubmit_Click(object sender, EventArgs e)
         {
-            if (txtContractID.Text != null || txtDescription.Text != null || txtDeviceID.Text != null || txtPrice.Text != null || cmbActive.Text != null || CombContractType.Text != null)
+            if (txtContractID.Text != null || txtDescription.Text != null || txtDeviceID.Text != null || txtPrice.Text != null || cmbActive.Text != null || CombContractType.Text != null|| txtManufacturer.Text != null || txtModel.Text != null)
             {
                 int Active = int.Parse(cmbActive.Text);
                 float Price = float.Parse(txtPrice.Text);
                 var _contract = new BusinessLogic.Contract();
+                var _device = new BusinessLogic.Device();
+                _device.deviceInsert(txtDeviceID.Text, txtManufacturer.Text, txtModel.Text);
                 _contract.contractInsert(txtContractID.Text, CombContractType.Text, txtDescription.Text, Price, txtDeviceID.Text, Active);
+                MessageBox.Show("New contract has been made");
             }
             else
             {
