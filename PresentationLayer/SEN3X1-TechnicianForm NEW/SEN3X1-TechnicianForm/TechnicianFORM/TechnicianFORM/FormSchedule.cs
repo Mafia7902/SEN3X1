@@ -16,6 +16,7 @@ namespace TechnicianFORM
     public partial class Technician : Form
     {
         string item;
+        int empID;
 
         public Technician()
         {
@@ -52,16 +53,17 @@ namespace TechnicianFORM
 
         private void btnGetTicket_Click(object sender, EventArgs e)
         {
+            empID = EmployeeLogin.EmpID;
             BindingSource bindingsource1 = new BindingSource();
 
             BindingSource bindingsource2 = new BindingSource();
             DataTable dt2 = new DataTable();
 
-            dt1 = Tech.dg1(1);
+            dt1 = Tech.dg1(empID);
             bindingsource1.DataSource = dt1;
             dataGridView1.DataSource = bindingsource1;
 
-            dt2 = Tech.dg2(1);
+            dt2 = Tech.dg2(empID);
             bindingsource2.DataSource = dt2;
             dataGridView2.DataSource = bindingsource2;
         }
@@ -93,10 +95,13 @@ namespace TechnicianFORM
             ReassignTicket reassign = new ReassignTicket();
             Console.WriteLine(item);
 
-            reassign.assignTicket(item, 1);
+            reassign.assignTicket(item, empID);
 
         }
 
-        
+        private void btnReassign_Click_1(object sender, EventArgs e)
+        {
+
+        }
     } 
 }

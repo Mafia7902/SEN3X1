@@ -55,6 +55,12 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginV2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginV2.Designer.cs">
+      <DependentUpon>LoginV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="LoginForm.resx">
@@ -84,17 +90,29 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\BackEnd\BackEnd.csproj">
+      <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
+      <Name>BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ContractMaintance\ContractMaintance.csproj">
+      <Project>{3812605b-f297-426f-88a7-7b6154028248}</Project>
+      <Name>ContractMaintance</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CallCenter\CallCenter\CallCenter.csproj">
       <Project>{94dc3b52-167b-4016-aefd-b512508bef2c}</Project>
       <Name>CallCenter</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClinetMaintance\ClinetMaintance\ClinetMaintance.csproj">
+    <ProjectReference Include="..\ClinetMaintance\ClinetMaintance\ClinetMaintance2.csproj">
       <Project>{aa4abdf4-6ba4-407c-ad19-9720664217a3}</Project>
-      <Name>ClinetMaintance</Name>
+      <Name>ClinetMaintance2</Name>
     </ProjectReference>
     <ProjectReference Include="..\SEN3X1-TechnicianForm NEW\SEN3X1-TechnicianForm\TechnicianFORM\TechnicianFORM\TechnicianFORM.csproj">
       <Project>{741e28cc-5e05-4a03-83ee-4840a0388d8f}</Project>
       <Name>TechnicianFORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WindowsFormsApp1\ClienSatisfactionForm.csproj">
+      <Project>{83dcc2f8-a775-4867-ac39-d0e83980129b}</Project>
+      <Name>ClienSatisfactionForm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

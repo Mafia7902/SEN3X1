@@ -22,7 +22,7 @@ namespace CallSystem
         private void btnMakeCall_Click(object sender, EventArgs e)
         {
             // takes you to the LoginForm
-            LoginForm.LoginForm f1 = new LoginForm.LoginForm();
+            LoginV2.Login f1 = new LoginV2.Login();
             f1.Show();
 
             CallInformation start = new CallInformation();

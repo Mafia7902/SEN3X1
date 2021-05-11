@@ -49,23 +49,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScoreCard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScoreCard.Designer.cs">
-      <DependentUpon>ScoreCard.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Submission Complete.cs">
+    <Compile Include="TechnicianScores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Submission Complete.Designer.cs">
-      <DependentUpon>Submission Complete.cs</DependentUpon>
+    <Compile Include="TechnicianScores.Designer.cs">
+      <DependentUpon>TechnicianScores.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ScoreCard.resx">
-      <DependentUpon>ScoreCard.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,8 +66,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Submission Complete.resx">
-      <DependentUpon>Submission Complete.cs</DependentUpon>
+    <EmbeddedResource Include="TechnicianScores.resx">
+      <DependentUpon>TechnicianScores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -91,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\BackEnd\BackEnd.csproj">
+      <Project>{32458549-26DE-467C-A9B2-805BD867CF2A}</Project>
+      <Name>BackEnd</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

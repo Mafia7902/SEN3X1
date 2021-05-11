@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 
-namespace BackEnd.BusinessLogic
+namespace BusinessLogic
 {
     public class EmployeeLogin
     {
@@ -19,7 +19,6 @@ namespace BackEnd.BusinessLogic
 
         }
 
-
         public void VerifyUser(string empUserName, string empPassword)
         {
             DataTable table;
@@ -33,10 +32,9 @@ namespace BackEnd.BusinessLogic
                     JobID = item["JobID"].ToString();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Console.WriteLine("no user exists");
-                throw;
+                Console.WriteLine("no user exists: " + e.ToString());
             }
             
         }

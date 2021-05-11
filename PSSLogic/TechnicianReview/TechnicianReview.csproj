@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}</ProjectGuid>
+    <ProjectGuid>{AA3CC15B-A87C-49B2-9097-19853AC8F9C2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CallSystem</RootNamespace>
-    <AssemblyName>CallSystem</AssemblyName>
+    <RootNamespace>TechnicianReview</RootNamespace>
+    <AssemblyName>TechnicianReview</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -35,9 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,17 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitiateCall.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InitiateCall.Designer.cs">
-      <DependentUpon>InitiateCall.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="InitiateCall.resx">
-      <DependentUpon>InitiateCall.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -69,7 +58,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -82,16 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\BackEnd\BackEnd.csproj">
-      <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
-      <Name>BackEnd</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LoginV2\LoginV2.csproj">
-      <Project>{929cf8f4-a4e0-4d9e-9d38-2189622fee20}</Project>
-      <Name>LoginV2</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

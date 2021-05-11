@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F1D6A956-A725-43B8-BFEF-9BC9BB860E57}</ProjectGuid>
+    <ProjectGuid>{929CF8F4-A4E0-4D9E-9D38-2189622FEE20}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CallSystem</RootNamespace>
-    <AssemblyName>CallSystem</AssemblyName>
+    <RootNamespace>LoginV2</RootNamespace>
+    <AssemblyName>LoginV2</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -49,16 +49,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InitiateCall.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InitiateCall.Designer.cs">
-      <DependentUpon>InitiateCall.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="InitiateCall.resx">
-      <DependentUpon>InitiateCall.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,9 +88,21 @@
       <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
       <Name>BackEnd</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LoginV2\LoginV2.csproj">
-      <Project>{929cf8f4-a4e0-4d9e-9d38-2189622fee20}</Project>
-      <Name>LoginV2</Name>
+    <ProjectReference Include="..\..\PresentationLayer\CallCenter\CallCenter\CallCenter.csproj">
+      <Project>{94dc3b52-167b-4016-aefd-b512508bef2c}</Project>
+      <Name>CallCenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PresentationLayer\ClinetMaintance\ClinetMaintance\ClinetMaintance2.csproj">
+      <Project>{aa4abdf4-6ba4-407c-ad19-9720664217a3}</Project>
+      <Name>ClinetMaintance2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PresentationLayer\SEN3X1-TechnicianForm NEW\SEN3X1-TechnicianForm\TechnicianFORM\TechnicianFORM\TechnicianFORM.csproj">
+      <Project>{741e28cc-5e05-4a03-83ee-4840a0388d8f}</Project>
+      <Name>TechnicianFORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\PresentationLayer\WindowsFormsApp1\ClienSatisfactionForm.csproj">
+      <Project>{83dcc2f8-a775-4867-ac39-d0e83980129b}</Project>
+      <Name>ClienSatisfactionForm</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -136,5 +136,23 @@ namespace BusinessLogic
             handler.UpdateTicket(ticketID);
         }
 
+        public DataTable AllTechnicians()
+        {
+            DataTable mytbl = new DataTable();
+            DataHandler handler = new DataHandler();
+            mytbl = handler.SelectAllTech();
+
+            return mytbl;
+        }
+
+        public DataTable SpecificTechnicians(int TechID)
+        {
+            DataTable mytbl = new DataTable();
+            DataHandler handler = new DataHandler();
+            mytbl = handler.SelectTech(TechID);
+
+            return mytbl;
+        }
+
     }
 }

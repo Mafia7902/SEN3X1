@@ -11,8 +11,8 @@ namespace DataAccess
     class DataHandler
     {
         /*readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
-        //readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
-         readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
+        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
+        //readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
 
 
         #region Insert Methods
@@ -1210,6 +1210,67 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             }
         }
 
+        public DataTable SelectAllTech()
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpID, dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.Employee.Phone, dbo.Employee.Email, dbo.Technician.SatisfactionScore "
+            + " FROM dbo.Employee INNER JOIN "
+            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID)", connection)) 
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectTech(int TechID)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpID, dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.Employee.Phone, dbo.Employee.Email, dbo.Technician.SatisfactionScore "
+            + " FROM dbo.Employee INNER JOIN "
+            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID"
+            + "WHERE dbo.Employee.EmpID = "+TechID , connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
         #endregion
 
         // Templates that are now obsolete. Will remove a bit later - Albert Wolfaardt
@@ -1346,6 +1407,8 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         //        }
         //    }
         //}
+
+
 
     }
 }
