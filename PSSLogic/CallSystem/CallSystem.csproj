@@ -84,10 +84,6 @@
       <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
       <Name>BackEnd</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\PresentationLayer\LoginForm\LoginForm.csproj">
-      <Project>{28b62c1b-3acd-49b2-9a0b-893be1700c28}</Project>
-      <Name>LoginForm</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
