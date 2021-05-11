@@ -38,13 +38,14 @@ namespace CallCenter
                 if (dt.Rows.Count > 0)
                 {
                     ClientChoiceForm choiceForm = new ClientChoiceForm(txtEmailSearch.Text.Trim());
+                    MessageBox.Show("Login Successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     choiceForm.Show();
                     this.Hide();
                 }
             }
             else
             {
-                MessageBox.Show("Enter a valid email!");
+                MessageBox.Show("Enter a valid email!","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

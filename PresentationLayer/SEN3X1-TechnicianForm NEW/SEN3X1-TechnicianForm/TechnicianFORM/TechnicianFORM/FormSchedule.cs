@@ -15,30 +15,31 @@ namespace TechnicianFORM
 {
     public partial class Technician : Form
     {
-        string[] array;
-        
+        string item;
+
         public Technician()
         {
             InitializeComponent();
-            
-            
+
+
         }
 
         private void btnComplete_Click(object sender, EventArgs e)
         {
             // Method to update ticket to "Complete".
-            DataTable tktID = new TechInfo().dg1(1);
-            string ticketID = tktID.Rows[3]["TicketID"].ToString();
+            //DataTable tktID = new TechInfo().dg1(1);
+            //string ticketID = tktID.Rows[3]["TicketID"].ToString();
 
             TechInfo t = new TechInfo();
-            t.ConfirmCompletion(ticketID, 5);
+            t.ConfirmCompletion(item);
 
         }
-        string item;
+        
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-             item = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-           
+            
+            item = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+
         }
         TechInfo Tech = new TechInfo();
 
@@ -46,20 +47,15 @@ namespace TechnicianFORM
         {
 
         }
-        
+
         DataTable dt1 = new DataTable();
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGetTicket_Click(object sender, EventArgs e)
         {
-            
             BindingSource bindingsource1 = new BindingSource();
 
-
-            
             BindingSource bindingsource2 = new BindingSource();
             DataTable dt2 = new DataTable();
-
-
 
             dt1 = Tech.dg1(1);
             bindingsource1.DataSource = dt1;
@@ -68,6 +64,23 @@ namespace TechnicianFORM
             dt2 = Tech.dg2(1);
             bindingsource2.DataSource = dt2;
             dataGridView2.DataSource = bindingsource2;
+        }
+
+
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            ClientMaintanance clientMaintanance = new ClientMaintanance();
+            this.Hide();
+            clientMaintanance.Show();
+
+           
         }
 
         private void btnReassign_Click(object sender, EventArgs e)
@@ -81,6 +94,9 @@ namespace TechnicianFORM
             Console.WriteLine(item);
 
             reassign.assignTicket(item, 1);
+
         }
-    }
+
+        
+    } 
 }

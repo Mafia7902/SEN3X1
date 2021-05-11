@@ -60,63 +60,64 @@ namespace CallCenter
                                                         Client client = new Client();
                                                         client.AddNewClient(txtFName.Text.ToString(), txtLName.Text.ToString(), txtPhone.Text.ToString(), txtEmail.Text.ToString(), txtStreetAddress.Text.ToString(), txtSuburb.Text.ToString(), txtPostCode.Text.ToString(), txtProvince.Text.ToString(), "conID", 1, "bankDetails", txtUnitNum.Text.ToString());
                                                         ContractSellection sellection = new ContractSellection();
-                                                        MessageBox.Show("New user has been added");
+                                                        MessageBox.Show("New user has been added","Added",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
                                                         sellection.Show();
                                                         this.Hide();
                                                     }
                                                     else
                                                     {
-                                                        MessageBox.Show("Enter Payment Type");
+                                                        MessageBox.Show("Enter Payment Type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                     }
                                                 }
                                                 else
                                                 {
-                                                    MessageBox.Show("Enter Branch Number");
+                                                    MessageBox.Show("Enter Branch Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                                 }
                                             }
                                             else
                                             {
-                                                MessageBox.Show("Enter Bank Name");
+                                                MessageBox.Show("Enter Bank Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             }
                                         }
                                         else
                                         {
-                                            MessageBox.Show("Enter Your Province");
+                                            MessageBox.Show("Enter Your Province", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                         }
                                     }
                                     else
                                     {
-                                        MessageBox.Show("Enter Your Postal Code");
+                                        MessageBox.Show("Enter Your Postal Code", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("Enter Your Street Address");
+                                    MessageBox.Show("Enter Your Street Address", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Enter Your Email");
+                                MessageBox.Show("Enter Your Email", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Enter Your account Number");
+                            MessageBox.Show("Enter Your account Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Enter Phone Number");
+                        MessageBox.Show("Enter Phone Number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Enter Surname");
+                    MessageBox.Show("Enter Surname", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Enter Name");
+                MessageBox.Show("Enter Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

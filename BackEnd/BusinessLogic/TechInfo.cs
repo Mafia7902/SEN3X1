@@ -133,7 +133,7 @@ namespace BusinessLogic
         public void ConfirmCompletion(string ticketID, int clientSatisfaction = 5)
         {
             DataHandler handler = new DataHandler();
-            handler.UpdateTicket(ticketID, clientSatisfaction);
+            handler.UpdateTicket(ticketID);
         }
 
     }

@@ -4,14 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{741E28CC-5E05-4A03-83EE-4840A0388D8F}</ProjectGuid>
+    <ProjectGuid>{AA4ABDF4-6BA4-407C-AD19-9720664217A3}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TechnicianFORM</RootNamespace>
-    <AssemblyName>TechnicianFORM</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>ClinetMaintance</RootNamespace>
+    <AssemblyName>ClinetMaintance</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -36,7 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\PSSLogic\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+      <HintPath>..\..\..\PSSLogic\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,25 +50,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientmaintanances.cs">
+    <Compile Include="ClientMaintanance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientmaintanances.Designer.cs">
-      <DependentUpon>Clientmaintanances.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormSchedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSchedule.Designer.cs">
-      <DependentUpon>FormSchedule.cs</DependentUpon>
+    <Compile Include="ClientMaintanance.Designer.cs">
+      <DependentUpon>ClientMaintanance.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Clientmaintanances.resx">
-      <DependentUpon>Clientmaintanances.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSchedule.resx">
-      <DependentUpon>FormSchedule.cs</DependentUpon>
+    <EmbeddedResource Include="ClientMaintanance.resx">
+      <DependentUpon>ClientMaintanance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -77,6 +69,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -93,9 +86,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\BackEnd\BackEnd.csproj">
+    <ProjectReference Include="..\..\..\BackEnd\BackEnd.csproj">
       <Project>{32458549-26de-467c-a9b2-805bd867cf2a}</Project>
       <Name>BackEnd</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\CallCenter\CallCenter\CallCenter.csproj">
+      <Project>{94dc3b52-167b-4016-aefd-b512508bef2c}</Project>
+      <Name>CallCenter</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,9 +11,10 @@ namespace DataAccess
     class DataHandler
     {
         /*readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
-        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
-        //readonly string connectionString = @"Data Source = DESKTOP - FH90QR9; Initial Catalog = PSSDB; Integrated Security = True"; /*Stefan Server*/
+       readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
+       // readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
 
+        
         #region Insert Methods
 
         //Template
@@ -605,83 +606,19 @@ namespace DataAccess
             }
         }
 
-        public void UpdateClientDepreciated(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("UPDATE [dbo].[Client]"
-                    + " SET"
-                    + " [ClientName] = '"
-                    + clientName
-                    + "'"
-                    + " ,[ClientSurname] = '"
-                    + clientSurname
-                    + "'"
-                    + " ,[Phone] = '"
-                    + phone
-                    + "'"
-                    + " ,[Email] = '"
-                    + email
-                    + "'"
-                    + " ,[StreetAddress] = '"
-                    + streetAddress
-                    + "'"
-                    + " ,[UnitNumber] = '"
-                    + unitNumber
-                    + "'"
-                    + " ,[Suburb] = '"
-                    + suburb
-                    + "'"
-                    + " ,[PostalCode] = '"
-                    + postalCode
-                    + "' ,[Province] = '"
-                    + province
-                    + "'"
-                    + " ,[ContractID] = "
-                    + contractID
-                    + " ,[ClientType] = "
-                    + clientType
-                    + " ,[BankDetails] = '"
-                    + bankDetails
-                    + "' WHERE ClientID = '"
-                    + clientID
-                    + "'"
-                    , connection))
-            {
-                try
-                {
-                    connection.Open();
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        adapter.UpdateCommand.ExecuteNonQuery();
-                    }
-                }
-                catch (SqlException sqle)
-                {
-                    Console.WriteLine(sqle.ToString());
-                }
-                finally
-                {
-                    command.Dispose();
-                    connection.Close();
-                }
-            }
-        }
-
-        public void UpdateTicket(string ticketID, int clientSatisfaction = 5)
+        public void UpdateTicket(string ticketID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
+                DateTime time = DateTime.Now;
+                string format = "yyyy-MM-dd HH:mm:ss";
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "UPDATE [dbo].[Ticket] "
-                    + "SET[ClientSatisfaction] = "
-                    + clientSatisfaction
-                    + " ,[Completed] = 1"
+                    + "SET [Completed] = 1"
                     + ",[DateCompleted] = '"
-                    + DateTime.Now.ToString()
-                    + "' "
-                    + " WHERE TicketID = '"
+                    + time.ToString(format)
+                    + "' WHERE TicketID = '"
                     + ticketID
                     + "'";
                 command.Connection = connection;
@@ -876,7 +813,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand($"SELECT dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone,dbo.Client.Email,dbo.Client.StreetAddress,dbo.Client.UnitNumber,dbo.Client.Suburb,dbo.Client.PostalCode,dbo.Client.Province,dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName dbo.BankDetails.BranchNumdbo.BankDetails.AccountNumFROM dbo.ClientINNER JOIN dbo.BankDetailsON dbo.BankDetails.BankDetailsID = dbo.Client.BankDetailsWHERE dbo.Client.Email = '{email}'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.ClientID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum FROM dbo.Client INNER JOIN dbo.BankDetails ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email+"'", connection))
             {
                 try
                 {
@@ -1112,11 +1049,10 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
 
         #region Delete Methods
 
-        //Definitly needs to be updated as this will not work upon further inspection - Albert Wolfaardt
         public void DeleteClient(int clientID)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = " + clientID, connection))
+            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = '" + clientID+"'", connection))
             {
                 try
                 {
