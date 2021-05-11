@@ -66,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ContractMaintenance.resx">
+      <DependentUpon>ContractMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeactivateContract.resx">
       <DependentUpon>DeactivateContract.cs</DependentUpon>
     </EmbeddedResource>

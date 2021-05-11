@@ -16,5 +16,19 @@ namespace ContractMaintenance2
         {
             InitializeComponent();
         }
+
+        private void bntChangeContractState_Click(object sender, EventArgs e)
+        {
+            DeactivateContract deactivate = new DeactivateContract();
+            deactivate.Show();
+            this.Hide();
+        }
+
+        private void bntNew_Click(object sender, EventArgs e)
+        {
+            NewContractForm newContract = new NewContractForm();
+            newContract.Show();
+            this.Hide();
+        }
     }
 }
