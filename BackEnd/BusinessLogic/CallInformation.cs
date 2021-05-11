@@ -47,11 +47,12 @@ namespace BackEnd.BusinessLogic
 
         public string elapsedTime()
         {
-            TimeSpan timeSpan = stopwatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds,
-            timeSpan.Milliseconds / 10);
-            return elapsedTime;
+            //TimeSpan timeSpan = stopwatch.Elapsed;
+            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            //timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds,
+            //timeSpan.Milliseconds / 10);
+            var _elapsed = stopwatch.Elapsed.ToString("g");
+            return _elapsed;
         }
     }
 }
