@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLogic;
+using System.Data.SqlClient;
 
 namespace TechnicianFORM
 {
@@ -17,7 +18,7 @@ namespace TechnicianFORM
         {
             InitializeComponent();
         }
-
+     
         BankDetails bankDetails = new BankDetails();
         Client client = new Client();
         private void btnSearch_Click(object sender, EventArgs e)
@@ -32,6 +33,33 @@ namespace TechnicianFORM
                     dt = client.dg2(txtEmailSearch.Text);
                     bindingSource.DataSource = dt;
                     dataGridView1.DataSource = bindingSource;
+                    
+                    
+
+                    DataTable dataTable = new DataTable();
+
+                    dataTable = client.dg3(txtEmailSearch.Text);
+
+         
+
+                    treeViewCustomer.Nodes.Add("Client");
+                    foreach (DataRow dataRow in dataTable.Rows)
+                    {
+                        TreeNode treeNode = new TreeNode(dataRow["FullName"].ToString());
+                        treeNode.Nodes.Add(dataRow["Email"].ToString());
+                        treeNode.Nodes.Add(dataRow["Phone"].ToString());
+                        treeNode.Nodes.Add(dataRow["ClientType"].ToString());
+                        treeNode.Nodes.Add(dataRow["BankDetails"].ToString());
+                        treeNode.Nodes.Add(dataRow["PaymentType"].ToString());
+                        treeNode.Nodes.Add(dataRow["BankName"].ToString());
+                        treeNode.Nodes.Add(dataRow["AccountNum"].ToString());
+                        treeNode.Nodes.Add(dataRow["ContractID"].ToString());
+                        treeNode.Nodes.Add(dataRow["ContractType"].ToString());
+                        treeNode.Nodes.Add(dataRow["DeviceID"].ToString());
+                        treeViewCustomer.Nodes.Add(treeNode);
+
+                    }
+
                 }
                 else
                 {
@@ -43,6 +71,8 @@ namespace TechnicianFORM
                 MessageBox.Show("Enter a valid email!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+  
 
         private void ClientMaintanance_Load(object sender, EventArgs e)
         {

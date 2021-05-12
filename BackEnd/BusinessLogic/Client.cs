@@ -223,6 +223,13 @@ namespace BusinessLogic
             return mytbl;
         }
 
+        public DataTable dg3(string email)
+        {
+            DataTable mytbl = new DataTable();
+            mytbl = new DataHandler().ClientTreeView(email);
+            return mytbl;
+        }
+
         public void updateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
            string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
         {

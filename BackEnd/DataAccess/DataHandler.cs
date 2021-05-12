@@ -636,6 +636,37 @@ namespace DataAccess
 
         #region Select Methods
 
+        public DataTable ClientTreeView(string email)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(@" SELECT dbo.Client.ClientID, CONCAT(dbo.Client.ClientName,' ',dbo.Client.ClientSurname) AS FullName, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, 
+                                                        dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum, dbo.Contract.ContractDescription, dbo.Contract.ContractType,
+                                                        dbo.Contract.ContractID, dbo.Contract.DeviceID, dbo.Contract.IsActive, dbo.Contract.Price FROM dbo.Client INNER JOIN dbo.BankDetails 
+                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID INNER JOIN dbo.Contract ON dbo.Client.ContractID = dbo.Contract.ContractID  WHERE dbo.Client.Email = '" + email + "'", connection))
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
 
         public DataTable SelectContractForCallCenter()
         {
