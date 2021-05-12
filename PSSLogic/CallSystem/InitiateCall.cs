@@ -29,5 +29,15 @@ namespace CallSystem
            // start.startTime();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CallInformation end = new CallInformation();
+            end.endTime();
+
+            end.elapsedTime();
+
+            MessageBox.Show(end.elapsedTime());
+        }
     }
 }

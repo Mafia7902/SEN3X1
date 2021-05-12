@@ -8,32 +8,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ContractMaintance
+namespace ContractMaintenance2
 {
-    public partial class ContractMaintance : Form
+    public partial class ContractMaintenance : Form
     {
-        public ContractMaintance()
+        public ContractMaintenance()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            NewContractForm newContract = new NewContractForm();
-            newContract.Show();
-            this.Hide();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void bntChangeContractState_Click(object sender, EventArgs e)
         {
             DeactivateContract deactivate = new DeactivateContract();
             deactivate.Show();
             this.Hide();
         }
 
-        private void ContractMaintance_Load(object sender, EventArgs e)
+        private void bntNew_Click(object sender, EventArgs e)
         {
-
+            NewContractForm newContract = new NewContractForm();
+            newContract.Show();
+            this.Hide();
         }
     }
 }
