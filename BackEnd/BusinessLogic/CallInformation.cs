@@ -7,55 +7,27 @@ namespace BackEnd.BusinessLogic
 {
     public class CallInformation
     {
-        
-        private string callStart;
-        private string callEnd;
+
+        private DateTime StartCall;
 
         public CallInformation()
         {
 
         }
 
-        public CallInformation(string callStart, string callEnd)
+        public DateTime StartCall1 { get => StartCall; set => StartCall = value; }
+
+        //string sTime;
+        public void startTime(DateTime sTime)
         {
-            this.callStart = callStart;
-            this.callEnd = callEnd;
+            StartCall1 = sTime;
         }
 
-        
-        public string CallStart
-        {
-            get { return callStart; }
-            set { callStart = value; }
-        }
 
-        public string CallEnd
+        public string elapsedTime()
         {
-            get { return callEnd; }
-            set { callEnd = value; }
-        }
-
-        string sTime;
-        public string startTime()
-        {
-            var start = DateTime.Now;
-            sTime = start.ToString();
-            return sTime;
-        }
-
-        string eTime;
-        public string endTime()
-        {
-            var end = DateTime.Now;
-            eTime = end.ToString();
-            return eTime;
-        }
-
-        public double elapsedTime()
-        {
-            TimeSpan duration = DateTime.Parse(eTime).Subtract(DateTime.Parse(sTime));
-            double x = duration.TotalMinutes;
-            return x;
+            System.TimeSpan yx = DateTime.Now - StartCall1;
+            return String.Format("{0}:{1}:{2}", yx.Hours, yx.Minutes, yx.Seconds);
         }
     }
 }
