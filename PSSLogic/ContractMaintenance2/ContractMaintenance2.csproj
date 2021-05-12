@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContractDisplay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContractDisplay.Designer.cs">
+      <DependentUpon>ContractDisplay.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContractMaintenance.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ContractDisplay.resx">
+      <DependentUpon>ContractDisplay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContractMaintenance.resx">
       <DependentUpon>ContractMaintenance.cs</DependentUpon>
     </EmbeddedResource>
