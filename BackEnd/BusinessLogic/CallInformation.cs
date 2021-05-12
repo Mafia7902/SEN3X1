@@ -7,6 +7,7 @@ namespace BackEnd.BusinessLogic
 {
     public class CallInformation
     {
+        
         private string callStart;
         private string callEnd;
 
@@ -34,25 +35,27 @@ namespace BackEnd.BusinessLogic
             set { callEnd = value; }
         }
 
-        Stopwatch stopwatch = new Stopwatch();
-        public void startTime()
+        string sTime;
+        public string startTime()
         {
-            stopwatch.Start();
+            var start = DateTime.Now;
+            sTime = start.ToString();
+            return sTime;
         }
 
-        public void endTime()
+        string eTime;
+        public string endTime()
         {
-            stopwatch.Stop();
+            var end = DateTime.Now;
+            eTime = end.ToString();
+            return eTime;
         }
 
-        public string elapsedTime()
+        public double elapsedTime()
         {
-            //TimeSpan timeSpan = stopwatch.Elapsed;
-            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            //timeSpan.Hours, timeSpan.Minutes, timeSpan.Seconds,
-            //timeSpan.Milliseconds / 10);
-            var _elapsed = stopwatch.Elapsed.ToString("g");
-            return _elapsed;
+            TimeSpan duration = DateTime.Parse(eTime).Subtract(DateTime.Parse(sTime));
+            double x = duration.TotalMinutes;
+            return x;
         }
     }
 }

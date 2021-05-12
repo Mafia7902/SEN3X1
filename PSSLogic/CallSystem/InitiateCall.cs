@@ -25,8 +25,8 @@ namespace CallSystem
             LoginV2.Login f1 = new LoginV2.Login();
             f1.Show();
 
-            //CallInformation start = new CallInformation();
-           // start.startTime();
+            CallInformation s = new CallInformation();
+            s.startTime();
 
         }
 
@@ -36,8 +36,8 @@ namespace CallSystem
             end.endTime();
 
             end.elapsedTime();
-
-            MessageBox.Show(end.elapsedTime());
+            string y = end.elapsedTime().ToString();
+            MessageBox.Show(y);
         }
     }
 }
