@@ -226,7 +226,7 @@ namespace BusinessLogic
         public DataTable dg3(string email)
         {
             DataTable mytbl = new DataTable();
-            mytbl = new DataHandler().ClientTreeView(email);
+            mytbl = new DataHandler().ClientTreeView();
             return mytbl;
         }
 

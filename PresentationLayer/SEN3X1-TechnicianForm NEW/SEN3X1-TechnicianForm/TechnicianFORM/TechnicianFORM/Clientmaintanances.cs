@@ -36,29 +36,7 @@ namespace TechnicianFORM
                     
                     
 
-                    DataTable dataTable = new DataTable();
-
-                    dataTable = client.dg3(txtEmailSearch.Text);
-
-         
-
-                    treeViewCustomer.Nodes.Add("Client");
-                    foreach (DataRow dataRow in dataTable.Rows)
-                    {
-                        TreeNode treeNode = new TreeNode(dataRow["FullName"].ToString());
-                        treeNode.Nodes.Add(dataRow["Email"].ToString());
-                        treeNode.Nodes.Add(dataRow["Phone"].ToString());
-                        treeNode.Nodes.Add(dataRow["ClientType"].ToString());
-                        treeNode.Nodes.Add(dataRow["BankDetails"].ToString());
-                        treeNode.Nodes.Add(dataRow["PaymentType"].ToString());
-                        treeNode.Nodes.Add(dataRow["BankName"].ToString());
-                        treeNode.Nodes.Add(dataRow["AccountNum"].ToString());
-                        treeNode.Nodes.Add(dataRow["ContractID"].ToString());
-                        treeNode.Nodes.Add(dataRow["ContractType"].ToString());
-                        treeNode.Nodes.Add(dataRow["DeviceID"].ToString());
-                        treeViewCustomer.Nodes.Add(treeNode);
-
-                    }
+                    
 
                 }
                 else
@@ -76,7 +54,29 @@ namespace TechnicianFORM
 
         private void ClientMaintanance_Load(object sender, EventArgs e)
         {
-         
+            DataTable dataTable = new DataTable();
+
+            dataTable = client.dg3(txtEmailSearch.Text);
+
+
+
+            treeViewCustomer.Nodes.Add("Client");
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                TreeNode treeNode = new TreeNode(dataRow["FullName"].ToString());
+                treeNode.Nodes.Add(dataRow["Email"].ToString());
+                treeNode.Nodes.Add(dataRow["Phone"].ToString());
+                treeNode.Nodes.Add(dataRow["ClientType"].ToString());
+                treeNode.Nodes.Add(dataRow["BankDetails"].ToString());
+                treeNode.Nodes.Add(dataRow["PaymentType"].ToString());
+                treeNode.Nodes.Add(dataRow["BankName"].ToString());
+                treeNode.Nodes.Add(dataRow["AccountNum"].ToString());
+                treeNode.Nodes.Add(dataRow["ContractID"].ToString());
+                treeNode.Nodes.Add(dataRow["ContractType"].ToString());
+                treeNode.Nodes.Add(dataRow["DeviceID"].ToString());
+                treeViewCustomer.Nodes.Add(treeNode);
+
+            }
         }
         //hotogre@myswamp.com
         private void dataGridView1_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
