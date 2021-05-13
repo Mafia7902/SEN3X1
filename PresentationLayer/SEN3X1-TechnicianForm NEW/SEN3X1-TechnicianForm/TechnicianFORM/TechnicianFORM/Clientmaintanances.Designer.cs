@@ -64,14 +64,15 @@ namespace TechnicianFORM
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtPaymentType = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.txtBankName = new System.Windows.Forms.TextBox();
             this.txtAccoutNum = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtPaymentType = new System.Windows.Forms.TextBox();
             this.txtBranchNum = new System.Windows.Forms.TextBox();
+            this.treeViewCustomer = new System.Windows.Forms.TreeView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,12 +112,12 @@ namespace TechnicianFORM
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(42, 98);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(1123, 96);
+            this.dataGridView1.Size = new System.Drawing.Size(649, 96);
             this.dataGridView1.TabIndex = 51;
             this.dataGridView1.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_RowHeaderMouseClick);
             // 
@@ -407,6 +408,7 @@ namespace TechnicianFORM
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtPaymentType);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.txtBankName);
             this.groupBox3.Controls.Add(this.txtBankDetails);
@@ -415,7 +417,6 @@ namespace TechnicianFORM
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.txtPaymentType);
             this.groupBox3.Controls.Add(this.txtBranchNum);
             this.groupBox3.Location = new System.Drawing.Point(491, 200);
             this.groupBox3.Name = "groupBox3";
@@ -423,6 +424,20 @@ namespace TechnicianFORM
             this.groupBox3.TabIndex = 81;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Bank Details";
+            // 
+            // txtPaymentType
+            // 
+            this.txtPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtPaymentType.FormattingEnabled = true;
+            this.txtPaymentType.Items.AddRange(new object[] {
+            "Montly",
+            "Anually ",
+            "Bi-Anually",
+            "Quarterly"});
+            this.txtPaymentType.Location = new System.Drawing.Point(6, 125);
+            this.txtPaymentType.Name = "txtPaymentType";
+            this.txtPaymentType.Size = new System.Drawing.Size(181, 21);
+            this.txtPaymentType.TabIndex = 82;
             // 
             // label15
             // 
@@ -478,13 +493,6 @@ namespace TechnicianFORM
             this.label17.TabIndex = 78;
             this.label17.Text = "Account Number";
             // 
-            // txtPaymentType
-            // 
-            this.txtPaymentType.Location = new System.Drawing.Point(6, 123);
-            this.txtPaymentType.Name = "txtPaymentType";
-            this.txtPaymentType.Size = new System.Drawing.Size(182, 20);
-            this.txtPaymentType.TabIndex = 77;
-            // 
             // txtBranchNum
             // 
             this.txtBranchNum.Location = new System.Drawing.Point(6, 165);
@@ -492,11 +500,19 @@ namespace TechnicianFORM
             this.txtBranchNum.Size = new System.Drawing.Size(182, 20);
             this.txtBranchNum.TabIndex = 74;
             // 
+            // treeViewCustomer
+            // 
+            this.treeViewCustomer.Location = new System.Drawing.Point(750, 98);
+            this.treeViewCustomer.Name = "treeViewCustomer";
+            this.treeViewCustomer.Size = new System.Drawing.Size(354, 430);
+            this.treeViewCustomer.TabIndex = 82;
+            // 
             // ClientMaintanance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 542);
+            this.Controls.Add(this.treeViewCustomer);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -563,7 +579,8 @@ namespace TechnicianFORM
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox txtPaymentType;
         private System.Windows.Forms.TextBox txtBranchNum;
+        private System.Windows.Forms.ComboBox txtPaymentType;
+        private System.Windows.Forms.TreeView treeViewCustomer;
     }
 }

@@ -105,5 +105,10 @@ namespace ContractMaintance
         {
 
         }
+
+        private void NewContractForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

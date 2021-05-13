@@ -41,29 +41,80 @@ namespace CallCenter
                         {
                             if (txtEmail.Text.Length > 0)
                             {
-                                if (txtStreetAddress.Text.Length>0) {
-
-                                    if (txtPostCode.Text.Length>0) {
-
+                                if (txtStreetAddress.Text.Length > 0)
+                                {
+                                    if (txtPostCode.Text.Length > 0)
+                                    {
                                         if (txtProvince.Text.Length > 0)
                                         {
-                                            if (txtBankName.Text.Length>0)
+                                            if (txtBankName.Text.Length > 0)
                                             {
-                                                if (txtBranchNum.Text.Length>0)
+                                                if (txtBranchNum.Text.Length > 0)
                                                 {
                                                     if (txtPaymentType.Text.Length > 0)
                                                     {
                                                         Random random = new Random();
                                                         int bankID = random.Next(10000);
                                                         BankDetails bank = new BankDetails();
-                                                        bank.AddBankDetails(bankID.ToString(), txtAccountNum.Text.ToString(), txtBranchNum.Text.ToString(), txtBankName.Text.ToString(), txtAccountNum.Text.ToString());
                                                         Client client = new Client();
-                                                        client.AddNewClient(txtFName.Text.ToString(), txtLName.Text.ToString(), txtPhone.Text.ToString(), txtEmail.Text.ToString(), txtStreetAddress.Text.ToString(), txtSuburb.Text.ToString(), txtPostCode.Text.ToString(), txtProvince.Text.ToString(), "conID", 1, bankID.ToString(), txtUnitNum.Text.ToString());
+                                                        Contract contract = new Contract();
+
+                                                        
+                                                  
+
+                                                        string caseSwitch = txtContractType.Text;
+                                                        switch (caseSwitch) {
+                                                            case "Platinum":
+                                                             
+                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
+                                                                            txtBankName.Text, txtAccountNum.Text);
+
+                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                            "2021AA694065", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                break;
+                                                            case "Gold":
+
+                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
+                                                                            txtBankName.Text, txtAccountNum.Text);
+
+                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                             "2021BB434447", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                break;
+                                                            case "Silver":
+
+                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
+                                                                            txtBankName.Text, txtAccountNum.Text);
+
+                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                             "contractID", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                break;
+                                                            case "Bronze":
+
+                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
+                                                                            txtBankName.Text, txtAccountNum.Text);
+
+                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                             "contractID", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                break;
+
+                                                        }
+                                                       
+
+
+                                                        
+
+
                                                         ContractSellection sellection = new ContractSellection();
-                                                        MessageBox.Show("New user has been added","Added",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                                                        MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                                                         sellection.Show();
                                                         this.Hide();
+
+                                                    
                                                     }
                                                     else
                                                     {

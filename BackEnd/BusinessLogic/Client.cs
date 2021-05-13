@@ -207,6 +207,7 @@ namespace BusinessLogic
             return base.ToString();
         }
 
+        //Existing customer
         public DataTable dg1(string email)
         {
             DataTable mytbl = new DataTable();
@@ -214,10 +215,18 @@ namespace BusinessLogic
             return mytbl;
         }
 
+        //ClientMaintanance
         public DataTable dg2(string email)
         {
             DataTable mytbl = new DataTable();
             mytbl = new DataHandler().SelectClientDetails(email);
+            return mytbl;
+        }
+
+        public DataTable dg3(string email)
+        {
+            DataTable mytbl = new DataTable();
+            mytbl = new DataHandler().ClientTreeView(email);
             return mytbl;
         }
 
