@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BackEnd.BusinessLogic
 {
-    class ContratTypeToID
+    public class ContratTypeToID
     {
         
         public string ContractType(string contractType)
