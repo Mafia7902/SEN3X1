@@ -33,10 +33,34 @@ namespace TechnicianFORM
                     dt = client.dg2(txtEmailSearch.Text);
                     bindingSource.DataSource = dt;
                     dataGridView1.DataSource = bindingSource;
-                    
-                    
 
-                    
+
+                    DataTable dataTable = new DataTable();
+
+                    dataTable = client.dg4(txtEmailSearch.Text);
+
+
+                    treeViewCustomer.Nodes.Clear();
+                    treeViewCustomer.Nodes.Add("Client");
+                 
+                    foreach (DataRow dataRow in dataTable.Rows)
+                    {
+                        
+                        TreeNode treeNode = new TreeNode(dataRow["FullName"].ToString());
+                        treeNode.Nodes.Add(dataRow["Email"].ToString());
+                        treeNode.Nodes.Add(dataRow["Phone"].ToString());
+                        treeNode.Nodes.Add(dataRow["ClientType"].ToString());
+                        treeNode.Nodes.Add(dataRow["BankDetails"].ToString());
+                        treeNode.Nodes.Add(dataRow["PaymentType"].ToString());
+                        treeNode.Nodes.Add(dataRow["BankName"].ToString());
+                        treeNode.Nodes.Add(dataRow["AccountNum"].ToString());
+                        treeNode.Nodes.Add(dataRow["ContractID"].ToString());
+                        treeNode.Nodes.Add(dataRow["ContractType"].ToString());
+                        treeNode.Nodes.Add(dataRow["DeviceID"].ToString());
+                        treeViewCustomer.Nodes.Add(treeNode);
+
+                    }
+
 
                 }
                 else
@@ -56,24 +80,25 @@ namespace TechnicianFORM
         {
             DataTable dataTable = new DataTable();
 
-            dataTable = client.dg3(txtEmailSearch.Text);
+            dataTable = client.dg3();
 
 
-
+            treeViewCustomer.Nodes.Clear();
             treeViewCustomer.Nodes.Add("Client");
             foreach (DataRow dataRow in dataTable.Rows)
             {
+                
                 TreeNode treeNode = new TreeNode(dataRow["FullName"].ToString());
                 treeNode.Nodes.Add(dataRow["Email"].ToString());
                 treeNode.Nodes.Add(dataRow["Phone"].ToString());
-                treeNode.Nodes.Add(dataRow["ClientType"].ToString());
-                treeNode.Nodes.Add(dataRow["BankDetails"].ToString());
-                treeNode.Nodes.Add(dataRow["PaymentType"].ToString());
-                treeNode.Nodes.Add(dataRow["BankName"].ToString());
-                treeNode.Nodes.Add(dataRow["AccountNum"].ToString());
-                treeNode.Nodes.Add(dataRow["ContractID"].ToString());
-                treeNode.Nodes.Add(dataRow["ContractType"].ToString());
-                treeNode.Nodes.Add(dataRow["DeviceID"].ToString());
+               // treeNode.Nodes.Add(dataRow["ClientType"].ToString());
+               // treeNode.Nodes.Add(dataRow["BankDetails"].ToString());
+                //treeNode.Nodes.Add(dataRow["PaymentType"].ToString());
+               // treeNode.Nodes.Add(dataRow["BankName"].ToString());
+               // treeNode.Nodes.Add(dataRow["AccountNum"].ToString());
+               // treeNode.Nodes.Add(dataRow["ContractID"].ToString());
+              //  treeNode.Nodes.Add(dataRow["ContractType"].ToString());
+               // treeNode.Nodes.Add(dataRow["DeviceID"].ToString());
                 treeViewCustomer.Nodes.Add(treeNode);
 
             }

@@ -223,10 +223,17 @@ namespace BusinessLogic
             return mytbl;
         }
 
-        public DataTable dg3(string email)
+        public DataTable dg3()
         {
             DataTable mytbl = new DataTable();
             mytbl = new DataHandler().ClientTreeView();
+            return mytbl;
+        }
+
+        public DataTable dg4(string email)
+        {
+            DataTable mytbl = new DataTable();
+            mytbl = new DataHandler().ClientTreeViewSpecific(email);
             return mytbl;
         }
 

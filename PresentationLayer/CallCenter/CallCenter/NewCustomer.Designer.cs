@@ -66,6 +66,7 @@ namespace CallCenter
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtContractType = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxBankingInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -144,9 +145,9 @@ namespace CallCenter
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(30, 154);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(109, 18);
+            this.label5.Size = new System.Drawing.Size(115, 18);
             this.label5.TabIndex = 19;
-            this.label5.Text = "Street Address:";
+            this.label5.Text = "Street Address*:";
             // 
             // label4
             // 
@@ -154,9 +155,9 @@ namespace CallCenter
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(30, 101);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 18);
+            this.label4.Size = new System.Drawing.Size(113, 18);
             this.label4.TabIndex = 18;
-            this.label4.Text = "Email Address:";
+            this.label4.Text = "Email Address*:";
             // 
             // label3
             // 
@@ -164,9 +165,9 @@ namespace CallCenter
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(30, 48);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 18);
+            this.label3.Size = new System.Drawing.Size(90, 18);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Last Name:";
+            this.label3.Text = "Last Name*:";
             // 
             // label2
             // 
@@ -174,9 +175,9 @@ namespace CallCenter
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(30, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 18);
+            this.label2.Size = new System.Drawing.Size(91, 18);
             this.label2.TabIndex = 16;
-            this.label2.Text = "First Name:";
+            this.label2.Text = "First Name*:";
             // 
             // label1
             // 
@@ -201,9 +202,9 @@ namespace CallCenter
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(30, 179);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 18);
+            this.label8.Size = new System.Drawing.Size(100, 18);
             this.label8.TabIndex = 30;
-            this.label8.Text = "Postal Code:";
+            this.label8.Text = "Postal Code*:";
             // 
             // txtSuburb
             // 
@@ -218,9 +219,9 @@ namespace CallCenter
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(30, 205);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 18);
+            this.label9.Size = new System.Drawing.Size(65, 18);
             this.label9.TabIndex = 32;
-            this.label9.Text = "Suburb:";
+            this.label9.Text = "Suburb*:";
             // 
             // txtProvince
             // 
@@ -235,9 +236,9 @@ namespace CallCenter
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(30, 234);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 18);
+            this.label10.Size = new System.Drawing.Size(76, 18);
             this.label10.TabIndex = 34;
-            this.label10.Text = "Province";
+            this.label10.Text = "Province*:";
             // 
             // groupBoxPersonalInfo
             // 
@@ -280,9 +281,9 @@ namespace CallCenter
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(30, 74);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 18);
+            this.label15.Size = new System.Drawing.Size(61, 18);
             this.label15.TabIndex = 36;
-            this.label15.Text = "Phone:";
+            this.label15.Text = "Phone*:";
             // 
             // btnBack
             // 
@@ -299,7 +300,7 @@ namespace CallCenter
             // 
             this.Heading2.AutoSize = true;
             this.Heading2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Heading2.Location = new System.Drawing.Point(233, 59);
+            this.Heading2.Location = new System.Drawing.Point(233, 42);
             this.Heading2.Name = "Heading2";
             this.Heading2.Size = new System.Drawing.Size(254, 18);
             this.Heading2.TabIndex = 40;
@@ -343,9 +344,9 @@ namespace CallCenter
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(11, 120);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(106, 18);
+            this.label13.Size = new System.Drawing.Size(112, 18);
             this.label13.TabIndex = 41;
-            this.label13.Text = "Payment Type:";
+            this.label13.Text = "Payment Type*:";
             // 
             // txtBranchNum
             // 
@@ -360,9 +361,9 @@ namespace CallCenter
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(11, 90);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(116, 18);
+            this.label12.Size = new System.Drawing.Size(122, 18);
             this.label12.TabIndex = 39;
-            this.label12.Text = "Branch Number:";
+            this.label12.Text = "Branch Number*:";
             // 
             // label11
             // 
@@ -370,9 +371,9 @@ namespace CallCenter
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(11, 60);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 18);
+            this.label11.Size = new System.Drawing.Size(96, 18);
             this.label11.TabIndex = 38;
-            this.label11.Text = "Bank Name:";
+            this.label11.Text = "Bank Name*:";
             // 
             // txtBankName
             // 
@@ -387,9 +388,9 @@ namespace CallCenter
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(11, 30);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(123, 18);
+            this.label6.Size = new System.Drawing.Size(129, 18);
             this.label6.TabIndex = 36;
-            this.label6.Text = "Account Number:";
+            this.label6.Text = "Account Number*:";
             // 
             // txtAccountNum
             // 
@@ -434,15 +435,26 @@ namespace CallCenter
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(6, 30);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(101, 18);
+            this.label16.Size = new System.Drawing.Size(111, 18);
             this.label16.TabIndex = 44;
-            this.label16.Text = "Contract Type";
+            this.label16.Text = "Contract Type*:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(318, 60);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(77, 18);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "* Required\r\n";
             // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(779, 440);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxBankingInfo);
             this.Controls.Add(this.Heading2);
@@ -504,5 +516,6 @@ namespace CallCenter
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox txtContractType;
+        private System.Windows.Forms.Label label14;
     }
 }

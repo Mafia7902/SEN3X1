@@ -57,10 +57,7 @@ namespace CallCenter
                                                         int bankID = random.Next(10000);
                                                         BankDetails bank = new BankDetails();
                                                         Client client = new Client();
-                                                        Contract contract = new Contract();
-
                                                         
-                                                  
 
                                                         string caseSwitch = txtContractType.Text;
                                                         switch (caseSwitch) {
