@@ -10,9 +10,9 @@ namespace DataAccess
 {
     class DataHandler
     {
-        /*readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
+        readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
         //readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
-        readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
+        //readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
 
 
         #region Insert Methods
@@ -775,7 +775,7 @@ namespace DataAccess
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(@"
                 SELECT  *
-                FROM    dbo.Contract   '"
+                FROM    dbo.Contract   "
                     , connection))
             {
                 try
@@ -832,11 +832,12 @@ namespace DataAccess
             }
         }
 
-        public DataTable SelectContractTypes()
+        public DataTable SelectContractTypes(string Type)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT SUBSTRING(ContractID, 5,1) AS ContractTypes FROM Contract", connection))
+            using (SqlCommand command = new SqlCommand("SELECT ContractID AS ContractTypes FROM Contract WHERE SUBSTRING(ContractID, 5,1) = '"+ Type + "'", connection))
+
             {
                 try
                 {
