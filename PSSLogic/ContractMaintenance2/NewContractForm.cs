@@ -51,7 +51,7 @@ namespace ContractMaintenance2
 
                         _device.deviceInsert(txtDeviceID.Text, txtManufacturer.Text, txtModel.Text);
                         _contract.contractInsert(ID, CombContractType.Text, txtDescription.Text, Price, txtDeviceID.Text, Active);
-                        MessageBox.Show("New contract has been made");
+                        MessageBox.Show("New contract has been made","New Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     case "Gold":
                         importnace = "BB";
@@ -62,7 +62,7 @@ namespace ContractMaintenance2
 
                         _device.deviceInsert(txtDeviceID.Text, txtManufacturer.Text, txtModel.Text);
                         _contract.contractInsert(ID, CombContractType.Text, txtDescription.Text, Price, txtDeviceID.Text, Active);
-                        MessageBox.Show("New contract has been made");
+                        MessageBox.Show("New contract has been made", "New Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     case "Silver":
                         importnace = "CC";
@@ -73,7 +73,7 @@ namespace ContractMaintenance2
 
                         _device.deviceInsert(txtDeviceID.Text, txtManufacturer.Text, txtModel.Text);
                         _contract.contractInsert(ID, CombContractType.Text, txtDescription.Text, Price, txtDeviceID.Text, Active);
-                        MessageBox.Show("New contract has been made");
+                        MessageBox.Show("New contract has been made", "New Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     case "Bronze":
                         importnace = "DD";
@@ -84,12 +84,12 @@ namespace ContractMaintenance2
 
                         _device.deviceInsert(txtDeviceID.Text, txtManufacturer.Text, txtModel.Text);
                         _contract.contractInsert(ID, CombContractType.Text, txtDescription.Text, Price, txtDeviceID.Text, Active);
-                        
-                        MessageBox.Show("New contract has been made");
+
+                        MessageBox.Show("New contract has been made", "New Contract", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     default:
                                          
-                        MessageBox.Show("Something Went Wrong");
+                        MessageBox.Show("Something Went Wrong", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 
@@ -97,7 +97,7 @@ namespace ContractMaintenance2
             }
             else
             {
-                MessageBox.Show("Please Fill In All Fields ");
+                MessageBox.Show("Please Fill In All Fields", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

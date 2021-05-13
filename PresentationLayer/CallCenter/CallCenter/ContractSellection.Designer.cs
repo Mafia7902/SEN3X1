@@ -34,9 +34,10 @@ namespace CallCenter
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBoxPlanSelect = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.dgvContractSel = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContractSel)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -83,28 +84,15 @@ namespace CallCenter
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.comboBoxPlanSelect);
+            this.groupBox1.Controls.Add(this.dgvContractSel);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(53, 60);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 130);
+            this.groupBox1.Size = new System.Drawing.Size(539, 270);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Information";
-            // 
-            // comboBoxPlanSelect
-            // 
-            this.comboBoxPlanSelect.FormattingEnabled = true;
-            this.comboBoxPlanSelect.Items.AddRange(new object[] {
-            "Platinum",
-            "Gold",
-            "SIlver",
-            "Bronze"});
-            this.comboBoxPlanSelect.Location = new System.Drawing.Point(14, 71);
-            this.comboBoxPlanSelect.Name = "comboBoxPlanSelect";
-            this.comboBoxPlanSelect.Size = new System.Drawing.Size(121, 26);
-            this.comboBoxPlanSelect.TabIndex = 43;
             // 
             // label14
             // 
@@ -116,11 +104,19 @@ namespace CallCenter
             this.label14.TabIndex = 43;
             this.label14.Text = "Please Select Your Choice of Contract from the List Below:";
             // 
+            // dgvContractSel
+            // 
+            this.dgvContractSel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContractSel.Location = new System.Drawing.Point(14, 68);
+            this.dgvContractSel.Name = "dgvContractSel";
+            this.dgvContractSel.Size = new System.Drawing.Size(500, 130);
+            this.dgvContractSel.TabIndex = 44;
+            // 
             // ContractSellection
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 412);
+            this.ClientSize = new System.Drawing.Size(898, 412);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnCancel);
@@ -131,6 +127,7 @@ namespace CallCenter
             this.Load += new System.EventHandler(this.ExistingCustomer_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContractSel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -143,7 +140,7 @@ namespace CallCenter
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBoxPlanSelect;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView dgvContractSel;
     }
 }

@@ -62,7 +62,6 @@ namespace CallCenter
             this.txtBankName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtAccountNum = new System.Windows.Forms.TextBox();
-            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtContractType = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -399,10 +398,6 @@ namespace CallCenter
             this.txtAccountNum.Size = new System.Drawing.Size(203, 24);
             this.txtAccountNum.TabIndex = 36;
             // 
-            // fontDialog1
-            // 
-            this.fontDialog1.Apply += new System.EventHandler(this.fontDialog1_Apply);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtContractType);
@@ -511,7 +506,6 @@ namespace CallCenter
         private System.Windows.Forms.TextBox txtAccountNum;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ComboBox txtPaymentType;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label16;

@@ -4,36 +4,43 @@ using System.Text;
 
 namespace BackEnd.BusinessLogic
 {
-    class ContratTypeToID
+    public class ContratTypeToID
     {
-        
+        private string contractID;
+
+        public static string ContractID { get; set; }
+
         public string ContractType(string contractType)
         {
-            string contractID="";
+            string ContractTypeID="";
             switch (contractType)
             {
                 case "Platinum":
                     {
-                        contractID = "A";
+                        ContractTypeID = "A";
+                        ContractID = "A";
                         break;
                     }
                 case "Gold":
                     {
-                        contractID = "B";
+                        ContractTypeID = "B";
+                        ContractID = "B";
                         break;
                     }
                 case "Silver":
                     {
-                        contractID = "C";
+                        ContractTypeID = "C"; 
+                        ContractID = "C";
                         break;
                     }
                 case "Bronze":
                     {
-                        contractID = "D";
+                        ContractTypeID = "D";
+                        ContractID = "D";
                         break;
                     }
             }
-            return contractID;
+            return ContractTypeID;
 
         }
 

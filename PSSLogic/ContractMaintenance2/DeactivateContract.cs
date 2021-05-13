@@ -28,7 +28,7 @@ namespace ContractMaintenance2
         {
             if (txtID.Text == null)
             {
-                MessageBox.Show("Please Enter The Contract ID");
+                MessageBox.Show("Please Enter The Contract ID", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             else if (txtID.Text != null)
@@ -36,7 +36,7 @@ namespace ContractMaintenance2
                 int Active = int.Parse(cmbState.Text);
                 var _newState = new BusinessLogic.Contract();
                 _newState.newStates(Active, txtID.Text);
-                MessageBox.Show("The contract state has changed");
+                MessageBox.Show("The contract state has changed", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
         }

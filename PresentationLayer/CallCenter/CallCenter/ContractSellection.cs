@@ -13,9 +13,15 @@ namespace CallCenter
 {
     public partial class ContractSellection : Form
     {
+        string contractTypeID;
+        BindingSource bindingsource1 = new BindingSource();
+        DataTable dt1 = new DataTable();
+
+
         public ContractSellection()
         {
             InitializeComponent();
+            contractTypeID = BackEnd.BusinessLogic.ContratTypeToID.ContractID;
         }
 
        
@@ -26,13 +32,14 @@ namespace CallCenter
 
         private void ExistingCustomer_Load(object sender, EventArgs e)
         {
-
+            bindingsource1.DataSource = dt1;
+            dgvContractSel.DataSource = bindingsource1;
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             Contract contract = new Contract();
-            contract.ContractDescription = comboBoxPlanSelect.Text;
+           // contract.ContractDescription = comboBoxPlanSelect.Text;
             contract.ContractID = " ";
 
             if (contract.ContractDescription.Equals("Platinum"))
@@ -53,7 +60,7 @@ namespace CallCenter
                 contract.Price = 8000;
                 string contractDesc = "Top of the range";
 
-                contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 1);
+                //contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 1);
             }
             else if (contract.ContractDescription.Equals("Gold"))
             {
@@ -74,7 +81,7 @@ namespace CallCenter
                 contract.Price = 5000;
                 string contractDesc = "Medium class";
 
-                contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 0);
+               // contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 0);
             }
             else if (contract.ContractDescription.Equals("Silver"))
             {
@@ -94,7 +101,7 @@ namespace CallCenter
                 contract.ContractID = date + contractType + letter + newID.ToString();
                 contract.Price = 2000;
                 string contractDesc = "Budget";
-                contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 0);
+               // contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 0);
             }
             else if (contract.ContractDescription.Equals("Bronze"))
             {
@@ -114,7 +121,7 @@ namespace CallCenter
                 contract.ContractID = date + contractType + letter + newID.ToString();
                 contract.Price = 800;
                 string contractDesc = "Entry package";
-                contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 0);
+                //contract.contractInsert(contract.ContractID, comboBoxPlanSelect.Text, contractDesc, contract.Price, "epxlp", 0);
             }
 
           
