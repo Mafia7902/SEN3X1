@@ -19,25 +19,23 @@ namespace CallSystem
             InitializeComponent();
         }
 
+        DateTime StartTime;
+        CallInformation CallInfo = new CallInformation();
         private void btnMakeCall_Click(object sender, EventArgs e)
         {
-            // takes you to the LoginForm
+            //// takes you to the LoginForm
             LoginV2.Login f1 = new LoginV2.Login();
             f1.Show();
+            StartTime = DateTime.Now;
 
-            //CallInformation start = new CallInformation();
-           // start.startTime();
-
+            CallInfo.startTime(StartTime);
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CallInformation end = new CallInformation();
-            end.endTime();
-
-            end.elapsedTime();
-
-            MessageBox.Show(end.elapsedTime());
+            string elapsedTime = CallInfo.elapsedTime();
+            MessageBox.Show(elapsedTime);
         }
     }
 }
