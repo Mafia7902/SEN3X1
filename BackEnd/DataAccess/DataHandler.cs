@@ -804,6 +804,7 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT ContractID AS ContractTypes FROM Contract WHERE SUBSTRING(ContractID, 5,1) = '"+ Type + "'", connection))
+
             {
                 try
                 {
