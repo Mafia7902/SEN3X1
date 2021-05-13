@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
+using System.Data;
 
 namespace BusinessLogic
 {
@@ -83,17 +84,17 @@ namespace BusinessLogic
             dh.SelectContractForCallCenter();
          
         }
-        public object selectAllContracts()
+        public DataTable selectAllContracts()
         {
             DataHandler dh = new DataHandler();
-            dh.SelectAllContracts();
-            return dh;
+            DataTable table = dh.SelectAllContracts();
+            return table;
         }
-        public object SelectcontractType( string NewContractType)
+        public DataTable SelectcontractType( string NewContractType)
         {
             DataHandler dh = new DataHandler();
-            dh.SelectContractType(NewContractType);
-            return dh;
+            DataTable table = dh.SelectContractType(NewContractType);
+            return table;
         }
 
     }

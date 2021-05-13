@@ -30,5 +30,12 @@ namespace ContractMaintenance2
             newContract.Show();
             this.Hide();
         }
+
+        private void btnViewAll_Click(object sender, EventArgs e)
+        {
+            ContractDisplay contractDisplay = new ContractDisplay();
+            contractDisplay.Show();
+            this.Hide();
+        }
     }
 }
