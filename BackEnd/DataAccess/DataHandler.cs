@@ -682,7 +682,7 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT SUBSTRING(ContractID, 5,1) AS ContractTypes FROM Contract;", connection))
+            using (SqlCommand command = new SqlCommand("SELECT SUBSTRING(ContractID, 5,1) AS ContractTypes FROM Contract", connection))
             {
                 try
                 {
