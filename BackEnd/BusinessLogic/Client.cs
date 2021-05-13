@@ -165,18 +165,18 @@ namespace BusinessLogic
         //    return newID;
         //}
 
-        public void AddNewClient(string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, int clientType, string bankDetails, string unitNumber = null)
+        public void AddNewClient(string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, int clientType, string bankDetails, string unitNumber = null)
         {
             string newID = IDGenV1();
             DataHandler dh = new DataHandler();
             
             if (dh.ClientIDChecker(newID) == true)
             {
-                AddNewClient(clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province, contractID, clientType, bankDetails, unitNumber);
+                AddNewClient(clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province,  clientType, bankDetails, unitNumber);
             }
             else
             {
-                dh.InsertClient(newID, clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province, contractID, clientType, bankDetails, unitNumber);
+                dh.InsertClient(newID, clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province,  clientType, bankDetails, unitNumber);
             }
         }
 

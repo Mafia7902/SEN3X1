@@ -73,7 +73,7 @@ namespace CallCenter
 
                                                                 client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
                                                                             txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                            "2021AA694065", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                             1, "BankID" + bankID.ToString(), txtUnitNum.Text);
                                                                 MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                                 break;
 
@@ -83,7 +83,7 @@ namespace CallCenter
 
                                                                 client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
                                                                             txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                             "2021BB434447", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                              1, "BankID" + bankID.ToString(), txtUnitNum.Text);
                                                                 MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                                 break;
 
@@ -94,7 +94,7 @@ namespace CallCenter
 
                                                                 client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
                                                                             txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                             "contractID", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                              1, "BankID" + bankID.ToString(), txtUnitNum.Text);
                                                                 MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                                 break;
 
@@ -105,7 +105,7 @@ namespace CallCenter
 
                                                                 client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
                                                                             txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                             "contractID", 1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                                              1, "BankID" + bankID.ToString(), txtUnitNum.Text);
                                                                 MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                                 break;
 

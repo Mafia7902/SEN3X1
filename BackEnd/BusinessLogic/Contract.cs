@@ -97,5 +97,12 @@ namespace BusinessLogic
             return table;
         }
 
+        public DataTable SelectcontractTypes(string NewContractType)
+        {
+            DataHandler dh = new DataHandler();
+            DataTable table = dh.SelectContractTypes(NewContractType);
+            return table;
+        }
+
     }
 }

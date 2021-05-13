@@ -141,14 +141,14 @@ namespace DataAccess
             }
         }
 
-        public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, string contractID, int clientType, string bankDetails, string unitNumber = null)
+        public void InsertClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, int clientType, string bankDetails, string unitNumber = null)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "INSERT INTO dbo.Client(ClientID, ClientName, ClientSurname, Phone, Email, StreetAddress, UnitNumber, Suburb, PostalCode, Province, ContractID, ClientType, BankDetails) VALUES "
-                    + "('" + clientID + "' ,'" + clientName + "' ,'" + clientSurname + "' ,'" + phone + "' ,'" + email + "' ,'" + streetAddress + "' ,'" + unitNumber + "' ,'" + suburb + "' ,'" + postalCode + "' ,'" + province + "' ,'" + contractID + "' ," + clientType + " ,'" + bankDetails + "')";
+                command.CommandText = "INSERT INTO dbo.Client(ClientID, ClientName, ClientSurname, Phone, Email, StreetAddress, UnitNumber, Suburb, PostalCode, Province,  ClientType, BankDetails) VALUES "
+                    + "('" + clientID + "' ,'" + clientName + "' ,'" + clientSurname + "' ,'" + phone + "' ,'" + email + "' ,'" + streetAddress + "' ,'" + unitNumber + "' ,'" + suburb + "' ,'" + postalCode + "' ,'" + province + "'," + clientType + " ,'" + bankDetails + "')";
                 command.Connection = connection;
                 try
                 {
@@ -836,7 +836,7 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.ClientContract.ContractID, COUNT(*)  FROM dbo.ClientContract WHERE SUBSTRING(ContractID, 5,1) = '" + Type + "'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Contract WHERE SUBSTRING(ContractID, 5,1) = '" + Type + "'", connection))
 
             {
                 try

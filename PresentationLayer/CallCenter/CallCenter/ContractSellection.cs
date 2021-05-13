@@ -22,6 +22,9 @@ namespace CallCenter
         {
             InitializeComponent();
             contractTypeID = BackEnd.BusinessLogic.ContratTypeToID.ContractID;
+            var _getContracts = new BusinessLogic.Contract();
+            dt1 = _getContracts.SelectcontractTypes(contractTypeID);
+
         }
 
        
