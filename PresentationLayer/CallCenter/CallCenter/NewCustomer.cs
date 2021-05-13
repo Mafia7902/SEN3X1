@@ -59,11 +59,10 @@ namespace CallCenter
                                                         int bankID = random.Next(10000);
                                                         BankDetails bank = new BankDetails();
                                                         Client client = new Client();
-                                                        ContractSellection contractSellection = new ContractSellection();
-                                                        BackEnd.BusinessLogic.ContratTypeToID contratTypeToID = new BackEnd.BusinessLogic.ContratTypeToID();
-
-                                                        string conID = contratTypeToID.ContractType(txtContractType.SelectedItem.ToString());
+                                                       
+                                                        
                                                         string caseSwitch = txtContractType.Text;
+
                                                         switch (caseSwitch)
                                                         {
                                                             case "Platinum":
@@ -110,9 +109,6 @@ namespace CallCenter
                                                                 break;
 
                                                         }
-
-                                                        this.Hide();
-                                                        contractSellection.Show();
 
                                                     }
                                                     else
@@ -187,6 +183,21 @@ namespace CallCenter
 
         private void fontDialog1_Apply(object sender, EventArgs e)
         {
+
+        }
+        string conID;
+        private void txtContractType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BackEnd.BusinessLogic.ContratTypeToID contratTypeToID = new BackEnd.BusinessLogic.ContratTypeToID();
+
+            conID = contratTypeToID.ContractType(txtContractType.SelectedItem.ToString());
+
+            BindingSource bindingsource1 = new BindingSource();
+            DataTable dt1 = new DataTable();
+            var _getContracts = new BusinessLogic.Contract();
+            dt1 = _getContracts.SelectcontractTypes(conID);
+            bindingsource1.DataSource = dt1;
+            contractSelect.DataSource = bindingsource1;
 
         }
     }

@@ -66,9 +66,11 @@ namespace CallCenter
             this.txtContractType = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.contractSelect = new System.Windows.Forms.DataGridView();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxBankingInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractSelect)).BeginInit();
             this.SuspendLayout();
             // 
             // txtUnitNum
@@ -423,6 +425,7 @@ namespace CallCenter
             this.txtContractType.Name = "txtContractType";
             this.txtContractType.Size = new System.Drawing.Size(203, 26);
             this.txtContractType.TabIndex = 44;
+            this.txtContractType.SelectedIndexChanged += new System.EventHandler(this.txtContractType_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -444,11 +447,20 @@ namespace CallCenter
             this.label14.TabIndex = 44;
             this.label14.Text = "* Required\r\n";
             // 
+            // contractSelect
+            // 
+            this.contractSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.contractSelect.Location = new System.Drawing.Point(766, 99);
+            this.contractSelect.Name = "contractSelect";
+            this.contractSelect.Size = new System.Drawing.Size(539, 247);
+            this.contractSelect.TabIndex = 45;
+            // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(779, 440);
+            this.ClientSize = new System.Drawing.Size(1317, 440);
+            this.Controls.Add(this.contractSelect);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxBankingInfo);
@@ -467,6 +479,7 @@ namespace CallCenter
             this.groupBoxBankingInfo.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contractSelect)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,5 +524,6 @@ namespace CallCenter
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox txtContractType;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.DataGridView contractSelect;
     }
 }
