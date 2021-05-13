@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BackEnd.BusinessLogic;
 
 namespace ContractMaintenance2
 {
@@ -29,8 +30,10 @@ namespace ContractMaintenance2
 
         private void bntSearch_Click(object sender, EventArgs e)
         {
+            BackEnd.BusinessLogic.ContratTypeToID CtT = new ContratTypeToID();
+            string contractID = CtT.ContractType(cmbContractType.SelectedItem.ToString());
             var _getNewContracts = new BusinessLogic.Contract();
-            dt1 = _getNewContracts.SelectcontractType(cmbContractType.Text);
+            dt1 = _getNewContracts.SelectcontractCount(contractID);
             bindingsource1.DataSource = dt1;
             dgvViewContracts.DataSource = bindingsource1;
         }
@@ -44,3 +47,4 @@ namespace ContractMaintenance2
         }
     }
 }
+

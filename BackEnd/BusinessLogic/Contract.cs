@@ -87,13 +87,13 @@ namespace BusinessLogic
         public DataTable selectAllContracts()
         {
             DataHandler dh = new DataHandler();
-            DataTable table = dh.SelectAllContracts();
+            DataTable table = dh.SelectContractCountsAll();
             return table;
         }
-        public DataTable SelectcontractType( string NewContractType)
+        public DataTable SelectcontractCount( string NewContractType)
         {
             DataHandler dh = new DataHandler();
-            DataTable table = dh.SelectContractType(NewContractType);
+            DataTable table = dh.SelectContractCounts(NewContractType);
             return table;
         }
 

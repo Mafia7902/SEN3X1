@@ -836,7 +836,7 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT * FROM Contract WHERE SUBSTRING(ContractID, 5,1) = '"+ Type + "'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.ClientContract.ContractID, COUNT(*)  FROM dbo.ClientContract WHERE SUBSTRING(ContractID, 5,1) = '" + Type + "'", connection))
 
             {
                 try
@@ -860,6 +860,65 @@ namespace DataAccess
                 return table;
             }
         }
+       
+        public DataTable SelectContractCounts(string Type)
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(" SELECT dbo.ClientContract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' FROM dbo.ClientContract WHERE SUBSTRING(ContractID, 5,1) = '"+Type+"' GROUP BY dbo.ClientContract.ContractID", connection))
+
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
+        public DataTable SelectContractCountsAll()
+        {
+            DataTable table = new DataTable();
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlCommand command = new SqlCommand(" SELECT dbo.ClientContract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' FROM dbo.ClientContract GROUP BY dbo.ClientContract.ContractID", connection))
+
+            {
+                try
+                {
+                    connection.Open();
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
+                    {
+                        adapter.Fill(table);
+                    }
+
+                }
+                catch (SqlException sqle)
+                {
+                    Console.WriteLine(sqle.ToString());
+                }
+                finally
+                {
+                    command.Dispose();
+                    connection.Close();
+                }
+                return table;
+            }
+        }
+
 
         public DataTable SelectTechnicianView1(int empID)
         {
