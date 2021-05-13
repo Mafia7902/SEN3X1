@@ -21,7 +21,6 @@ namespace BusinessLogic
         private string suburb;
         private string postalcode;
         private string province;
-        private string contractID;
         private string bankDetails;
        
        
@@ -33,7 +32,7 @@ namespace BusinessLogic
         }
 
         public Client(string clientID, string name, string surname, string phone, string email, int clientType, string physicalAddress, string suburb, string postalcode
-            , string province, string contractID, string bankDetails, string unitNumber )
+            , string province, string bankDetails, string unitNumber )
         {
             this.clientID = clientID;
             this.name = name;
@@ -45,7 +44,7 @@ namespace BusinessLogic
             this.suburb = suburb;
             this.postalcode = postalcode;
             this.province = province;
-            this.contractID = contractID;
+            
             this.bankDetails = bankDetails;
             this.unitNumber = unitNumber;
 
@@ -81,11 +80,7 @@ namespace BusinessLogic
             set { province = value; }
         }
 
-        public string ContractID
-        {
-            get { return contractID; }
-            set { contractID = value; }
-        }
+      
 
         public string BankDetails
         {
@@ -223,6 +218,7 @@ namespace BusinessLogic
             return mytbl;
         }
 
+        //Tree view display all customers
         public DataTable dg3()
         {
             DataTable mytbl = new DataTable();
@@ -230,6 +226,7 @@ namespace BusinessLogic
             return mytbl;
         }
 
+        //Tree view display specific customer
         public DataTable dg4(string email)
         {
             DataTable mytbl = new DataTable();
@@ -238,10 +235,10 @@ namespace BusinessLogic
         }
 
         public void updateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = null)
+           string province, string streetAddress, string phone,  int clientType, string bankDetails, string unitNumber = null)
         {
             DataHandler dh = new DataHandler();
-            dh.UpdateClient(clientID ,clientName, clientSurname, email, suburb, postalCode, province, streetAddress, phone, contractID, 
+            dh.UpdateClient(clientID ,clientName, clientSurname, email, suburb, postalCode, province, streetAddress, phone,  
                 clientType, bankDetails, unitNumber);
         }
        

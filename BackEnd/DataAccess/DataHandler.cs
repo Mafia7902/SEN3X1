@@ -422,7 +422,7 @@ namespace DataAccess
         //----------------------------------------------------------
 
         public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string phone, string contractID, int clientType, string bankDetails, string unitNumber = "N/A")
+           string province, string streetAddress, string phone,  int clientType, string bankDetails, string unitNumber = "N/A")
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
@@ -448,8 +448,6 @@ namespace DataAccess
                     + postalCode
                     + "' , Province = '"
                     + province
-                    + "', ContractID = '"
-                    + contractID
                     + "' , ClientType = "
                     + clientType
                     + " , BankDetails = '"
@@ -642,9 +640,9 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(@" SELECT dbo.Client.ClientID, CONCAT(dbo.Client.ClientName,' ',dbo.Client.ClientSurname) AS FullName, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, 
-                                                        dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum, dbo.Contract.ContractDescription, dbo.Contract.ContractType,
-                                                        dbo.Contract.ContractID, dbo.Contract.DeviceID, dbo.Contract.IsActive, dbo.Contract.Price FROM dbo.Client INNER JOIN dbo.BankDetails 
-                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID INNER JOIN dbo.Contract ON dbo.Client.ContractID = dbo.Contract.ContractID WHERE dbo.Client.Email = '"+email+"'", connection))
+                                                        dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum
+                                                        FROM dbo.Client INNER JOIN dbo.BankDetails 
+                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '"+email+"'", connection))
             {
                 try
                 {
@@ -673,9 +671,9 @@ namespace DataAccess
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand(@" SELECT dbo.Client.ClientID, CONCAT(dbo.Client.ClientName,' ',dbo.Client.ClientSurname) AS FullName, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, 
-                                                        dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum, dbo.Contract.ContractDescription, dbo.Contract.ContractType,
-                                                        dbo.Contract.ContractID, dbo.Contract.DeviceID, dbo.Contract.IsActive, dbo.Contract.Price FROM dbo.Client INNER JOIN dbo.BankDetails 
-                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID INNER JOIN dbo.Contract ON dbo.Client.ContractID = dbo.Contract.ContractID ", connection))
+                                                        dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum
+                                                        FROM dbo.Client INNER JOIN dbo.BankDetails 
+                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID  ", connection))
             {
                 try
                 {
@@ -1020,7 +1018,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.ClientID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, dbo.Client.ContractID, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum FROM dbo.Client INNER JOIN dbo.BankDetails ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email + "'", connection))
+            using (SqlCommand command = new SqlCommand("SELECT dbo.Client.ClientID, dbo.Client.ClientName, dbo.Client.ClientSurname, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum FROM dbo.Client INNER JOIN dbo.BankDetails ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email + "'", connection))
             {
                 try
                 {

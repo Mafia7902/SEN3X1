@@ -73,6 +73,8 @@ namespace TechnicianFORM
             this.label17 = new System.Windows.Forms.Label();
             this.txtBranchNum = new System.Windows.Forms.TextBox();
             this.treeViewCustomer = new System.Windows.Forms.TreeView();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -504,14 +506,37 @@ namespace TechnicianFORM
             // 
             this.treeViewCustomer.Location = new System.Drawing.Point(750, 98);
             this.treeViewCustomer.Name = "treeViewCustomer";
-            this.treeViewCustomer.Size = new System.Drawing.Size(354, 430);
+            this.treeViewCustomer.Size = new System.Drawing.Size(354, 358);
             this.treeViewCustomer.TabIndex = 82;
+            this.treeViewCustomer.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewCustomer_AfterSelect);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(148, 59);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 83;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(747, 474);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(340, 16);
+            this.label20.TabIndex = 83;
+            this.label20.Text = "Click on an email adress to display it in search bar";
             // 
             // ClientMaintanance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1179, 542);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.treeViewCustomer);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -582,5 +607,7 @@ namespace TechnicianFORM
         private System.Windows.Forms.TextBox txtBranchNum;
         private System.Windows.Forms.ComboBox txtPaymentType;
         private System.Windows.Forms.TreeView treeViewCustomer;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Label label20;
     }
 }
