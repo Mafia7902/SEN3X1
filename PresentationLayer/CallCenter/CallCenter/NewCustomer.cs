@@ -58,27 +58,34 @@ namespace CallCenter
                                                 {
                                                     if (cboxPaymentType.Text.Length > 0)
                                                     {
-                                                        Random random = new Random();
-                                                        int bankID = random.Next(10000);
-                                                        BankDetails bank = new BankDetails();
-                                                        Client client = new Client();
-                                                        ClientContract clientContract = new ClientContract();
-                                                        string id= "";
-                                                        string clientID = client.idChecker(id);
+                                                        if (txtContractID.Text.Length > 0)
+                                                        {
+                                                            Random random = new Random();
+                                                            int bankID = random.Next(10000);
+                                                            BankDetails bank = new BankDetails();
+                                                            Client client = new Client();
+                                                            ClientContract clientContract = new ClientContract();
+                                                            string id = "";
+                                                            string clientID = client.idChecker(id);
 
-                                                  
 
 
-                                                        bank.AddBankDetails("BankID" + bankID.ToString(), cboxPaymentType.Text, txtBranchNum.Text,
-                                                                    txtBankName.Text, txtAccountNum.Text);
 
-                                                        client.AddNewClient(clientID, txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
-                                                                    txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                     1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+                                                            bank.AddBankDetails("BankID" + bankID.ToString(), cboxPaymentType.Text, txtBranchNum.Text,
+                                                                        txtBankName.Text, txtAccountNum.Text);
 
-                                                        
-                                                        clientContract.insertClientContract(clientID, txtContractID.Text);
-                                                        MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                            client.AddNewClient(clientID, txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                        txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                         1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+
+
+                                                            clientContract.insertClientContract(clientID, txtContractID.Text);
+                                                            MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                                        }
+                                                        else
+                                                        {
+                                                            MessageBox.Show("Select a contract", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                                        }
                                                     }
                                                     else
                                                     {

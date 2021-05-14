@@ -452,6 +452,7 @@ namespace CallCenter
             // 
             // dgvcontractSelect
             // 
+            this.dgvcontractSelect.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvcontractSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvcontractSelect.Location = new System.Drawing.Point(6, 23);
             this.dgvcontractSelect.Name = "dgvcontractSelect";
@@ -474,7 +475,7 @@ namespace CallCenter
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(766, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(539, 243);
+            this.groupBox2.Size = new System.Drawing.Size(549, 247);
             this.groupBox2.TabIndex = 52;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Select a Contract";
