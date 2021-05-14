@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BackEnd.BusinessLogic;
 using BusinessLogic;
 using DataAccess;
 
@@ -33,6 +34,8 @@ namespace CallCenter
          
 
             /*To be updated later - Stefan*/
+          
+
             if (txtFName.Text.Length > 0)
             {
                 if (txtLName.Text.Length > 0)
@@ -53,63 +56,29 @@ namespace CallCenter
                                             {
                                                 if (txtBranchNum.Text.Length > 0)
                                                 {
-                                                    if (txtPaymentType.Text.Length > 0)
+                                                    if (cboxPaymentType.Text.Length > 0)
                                                     {
                                                         Random random = new Random();
                                                         int bankID = random.Next(10000);
                                                         BankDetails bank = new BankDetails();
                                                         Client client = new Client();
-                                                       
+                                                        ClientContract clientContract = new ClientContract();
+                                                        string id= "";
+                                                        string clientID = client.idChecker(id);
+
+                                                  
+
+
+                                                        bank.AddBankDetails("BankID" + bankID.ToString(), cboxPaymentType.Text, txtBranchNum.Text,
+                                                                    txtBankName.Text, txtAccountNum.Text);
+
+                                                        client.AddNewClient(clientID, txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
+                                                                    txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
+                                                                     1, "BankID" + bankID.ToString(), txtUnitNum.Text);
+
                                                         
-                                                        string caseSwitch = txtContractType.Text;
-
-                                                        switch (caseSwitch)
-                                                        {
-                                                            case "Platinum":
-                                                                
-                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
-                                                                            txtBankName.Text, txtAccountNum.Text);
-
-                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
-                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                             1, "BankID" + bankID.ToString(), txtUnitNum.Text);
-                                                                MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                break;
-
-                                                            case "Gold":
-                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
-                                                                            txtBankName.Text, txtAccountNum.Text);
-
-                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
-                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                              1, "BankID" + bankID.ToString(), txtUnitNum.Text);
-                                                                MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                break;
-
-                                                            case "Silver":
-
-                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
-                                                                            txtBankName.Text, txtAccountNum.Text);
-
-                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
-                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                              1, "BankID" + bankID.ToString(), txtUnitNum.Text);
-                                                                MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                break;
-
-                                                            case "Bronze":
-                                                                
-                                                                bank.AddBankDetails("BankID" + bankID.ToString(), txtPaymentType.Text, txtBranchNum.Text,
-                                                                            txtBankName.Text, txtAccountNum.Text);
-
-                                                                client.AddNewClient(txtFName.Text, txtLName.Text, txtPhone.Text, txtEmail.Text,
-                                                                            txtStreetAddress.Text, txtSuburb.Text, txtPostCode.Text, txtProvince.Text,
-                                                                              1, "BankID" + bankID.ToString(), txtUnitNum.Text);
-                                                                MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                                                break;
-
-                                                        }
-
+                                                        clientContract.insertClientContract(clientID, txtContractID.Text);
+                                                        MessageBox.Show("New user has been added", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                                     }
                                                     else
                                                     {
@@ -166,14 +135,13 @@ namespace CallCenter
                 MessageBox.Show("Enter Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
-
         }
-
-
+      
+        Contract contract = new Contract();
         private void NewCustomer_Load(object sender, EventArgs e)
         {
-
+            txtContractID.Hide();
+      
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -188,16 +156,22 @@ namespace CallCenter
         string conID;
         private void txtContractType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            BackEnd.BusinessLogic.ContratTypeToID contratTypeToID = new BackEnd.BusinessLogic.ContratTypeToID();
+            DataTable dt2 = new DataTable();
+            BindingSource bindingSource = new BindingSource();
+            dt2 = contract.SelectcontractTypes(cboxContractType.Text);
+            bindingSource.DataSource = dt2;
+            dgvcontractSelect.DataSource = bindingSource;
 
-            conID = contratTypeToID.ContractType(txtContractType.SelectedItem.ToString());
+        }
 
-            BindingSource bindingsource1 = new BindingSource();
-            DataTable dt1 = new DataTable();
-            var _getContracts = new BusinessLogic.Contract();
-            dt1 = _getContracts.SelectcontractTypes(conID);
-            bindingsource1.DataSource = dt1;
-            contractSelect.DataSource = bindingsource1;
+        private void dgvcontractSelect_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            txtContractID.Text = dgvcontractSelect.Rows[e.RowIndex].Cells[0].Value.ToString();
+           
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
 
         }
     }

@@ -124,7 +124,7 @@ namespace BusinessLogic
             set { clientID = value; }
         }
 
-        private string IDGenV1()
+        public string IDGenV1()
         {
             #region Notes
             /*
@@ -160,19 +160,26 @@ namespace BusinessLogic
         //    return newID;
         //}
 
-        public void AddNewClient(string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, int clientType, string bankDetails, string unitNumber = null)
+        public void AddNewClient(string clientID, string clientName, string clientSurname, string phone, string email, string streetAddress, string suburb, string postalCode, string province, int clientType, string bankDetails, string unitNumber = null)
         {
-            string newID = IDGenV1();
+           // string newID = IDGenV1();
             DataHandler dh = new DataHandler();
+
+            dh.InsertClient(clientID, clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province,  clientType, bankDetails, unitNumber);
+
+        }
+
+        public string idChecker(string clientID)
+        {
+            DataHandler dh = new DataHandler();
+            string id = IDGenV1();
+            if (dh.ClientIDChecker(id)==true)
+            {
+                idChecker(id);
+            }
+
+            return id;
             
-            if (dh.ClientIDChecker(newID) == true)
-            {
-                AddNewClient(clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province,  clientType, bankDetails, unitNumber);
-            }
-            else
-            {
-                dh.InsertClient(newID, clientName, clientSurname, phone, email, streetAddress, suburb, postalCode, province,  clientType, bankDetails, unitNumber);
-            }
         }
 
         public DataTable searchClient(string email)

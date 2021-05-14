@@ -101,8 +101,11 @@ namespace BusinessLogic
         {
             DataHandler dh = new DataHandler();
             DataTable table = dh.SelectContractTypes(NewContractType);
+            //DataTable table = dh.SelectAllContracts();
             return table;
         }
+
+        
 
     }
 }

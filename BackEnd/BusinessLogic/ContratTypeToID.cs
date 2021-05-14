@@ -7,8 +7,9 @@ namespace BackEnd.BusinessLogic
     public class ContratTypeToID
     {
         private string contractID;
+   
 
-        public static string ContractID { get; set; }
+        public  string ContractID { get { return contractID; } set {contractID = value; } }
 
         public string ContractType(string contractType)
         {

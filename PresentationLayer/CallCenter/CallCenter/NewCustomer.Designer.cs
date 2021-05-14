@@ -54,7 +54,7 @@ namespace CallCenter
             this.btnBack = new System.Windows.Forms.Button();
             this.Heading2 = new System.Windows.Forms.Label();
             this.groupBoxBankingInfo = new System.Windows.Forms.GroupBox();
-            this.txtPaymentType = new System.Windows.Forms.ComboBox();
+            this.cboxPaymentType = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtBranchNum = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -63,14 +63,17 @@ namespace CallCenter
             this.label6 = new System.Windows.Forms.Label();
             this.txtAccountNum = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtContractType = new System.Windows.Forms.ComboBox();
+            this.cboxContractType = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.contractSelect = new System.Windows.Forms.DataGridView();
+            this.dgvcontractSelect = new System.Windows.Forms.DataGridView();
+            this.txtContractID = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBoxPersonalInfo.SuspendLayout();
             this.groupBoxBankingInfo.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractSelect)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcontractSelect)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUnitNum
@@ -309,7 +312,7 @@ namespace CallCenter
             // 
             // groupBoxBankingInfo
             // 
-            this.groupBoxBankingInfo.Controls.Add(this.txtPaymentType);
+            this.groupBoxBankingInfo.Controls.Add(this.cboxPaymentType);
             this.groupBoxBankingInfo.Controls.Add(this.label13);
             this.groupBoxBankingInfo.Controls.Add(this.txtBranchNum);
             this.groupBoxBankingInfo.Controls.Add(this.label12);
@@ -325,19 +328,19 @@ namespace CallCenter
             this.groupBoxBankingInfo.TabStop = false;
             this.groupBoxBankingInfo.Text = "Banking Information";
             // 
-            // txtPaymentType
+            // cboxPaymentType
             // 
-            this.txtPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtPaymentType.FormattingEnabled = true;
-            this.txtPaymentType.Items.AddRange(new object[] {
+            this.cboxPaymentType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxPaymentType.FormattingEnabled = true;
+            this.cboxPaymentType.Items.AddRange(new object[] {
             "Montly",
             "Anually ",
             "Bi-Anually",
             "Quarterly"});
-            this.txtPaymentType.Location = new System.Drawing.Point(150, 117);
-            this.txtPaymentType.Name = "txtPaymentType";
-            this.txtPaymentType.Size = new System.Drawing.Size(203, 26);
-            this.txtPaymentType.TabIndex = 43;
+            this.cboxPaymentType.Location = new System.Drawing.Point(150, 117);
+            this.cboxPaymentType.Name = "cboxPaymentType";
+            this.cboxPaymentType.Size = new System.Drawing.Size(203, 26);
+            this.cboxPaymentType.TabIndex = 43;
             // 
             // label13
             // 
@@ -402,7 +405,7 @@ namespace CallCenter
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtContractType);
+            this.groupBox1.Controls.Add(this.cboxContractType);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(385, 274);
@@ -412,20 +415,20 @@ namespace CallCenter
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Contract Information";
             // 
-            // txtContractType
+            // cboxContractType
             // 
-            this.txtContractType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.txtContractType.FormattingEnabled = true;
-            this.txtContractType.Items.AddRange(new object[] {
+            this.cboxContractType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxContractType.FormattingEnabled = true;
+            this.cboxContractType.Items.AddRange(new object[] {
             "Platinum",
             "Gold",
             "Silver",
             "Bronze"});
-            this.txtContractType.Location = new System.Drawing.Point(150, 22);
-            this.txtContractType.Name = "txtContractType";
-            this.txtContractType.Size = new System.Drawing.Size(203, 26);
-            this.txtContractType.TabIndex = 44;
-            this.txtContractType.SelectedIndexChanged += new System.EventHandler(this.txtContractType_SelectedIndexChanged);
+            this.cboxContractType.Location = new System.Drawing.Point(150, 22);
+            this.cboxContractType.Name = "cboxContractType";
+            this.cboxContractType.Size = new System.Drawing.Size(203, 26);
+            this.cboxContractType.TabIndex = 44;
+            this.cboxContractType.SelectedIndexChanged += new System.EventHandler(this.txtContractType_SelectedIndexChanged);
             // 
             // label16
             // 
@@ -447,20 +450,43 @@ namespace CallCenter
             this.label14.TabIndex = 44;
             this.label14.Text = "* Required\r\n";
             // 
-            // contractSelect
+            // dgvcontractSelect
             // 
-            this.contractSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.contractSelect.Location = new System.Drawing.Point(766, 99);
-            this.contractSelect.Name = "contractSelect";
-            this.contractSelect.Size = new System.Drawing.Size(539, 247);
-            this.contractSelect.TabIndex = 45;
+            this.dgvcontractSelect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvcontractSelect.Location = new System.Drawing.Point(6, 23);
+            this.dgvcontractSelect.Name = "dgvcontractSelect";
+            this.dgvcontractSelect.ReadOnly = true;
+            this.dgvcontractSelect.Size = new System.Drawing.Size(539, 217);
+            this.dgvcontractSelect.TabIndex = 45;
+            this.dgvcontractSelect.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvcontractSelect_RowHeaderMouseClick);
+            // 
+            // txtContractID
+            // 
+            this.txtContractID.Location = new System.Drawing.Point(766, 370);
+            this.txtContractID.Name = "txtContractID";
+            this.txtContractID.ReadOnly = true;
+            this.txtContractID.Size = new System.Drawing.Size(100, 20);
+            this.txtContractID.TabIndex = 47;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dgvcontractSelect);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(766, 99);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(539, 243);
+            this.groupBox2.TabIndex = 52;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Select a Contract";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // NewCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1317, 440);
-            this.Controls.Add(this.contractSelect);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtContractID);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxBankingInfo);
@@ -479,7 +505,8 @@ namespace CallCenter
             this.groupBoxBankingInfo.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contractSelect)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvcontractSelect)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,11 +546,13 @@ namespace CallCenter
         private System.Windows.Forms.TextBox txtAccountNum;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox txtPaymentType;
+        private System.Windows.Forms.ComboBox cboxPaymentType;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox txtContractType;
+        private System.Windows.Forms.ComboBox cboxContractType;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.DataGridView contractSelect;
+        private System.Windows.Forms.DataGridView dgvcontractSelect;
+        private System.Windows.Forms.TextBox txtContractID;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

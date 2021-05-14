@@ -22,6 +22,7 @@ namespace TechnicianFORM
         DataTable dataTable = new DataTable();
         BankDetails bankDetails = new BankDetails();
         Client client = new Client();
+
         private void btnSearch_Click(object sender, EventArgs e)
         {
            
