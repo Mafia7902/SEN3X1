@@ -29,9 +29,9 @@ namespace BackEnd.BusinessLogic
             foreach (DataRow row in contractType.Rows)
             {
                 contractID = row["ContractID"].ToString();
-
+                contractID = contractID.Substring(5, 1);
             }
-            contractID = contractID.Substring(5, 1);
+
             switch (contractID)
             {
                 case "A":

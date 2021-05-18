@@ -11,47 +11,11 @@ namespace DataAccess
     class DataHandler
     {
         //readonly string connectionString = @"Data Source=KEVINPC\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";//Kevin's PC*/
-        //readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
-        readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; /*Stefan Server*/
+        readonly string connectionString = @"Data Source=DESKTOP-S332AOK\SQLEXPRESS;Initial Catalog=PSSDB;Integrated Security=True";//Albert's PC
+        /*readonly string connectionString = @"Data Source=DESKTOP-FH90QR9;Initial Catalog=PSSDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"; *//*Stefan Server*/
 
 
         #region Insert Methods
-
-        //Template
-        //--------------------------------------------------------------
-        public void InsertTemplate()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand())
-            {
-                command.CommandType = System.Data.CommandType.Text;
-                command.CommandText = "START TRANSACTION "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
-                    + " "
-                    + "COMMIT";
-                command.Connection = connection;
-                try
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                }
-                catch (SqlException sqle)
-                {
-                    Console.WriteLine(sqle.ToString());
-                }
-                finally
-                {
-                    command.Dispose();
-                    connection.Close();
-                }
-            }
-        }
-        //--------------------------------------------------------------
 
         public void InsertClientContract(string clientID, string contractID)
         {
@@ -919,7 +883,7 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(" SELECT dbo.ClientContract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' FROM dbo.ClientContract GROUP BY dbo.ClientContract.ContractID", connection))
+            using (SqlCommand command = new SqlCommand(" SELECT dbo.Contract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' INNER JOIN FROM dbo.ClientContract GROUP BY dbo.ClientContract.ContractID", connection))
 
             {
                 try
