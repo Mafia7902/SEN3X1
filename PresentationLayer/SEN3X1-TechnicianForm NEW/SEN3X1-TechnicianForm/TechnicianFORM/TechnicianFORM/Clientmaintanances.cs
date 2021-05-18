@@ -101,7 +101,7 @@ namespace TechnicianFORM
             txtClientType.Text = dataGridView1.Rows[e.RowIndex].Cells[10].Value.ToString();
             txtBankDetails.Text = dataGridView1.Rows[e.RowIndex].Cells[11].Value.ToString();
             txtBankName.Text = dataGridView1.Rows[e.RowIndex].Cells[13].Value.ToString();
-            txtPaymentType.Text = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
+            //txtPaymentType.SelectedItem = dataGridView1.Rows[e.RowIndex].Cells[12].Value.ToString();
             txtBranchNum.Text = dataGridView1.Rows[e.RowIndex].Cells[14].Value.ToString();
             txtAccoutNum.Text = dataGridView1.Rows[e.RowIndex].Cells[15].Value.ToString();
 
@@ -109,31 +109,52 @@ namespace TechnicianFORM
        
         private void bntUpdate_Click(object sender, EventArgs e)
         {
-            client.updateClient(txtClientID.Text, txtFirstName.Text, txtSurname.Text, txtEmail2.Text, txtSuburb.Text, txtPostalCode.Text,
-               txtProvince.Text, txtAddress.Text, txtPhone.Text, int.Parse(txtClientType.Text), 
-               txtBankDetails.Text, txtUnitNumber.Text);
 
-            bankDetails.updateBankDetails(txtBankDetails.Text, txtPaymentType.Text, txtBankName.Text, txtBranchNum.Text, txtAccoutNum.Text);
+            if (txtPaymentType.Text.Length > 0) 
+            {
+                client.updateClient(txtClientID.Text, txtFirstName.Text, txtSurname.Text, txtEmail2.Text, txtSuburb.Text, txtPostalCode.Text,
+                   txtProvince.Text, txtAddress.Text, txtPhone.Text, int.Parse(txtClientType.Text),
+                   txtBankDetails.Text, txtUnitNumber.Text);
 
-            MessageBox.Show("Client details updated","Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            txtClientID.Text = " ";
-            txtFirstName.Text = " ";
-            txtSurname.Text = " ";
-            txtPhone.Text = " ";
-            txtEmail2.Text = " ";
-            txtAddress.Text = " ";
-            txtUnitNumber.Text = " ";
-            txtSuburb.Text = " ";
-            txtPostalCode.Text = " ";
-            txtProvince.Text = " ";
-            txtClientType.Text = " ";
-            txtBankDetails.Text = " ";
-            txtBankName.Text = " ";
-            txtPaymentType.Text = " ";
-            txtBranchNum.Text = " ";
-            txtAccoutNum.Text = " ";
-            dataGridView1.DataSource = " ";
-            txtEmailSearch.Text = " ";
+                bankDetails.updateBankDetails(txtBankDetails.Text, txtPaymentType.Text, txtBankName.Text, txtBranchNum.Text, txtAccoutNum.Text);
+
+                MessageBox.Show("Client details updated", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtClientID.Text = " ";
+                txtFirstName.Text = " ";
+                txtSurname.Text = " ";
+                txtPhone.Text = " ";
+                txtEmail2.Text = " ";
+                txtAddress.Text = " ";
+                txtUnitNumber.Text = " ";
+                txtSuburb.Text = " ";
+                txtPostalCode.Text = " ";
+                txtProvince.Text = " ";
+                txtClientType.Text = " ";
+                txtBankDetails.Text = " ";
+                txtBankName.Text = " ";
+                txtPaymentType.Text = " ";
+                txtBranchNum.Text = " ";
+                txtAccoutNum.Text = " ";
+                dataGridView1.DataSource = " ";
+                txtEmailSearch.Text = " ";
+
+                //return tree view to original state
+                dataTable = client.dg3();
+                treeViewCustomer.Nodes.Clear();
+                treeViewCustomer.Nodes.Add("Client");
+                foreach (DataRow dataRow in dataTable.Rows)
+                {
+
+                    TreeNode treeNode = new TreeNode(dataRow["FullName"].ToString());
+                    treeNode.Nodes.Add(dataRow["Email"].ToString());
+                    treeNode.Nodes.Add(dataRow["Phone"].ToString());
+                    treeViewCustomer.Nodes.Add(treeNode);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Pleas select a payment type", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         
