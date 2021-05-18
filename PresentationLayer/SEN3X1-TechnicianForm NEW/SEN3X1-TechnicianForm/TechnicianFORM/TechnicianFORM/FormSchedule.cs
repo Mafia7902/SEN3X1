@@ -97,11 +97,9 @@ namespace TechnicianFORM
 
             reassign.assignTicket(item, empID);
 
-        }
-
-        private void btnReassign_Click_1(object sender, EventArgs e)
-        {
+            MessageBox.Show("Ticket has been reassigned","Success",MessageBoxButtons.OK);
 
         }
+
     } 
 }
