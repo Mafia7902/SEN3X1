@@ -45,7 +45,6 @@ namespace TechnicianFORM
             this.txtSuburb = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtEmail2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -55,8 +54,6 @@ namespace TechnicianFORM
             this.label11 = new System.Windows.Forms.Label();
             this.txtClientType = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.txtContractID = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -75,6 +72,7 @@ namespace TechnicianFORM
             this.treeViewCustomer = new System.Windows.Forms.TreeView();
             this.btnClear = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
+            this.txtEmail2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -225,14 +223,6 @@ namespace TechnicianFORM
             this.label6.TabIndex = 61;
             this.label6.Text = "Street Address";
             // 
-            // txtEmail2
-            // 
-            this.txtEmail2.Location = new System.Drawing.Point(6, 203);
-            this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.ReadOnly = true;
-            this.txtEmail2.Size = new System.Drawing.Size(182, 20);
-            this.txtEmail2.TabIndex = 59;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -296,7 +286,7 @@ namespace TechnicianFORM
             // 
             // txtClientType
             // 
-            this.txtClientType.Location = new System.Drawing.Point(4, 295);
+            this.txtClientType.Location = new System.Drawing.Point(7, 247);
             this.txtClientType.Name = "txtClientType";
             this.txtClientType.ReadOnly = true;
             this.txtClientType.Size = new System.Drawing.Size(182, 20);
@@ -306,35 +296,16 @@ namespace TechnicianFORM
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(5, 276);
+            this.label12.Location = new System.Drawing.Point(8, 228);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 16);
             this.label12.TabIndex = 77;
             this.label12.Text = "Client Type";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("MS Reference Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(8, 230);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(80, 16);
-            this.label13.TabIndex = 76;
-            this.label13.Text = "ContractID";
-            // 
-            // txtContractID
-            // 
-            this.txtContractID.Location = new System.Drawing.Point(4, 249);
-            this.txtContractID.Name = "txtContractID";
-            this.txtContractID.ReadOnly = true;
-            this.txtContractID.Size = new System.Drawing.Size(182, 20);
-            this.txtContractID.TabIndex = 75;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.txtClientID);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.txtContractID);
             this.groupBox1.Controls.Add(this.txtFirstName);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtSurname);
@@ -345,10 +316,9 @@ namespace TechnicianFORM
             this.groupBox1.Controls.Add(this.txtPhone);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Location = new System.Drawing.Point(42, 200);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 328);
+            this.groupBox1.Size = new System.Drawing.Size(200, 290);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Client details";
@@ -530,6 +500,14 @@ namespace TechnicianFORM
             this.label20.TabIndex = 83;
             this.label20.Text = "Click on an email adress to display it in search bar";
             // 
+            // txtEmail2
+            // 
+            this.txtEmail2.Location = new System.Drawing.Point(6, 203);
+            this.txtEmail2.Name = "txtEmail2";
+            this.txtEmail2.ReadOnly = true;
+            this.txtEmail2.Size = new System.Drawing.Size(182, 20);
+            this.txtEmail2.TabIndex = 59;
+            // 
             // ClientMaintanance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,7 +557,6 @@ namespace TechnicianFORM
         private System.Windows.Forms.TextBox txtSuburb;
         private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEmail2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Label label3;
@@ -589,8 +566,6 @@ namespace TechnicianFORM
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtClientType;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtContractID;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtBankDetails;
@@ -609,5 +584,6 @@ namespace TechnicianFORM
         private System.Windows.Forms.TreeView treeViewCustomer;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtEmail2;
     }
 }

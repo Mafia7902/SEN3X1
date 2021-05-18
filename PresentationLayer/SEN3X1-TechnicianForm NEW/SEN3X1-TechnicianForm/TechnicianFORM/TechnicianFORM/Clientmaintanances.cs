@@ -126,7 +126,6 @@ namespace TechnicianFORM
             txtSuburb.Text = " ";
             txtPostalCode.Text = " ";
             txtProvince.Text = " ";
-            txtContractID.Text = " ";
             txtClientType.Text = " ";
             txtBankDetails.Text = " ";
             txtBankName.Text = " ";
@@ -175,7 +174,6 @@ namespace TechnicianFORM
             txtSuburb.Text = " ";
             txtPostalCode.Text = " ";
             txtProvince.Text = " ";
-            txtContractID.Text = " ";
             txtClientType.Text = " ";
             txtBankDetails.Text = " ";
             txtBankName.Text = " ";
