@@ -24,7 +24,7 @@ namespace DataAccess
             {
                 command.CommandType = System.Data.CommandType.Text;
                 command.CommandText = "INSERT INTO dbo.ClientContract (ClientID, ContractID) VALUES('" + clientID + "','" + contractID + "')";
-                 
+
                 command.Connection = connection;
                 try
                 {
@@ -191,7 +191,7 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand())
             {
                 command.CommandType = System.Data.CommandType.Text;
-                command.CommandText ="INSERT INTO dbo.Job(JobID, JobName, Salary) "
+                command.CommandText = "INSERT INTO dbo.Job(JobID, JobName, Salary) "
                     + "VALUES(" + jobID + ", '" + name + "', " + salary + ") ";
                 command.Connection = connection;
                 try
@@ -412,7 +412,7 @@ namespace DataAccess
         //----------------------------------------------------------
 
         public void UpdateClient(string clientID, string clientName, string clientSurname, string email, string suburb, string postalCode,
-           string province, string streetAddress, string phone,  int clientType, string bankDetails, string unitNumber = "N/A")
+           string province, string streetAddress, string phone, int clientType, string bankDetails, string unitNumber = "N/A")
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand())
@@ -624,7 +624,7 @@ namespace DataAccess
 
         #region Select Methods
 
-        
+
         public DataTable ClientTreeViewSpecific(string email)
         {
             DataTable table = new DataTable();
@@ -632,7 +632,7 @@ namespace DataAccess
             using (SqlCommand command = new SqlCommand(@" SELECT dbo.Client.ClientID, CONCAT(dbo.Client.ClientName,' ',dbo.Client.ClientSurname) AS FullName, dbo.Client.Phone, dbo.Client.Email, dbo.Client.StreetAddress, dbo.Client.UnitNumber, dbo.Client.Suburb, dbo.Client.PostalCode, dbo.Client.Province, 
                                                         dbo.Client.ClientType, dbo.Client.BankDetails, dbo.BankDetails.PaymentType, dbo.BankDetails.BankName, dbo.BankDetails.BranchNum, dbo.BankDetails.AccountNum
                                                         FROM dbo.Client INNER JOIN dbo.BankDetails 
-                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '"+email+"'", connection))
+                                                        ON  dbo.Client.BankDetails = dbo.BankDetails.BankDetailsID WHERE dbo.Client.Email = '" + email + "'", connection))
             {
                 try
                 {
@@ -824,7 +824,7 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-           // using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Contract WHERE SUBSTRING(ContractID, 5,1) = '" + Type + "'", connection))
+            // using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Contract WHERE SUBSTRING(ContractID, 5,1) = '" + Type + "'", connection))
             using (SqlCommand command = new SqlCommand("SELECT * FROM dbo.Contract WHERE ContractType = '" + Type + "'", connection))
 
             {
@@ -849,12 +849,12 @@ namespace DataAccess
                 return table;
             }
         }
-       
+
         public DataTable SelectContractCounts(string Type)
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(" SELECT dbo.ClientContract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' FROM dbo.ClientContract WHERE SUBSTRING(ContractID, 5,1) = '"+Type+"' GROUP BY dbo.ClientContract.ContractID", connection))
+            using (SqlCommand command = new SqlCommand(" SELECT dbo.ClientContract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' FROM dbo.ClientContract WHERE SUBSTRING(ContractID, 5,1) = '" + Type + "' GROUP BY dbo.ClientContract.ContractID", connection))
 
             {
                 try
@@ -1245,21 +1245,22 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
 
         #region Delete Methods
 
-        public void DeleteClient(int clientID)
+
+        public void DeleteTechnicianSchedule(string ticketID)
         {
+
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand("DELETE FROM dbo.Client WHERE ClientID = '" + clientID + "'", connection))
+            using (SqlCommand command = connection.CreateCommand())
             {
                 try
                 {
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        adapter.DeleteCommand.ExecuteNonQuery();
-                    }
+                    connection.Open();
+                    command.CommandText = "DELETE FROM dbo.TechnicianSchedule WHERE dbo.TechnicianSchedule.TicketID = '" + ticketID + "'";
+                    command.ExecuteNonQuery();
                 }
                 catch (SqlException sqle)
                 {
-                    Console.WriteLine(sqle.ToString());
+                    Console.WriteLine(sqle);
                 }
                 finally
                 {
@@ -1267,6 +1268,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
                     connection.Close();
                 }
             }
+
         }
 
         #endregion
@@ -1415,7 +1417,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             using (SqlConnection connection = new SqlConnection(connectionString))
             using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpID, dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.Employee.Phone, dbo.Employee.Email, dbo.Technician.SatisfactionScore "
             + " FROM dbo.Employee INNER JOIN "
-            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID", connection)) 
+            + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID", connection))
             {
                 try
                 {
@@ -1446,7 +1448,7 @@ WHERE (dbo.TechnicianSchedule.TicketID = '" + ticketID + "')", connection))
             using (SqlCommand command = new SqlCommand("SELECT dbo.Employee.EmpID, dbo.Employee.EmpName, dbo.Employee.EmpSurname, dbo.Employee.Phone, dbo.Employee.Email, dbo.Technician.SatisfactionScore "
             + " FROM dbo.Employee INNER JOIN "
             + " dbo.Technician ON dbo.Employee.EmpID = dbo.Technician.EmpID "
-            + "WHERE dbo.Employee.EmpID = "+TechID , connection))
+            + "WHERE dbo.Employee.EmpID = " + TechID, connection))
             {
                 try
                 {
