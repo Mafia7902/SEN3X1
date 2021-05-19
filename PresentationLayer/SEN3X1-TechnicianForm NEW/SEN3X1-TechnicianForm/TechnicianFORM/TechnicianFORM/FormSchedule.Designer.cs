@@ -36,7 +36,6 @@ namespace TechnicianFORM
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.btnReassign = new System.Windows.Forms.Button();
             this.btnGetTicket = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -118,17 +117,6 @@ namespace TechnicianFORM
             this.btnGetTicket.UseVisualStyleBackColor = true;
             this.btnGetTicket.Click += new System.EventHandler(this.btnGetTicket_Click);
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(267, 411);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(97, 33);
-            this.btnUpdate.TabIndex = 19;
-            this.btnUpdate.Text = "Update Customer";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(70, 72);
@@ -155,7 +143,6 @@ namespace TechnicianFORM
             this.ClientSize = new System.Drawing.Size(806, 450);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnGetTicket);
             this.Controls.Add(this.btnReassign);
             this.Controls.Add(this.dataGridView2);
@@ -181,7 +168,6 @@ namespace TechnicianFORM
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnReassign;
         private System.Windows.Forms.Button btnGetTicket;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtSearch;
     }

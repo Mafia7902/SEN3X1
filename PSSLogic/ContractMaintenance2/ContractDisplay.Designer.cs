@@ -29,6 +29,7 @@ namespace ContractMaintenance2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractDisplay));
             this.dgvViewContracts = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.bntSearch = new System.Windows.Forms.Button();
@@ -116,6 +117,7 @@ namespace ContractMaintenance2
             this.Controls.Add(this.bntSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvViewContracts);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ContractDisplay";
             this.Text = "ContractDisplay";

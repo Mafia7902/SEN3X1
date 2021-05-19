@@ -883,7 +883,7 @@ namespace DataAccess
         {
             DataTable table = new DataTable();
             using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(" SELECT dbo.Contract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' INNER JOIN FROM dbo.ClientContract GROUP BY dbo.ClientContract.ContractID", connection))
+            using (SqlCommand command = new SqlCommand(" SELECT dbo.ClientContract.ContractID, COUNT(dbo.ClientContract.ContractID) AS 'Contract Count' FROM dbo.ClientContract GROUP BY dbo.ClientContract.ContractID", connection))
 
             {
                 try
