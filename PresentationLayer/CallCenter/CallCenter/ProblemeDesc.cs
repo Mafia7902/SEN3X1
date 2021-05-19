@@ -49,5 +49,10 @@ namespace CallCenter
             ProblemeDesc prob = new ProblemeDesc();
             prob.Close();
         }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

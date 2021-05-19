@@ -149,7 +149,7 @@ namespace CallCenter
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            this.Close();
         }
 
         private void fontDialog1_Apply(object sender, EventArgs e)

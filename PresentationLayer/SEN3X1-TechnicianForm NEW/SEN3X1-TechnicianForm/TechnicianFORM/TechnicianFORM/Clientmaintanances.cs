@@ -160,7 +160,7 @@ namespace TechnicianFORM
         
         private void bntReturn_Click(object sender, EventArgs e)
         {
-            Environment.Exit(1);
+            this.Close();
 
         }
 
