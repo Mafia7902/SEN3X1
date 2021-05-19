@@ -35,6 +35,8 @@ namespace TechnicianFORM
             TechInfo t = new TechInfo();
             t.ConfirmCompletion(item);
 
+            MessageBox.Show("Ticket Marked as completed","Success",MessageBoxButtons.OK);
+
         }
         
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

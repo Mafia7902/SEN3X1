@@ -29,6 +29,7 @@ namespace ContractMaintenance2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContractMaintenance));
             this.bntNew = new System.Windows.Forms.Button();
             this.bntChangeContractState = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,7 +39,7 @@ namespace ContractMaintenance2
             // bntNew
             // 
             this.bntNew.Location = new System.Drawing.Point(226, 119);
-            this.bntNew.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bntNew.Margin = new System.Windows.Forms.Padding(2);
             this.bntNew.Name = "bntNew";
             this.bntNew.Size = new System.Drawing.Size(88, 37);
             this.bntNew.TabIndex = 0;
@@ -49,7 +50,7 @@ namespace ContractMaintenance2
             // bntChangeContractState
             // 
             this.bntChangeContractState.Location = new System.Drawing.Point(31, 119);
-            this.bntChangeContractState.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bntChangeContractState.Margin = new System.Windows.Forms.Padding(2);
             this.bntChangeContractState.Name = "bntChangeContractState";
             this.bntChangeContractState.Size = new System.Drawing.Size(88, 37);
             this.bntChangeContractState.TabIndex = 1;
@@ -87,7 +88,8 @@ namespace ContractMaintenance2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.bntChangeContractState);
             this.Controls.Add(this.bntNew);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ContractMaintenance";
             this.Text = "ContractMaintenance";
             this.ResumeLayout(false);

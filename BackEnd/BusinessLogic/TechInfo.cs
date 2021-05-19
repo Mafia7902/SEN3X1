@@ -134,6 +134,7 @@ namespace BusinessLogic
         {
             DataHandler handler = new DataHandler();
             handler.UpdateTicket(ticketID);
+            handler.DeleteTechnicianSchedule(ticketID);
         }
 
         public DataTable AllTechnicians()

@@ -114,7 +114,6 @@ namespace LoginV2
             this.MaximumSize = new System.Drawing.Size(163, 238);
             this.MinimumSize = new System.Drawing.Size(163, 238);
             this.Name = "AdminForm";
-            this.Text = "Admin Form";
             this.ResumeLayout(false);
 
         }
