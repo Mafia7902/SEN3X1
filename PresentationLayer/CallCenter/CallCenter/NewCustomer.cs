@@ -31,11 +31,7 @@ namespace CallCenter
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-         
-
             /*To be updated later - Stefan*/
-          
-
             if (txtFName.Text.Length > 0)
             {
                 if (txtLName.Text.Length > 0)
@@ -44,7 +40,7 @@ namespace CallCenter
                     {
                         if (txtAccountNum.Text.Length > 0)
                         {
-                            if (txtEmail.Text.Length > 0)
+                            if (txtEmail.Text.Length > 0 && txtEmail.Text.Contains("@"))
                             {
                                 if (txtStreetAddress.Text.Length > 0)
                                 {

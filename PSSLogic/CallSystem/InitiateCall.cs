@@ -29,13 +29,15 @@ namespace CallSystem
             StartTime = DateTime.Now;
 
             CallInfo.startTime(StartTime);
+            btnMakeCall.Hide();
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string elapsedTime = CallInfo.elapsedTime();
-            MessageBox.Show(elapsedTime);
+            MessageBox.Show(elapsedTime, "Call duration", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnMakeCall.Show();
         }
     }
 }
