@@ -45,6 +45,13 @@ namespace ContractMaintenance2
             bindingsource1.DataSource = dt1;
             dgvViewContracts.DataSource = bindingsource1;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ContractMaintenance contractMaintance = new ContractMaintenance();
+            contractMaintance.Show();
+            this.Close();
+        }
     }
 }
 

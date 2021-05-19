@@ -38,8 +38,15 @@ namespace WindowsFormsApp1
             DataTable dt1;
 
             dt1 = techInfo.SpecificTechnicians(TechID);
-            bindingsource1.DataSource = dt1;
-            dataGridView1.DataSource = bindingsource1;
+            if (dt1.Rows.Count>0)
+            {
+                bindingsource1.DataSource = dt1;
+                dataGridView1.DataSource = bindingsource1;
+            }
+            else
+            {
+                MessageBox.Show("No record found for employee ID: "+ TechID);
+            }
         }
     }
 }

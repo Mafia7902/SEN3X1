@@ -37,7 +37,8 @@ namespace TechnicianFORM
             this.btnReassign = new System.Windows.Forms.Button();
             this.btnGetTicket = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -128,21 +129,32 @@ namespace TechnicianFORM
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // label2
+            // btnSearch
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(275, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "label2";
+            this.btnSearch.Location = new System.Drawing.Point(70, 72);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(106, 23);
+            this.btnSearch.TabIndex = 20;
+            this.btnSearch.Text = "Search Technician";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Visible = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(16, 72);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(48, 20);
+            this.txtSearch.TabIndex = 21;
+            this.txtSearch.Visible = false;
             // 
             // Technician
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 450);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtSearch);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnGetTicket);
             this.Controls.Add(this.btnReassign);
@@ -170,7 +182,8 @@ namespace TechnicianFORM
         private System.Windows.Forms.Button btnReassign;
         private System.Windows.Forms.Button btnGetTicket;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.TextBox txtSearch;
     }
 }
 
