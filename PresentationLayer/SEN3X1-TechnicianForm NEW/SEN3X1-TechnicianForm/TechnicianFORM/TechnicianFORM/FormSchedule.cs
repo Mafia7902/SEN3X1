@@ -125,5 +125,10 @@ namespace TechnicianFORM
             bindingsource2.DataSource = dt2;
             dataGridView2.DataSource = bindingsource2;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     } 
 }
