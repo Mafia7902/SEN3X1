@@ -29,6 +29,7 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TechnicianScores));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.GetTech = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -80,6 +81,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.GetTech);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TechnicianScores";
             this.Text = "TechnicianScores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

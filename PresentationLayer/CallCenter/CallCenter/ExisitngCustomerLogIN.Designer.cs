@@ -29,6 +29,7 @@ namespace CallCenter
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ExisitngCustomerLogIN));
             this.label1 = new System.Windows.Forms.Label();
             this.txtEmailSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -105,6 +106,7 @@ namespace CallCenter
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtEmailSearch);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ExisitngCustomerLogIN";
             this.Text = "Login";
             this.Load += new System.EventHandler(this.ExisitngCustomerLogIN_Load);

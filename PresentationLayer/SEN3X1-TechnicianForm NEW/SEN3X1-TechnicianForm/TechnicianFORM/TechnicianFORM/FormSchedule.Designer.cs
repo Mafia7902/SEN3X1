@@ -29,6 +29,7 @@ namespace TechnicianFORM
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Technician));
             this.label1 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnComplete = new System.Windows.Forms.Button();
@@ -150,6 +151,7 @@ namespace TechnicianFORM
             this.Controls.Add(this.btnComplete);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Technician";
             this.Text = "Technician";
             this.Load += new System.EventHandler(this.Technician_Load);

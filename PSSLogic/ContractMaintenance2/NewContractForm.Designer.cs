@@ -29,6 +29,7 @@ namespace ContractMaintenance2
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewContractForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -88,7 +89,7 @@ namespace ContractMaintenance2
             "Silver",
             "Bronze"});
             this.CombContractType.Location = new System.Drawing.Point(178, 97);
-            this.CombContractType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CombContractType.Margin = new System.Windows.Forms.Padding(2);
             this.CombContractType.Name = "CombContractType";
             this.CombContractType.Size = new System.Drawing.Size(114, 21);
             this.CombContractType.TabIndex = 3;
@@ -96,7 +97,7 @@ namespace ContractMaintenance2
             // txtPrice
             // 
             this.txtPrice.Location = new System.Drawing.Point(178, 178);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(114, 20);
             this.txtPrice.TabIndex = 4;
@@ -104,7 +105,7 @@ namespace ContractMaintenance2
             // txtDescription
             // 
             this.txtDescription.Location = new System.Drawing.Point(178, 136);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(2);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(114, 20);
             this.txtDescription.TabIndex = 5;
@@ -112,7 +113,7 @@ namespace ContractMaintenance2
             // bntSubmit
             // 
             this.bntSubmit.Location = new System.Drawing.Point(178, 389);
-            this.bntSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bntSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.bntSubmit.Name = "bntSubmit";
             this.bntSubmit.Size = new System.Drawing.Size(73, 29);
             this.bntSubmit.TabIndex = 6;
@@ -134,7 +135,7 @@ namespace ContractMaintenance2
             // bntCancel
             // 
             this.bntCancel.Location = new System.Drawing.Point(64, 389);
-            this.bntCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bntCancel.Margin = new System.Windows.Forms.Padding(2);
             this.bntCancel.Name = "bntCancel";
             this.bntCancel.Size = new System.Drawing.Size(73, 29);
             this.bntCancel.TabIndex = 8;
@@ -145,7 +146,7 @@ namespace ContractMaintenance2
             // txtDeviceID
             // 
             this.txtDeviceID.Location = new System.Drawing.Point(178, 217);
-            this.txtDeviceID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtDeviceID.Margin = new System.Windows.Forms.Padding(2);
             this.txtDeviceID.Name = "txtDeviceID";
             this.txtDeviceID.Size = new System.Drawing.Size(114, 20);
             this.txtDeviceID.TabIndex = 9;
@@ -158,7 +159,7 @@ namespace ContractMaintenance2
             "1",
             "0"});
             this.cmbActive.Location = new System.Drawing.Point(178, 337);
-            this.cmbActive.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbActive.Margin = new System.Windows.Forms.Padding(2);
             this.cmbActive.Name = "cmbActive";
             this.cmbActive.Size = new System.Drawing.Size(114, 21);
             this.cmbActive.TabIndex = 12;
@@ -206,7 +207,7 @@ namespace ContractMaintenance2
             // txtModel
             // 
             this.txtModel.Location = new System.Drawing.Point(178, 297);
-            this.txtModel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtModel.Margin = new System.Windows.Forms.Padding(2);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(114, 20);
             this.txtModel.TabIndex = 17;
@@ -214,7 +215,7 @@ namespace ContractMaintenance2
             // txtManufacturer
             // 
             this.txtManufacturer.Location = new System.Drawing.Point(178, 253);
-            this.txtManufacturer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtManufacturer.Margin = new System.Windows.Forms.Padding(2);
             this.txtManufacturer.Name = "txtManufacturer";
             this.txtManufacturer.Size = new System.Drawing.Size(114, 20);
             this.txtManufacturer.TabIndex = 18;
@@ -242,7 +243,8 @@ namespace ContractMaintenance2
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NewContractForm";
             this.Text = "DeviceID";
             this.Load += new System.EventHandler(this.NewContractForm_Load);

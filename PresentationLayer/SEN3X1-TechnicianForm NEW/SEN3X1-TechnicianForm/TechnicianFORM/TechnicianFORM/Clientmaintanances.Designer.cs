@@ -29,6 +29,7 @@ namespace TechnicianFORM
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientMaintanance));
             this.bntReturn = new System.Windows.Forms.Button();
             this.bntUpdate = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@ namespace TechnicianFORM
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtClientID = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.txtEmail2 = new System.Windows.Forms.TextBox();
             this.txtBankDetails = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -72,7 +74,6 @@ namespace TechnicianFORM
             this.treeViewCustomer = new System.Windows.Forms.TreeView();
             this.btnClear = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
-            this.txtEmail2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -341,6 +342,14 @@ namespace TechnicianFORM
             this.label14.TabIndex = 81;
             this.label14.Text = "ClientID";
             // 
+            // txtEmail2
+            // 
+            this.txtEmail2.Location = new System.Drawing.Point(6, 203);
+            this.txtEmail2.Name = "txtEmail2";
+            this.txtEmail2.ReadOnly = true;
+            this.txtEmail2.Size = new System.Drawing.Size(182, 20);
+            this.txtEmail2.TabIndex = 59;
+            // 
             // txtBankDetails
             // 
             this.txtBankDetails.Location = new System.Drawing.Point(5, 41);
@@ -500,14 +509,6 @@ namespace TechnicianFORM
             this.label20.TabIndex = 83;
             this.label20.Text = "Click on an email adress to display it in search bar";
             // 
-            // txtEmail2
-            // 
-            this.txtEmail2.Location = new System.Drawing.Point(6, 203);
-            this.txtEmail2.Name = "txtEmail2";
-            this.txtEmail2.ReadOnly = true;
-            this.txtEmail2.Size = new System.Drawing.Size(182, 20);
-            this.txtEmail2.TabIndex = 59;
-            // 
             // ClientMaintanance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,6 +526,7 @@ namespace TechnicianFORM
             this.Controls.Add(this.bntReturn);
             this.Controls.Add(this.bntUpdate);
             this.Controls.Add(this.label4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ClientMaintanance";
             this.Text = "Client Update";
             this.Load += new System.EventHandler(this.ClientMaintanance_Load);

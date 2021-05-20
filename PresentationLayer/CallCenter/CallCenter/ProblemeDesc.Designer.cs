@@ -29,6 +29,7 @@ namespace CallCenter
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProblemeDesc));
             this.txtProblem = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -94,6 +95,7 @@ namespace CallCenter
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtProblem);
             this.Controls.Add(this.label11);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ProblemeDesc";
             this.Text = "ProblemeDesc";
             this.Load += new System.EventHandler(this.ProblemeDesc_Load);
