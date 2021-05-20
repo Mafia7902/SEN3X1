@@ -29,22 +29,12 @@ namespace CallSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnMakeCall = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnMakeCall = new System.Windows.Forms.Button();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnMakeCall
-            // 
-            this.btnMakeCall.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.btnMakeCall.Location = new System.Drawing.Point(150, 217);
-            this.btnMakeCall.Name = "btnMakeCall";
-            this.btnMakeCall.Size = new System.Drawing.Size(122, 56);
-            this.btnMakeCall.TabIndex = 0;
-            this.btnMakeCall.Text = "Accept Call ";
-            this.btnMakeCall.UseVisualStyleBackColor = true;
-            this.btnMakeCall.Click += new System.EventHandler(this.btnMakeCall_Click);
             // 
             // label1
             // 
@@ -68,20 +58,43 @@ namespace CallSystem
             // 
             // button1
             // 
+            this.button1.BackgroundImage = global::CallSystem.Properties.Resources.end_phone_call_vector_icon_260nw_397283107;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Location = new System.Drawing.Point(482, 217);
+            this.button1.Location = new System.Drawing.Point(487, 217);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 56);
+            this.button1.Size = new System.Drawing.Size(122, 100);
             this.button1.TabIndex = 3;
-            this.button1.Text = "End Call ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnMakeCall
+            // 
+            this.btnMakeCall.BackgroundImage = global::CallSystem.Properties.Resources.calls_icon_incomming;
+            this.btnMakeCall.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMakeCall.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.btnMakeCall.Location = new System.Drawing.Point(150, 217);
+            this.btnMakeCall.Name = "btnMakeCall";
+            this.btnMakeCall.Size = new System.Drawing.Size(122, 100);
+            this.btnMakeCall.TabIndex = 0;
+            this.btnMakeCall.UseVisualStyleBackColor = true;
+            this.btnMakeCall.Click += new System.EventHandler(this.btnMakeCall_Click);
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.Location = new System.Drawing.Point(373, 160);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 18);
+            this.lblMessage.TabIndex = 4;
             // 
             // InitiateCall
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -99,6 +112,7 @@ namespace CallSystem
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblMessage;
     }
 }
 

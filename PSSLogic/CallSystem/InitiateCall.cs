@@ -27,7 +27,7 @@ namespace CallSystem
             LoginV2.Login f1 = new LoginV2.Login();
             f1.Show();
             StartTime = DateTime.Now;
-
+            lblMessage.Text = "Call active";
             CallInfo.startTime(StartTime);
             btnMakeCall.Hide();
             
@@ -36,6 +36,7 @@ namespace CallSystem
         private void button1_Click(object sender, EventArgs e)
         {
             string elapsedTime = CallInfo.elapsedTime();
+            lblMessage.Text = " ";
             MessageBox.Show(elapsedTime, "Call duration", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnMakeCall.Show();
         }
